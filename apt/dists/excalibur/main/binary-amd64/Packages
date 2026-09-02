@@ -1,15 +1,16 @@
 Package: lcos-archive-keyring
-Version: 0.3-1
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: misc
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 56
 Filename: pool/main/l/lcos-archive-keyring/lcos-archive-keyring_0.3-1_all.deb
-Size: 6776
-MD5sum: 656ab64d6bbf4d3995b0dddab0fcb1cf
-SHA1: 64cd17a7d2a3fbda33cd34c2d1a75b99bdd25a48
-SHA256: b45fc68675ab897863367edc2a4e3bb1a137174d3316bf782a95c83d9bf3630d
-Section: misc
-Priority: optional
+Size: 6784
+MD5sum: b5c21d88e1252bb25ae08f6b1564955e
+SHA1: 02ebdec05d576bf97ab775dc1a15c3a588486eb0
+SHA256: 32dfe620a1b4c2b93d5e83a6ea04da5e3332d6dac6e1b2f98e1de17ab6a17585
+SHA512: bf90148735fd9118bf613db39784131b1245bb314751b25a9113361a1c654cd104052f8c6d7064beb0d3e9e8ff332c759107238eead18cb089647e60dc952aee
 Homepage: https://lunduke.com
 Description: LCOS archive signing keyring and overlay apt source
  Public keyring for the LCOS overlay at https://lcos.lunduke.com/apt
@@ -21,18 +22,20 @@ Description: LCOS archive signing keyring and overlay apt source
  Unsigned package; editor signs the archive later. Do not replace this key.
 
 Package: lcos-base
-Version: 0.3-1
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 72
 Depends: lcos-archive-keyring (>= 0.3), lcos-branding (>= 0.3)
+Replaces: base-files
 Filename: pool/main/l/lcos-base/lcos-base_0.3-1_all.deb
-Size: 2140
-MD5sum: d18635fb5364bf7d69afa2ce827df0bf
-SHA1: 52f6c091e4de8054c40754d40f12f4b957b95038
-SHA256: 7e2aab71203434fc7f14d9dc20f5679e0e9260599a65bf2ffed3d25a46fe8d8d
-Section: admin
-Priority: optional
+Size: 2156
+MD5sum: 124b3b747142b2812729e267c680cc7e
+SHA1: ecbf92dd22a6f3115076e76914f3b348cc3b7f9b
+SHA256: 6ea7ce81339306a7a962a01c5388e3c2486c52cd3ef276f200e2f2bebc896dfd
+SHA512: 3b3a4318dd2989d60afab9019ce75df24a386855043fa373365d0a3dcbad9beb7df984472cbf872e1527ee72dc433a988b694ba71e094406b3206feb52f5d229
 Homepage: https://lunduke.com
 Description: LCOS 0.3 identity, GRUB splash drop-in, overlay membership
  os-release / issue for LCOS 0.3 (excalibur), lcos-write-os-release,
@@ -42,20 +45,21 @@ Description: LCOS 0.3 identity, GRUB splash drop-in, overlay membership
  Depends on the overlay keyring and branding artwork.
 
 Package: lcos-branding
-Version: 0.3-1
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 8944
+Installed-Size: 13132
+Provides: lcos-branding
 Conflicts: lcos-branding (<< 0.3)
 Replaces: lcos-branding (<< 0.3)
-Provides: lcos-branding
 Filename: pool/main/l/lcos-branding/lcos-branding_0.3-1_all.deb
-Size: 4204760
-MD5sum: d5db312d29f9384a79c344c5cad4d138
-SHA1: c3d70529f189167bb285bb7397befaa4e557bfca
-SHA256: a897e1ef852d873fb8f15873d9a541cd654b1b598809a57b63dffe9eae46e8f5
-Section: x11
-Priority: optional
+Size: 7600452
+MD5sum: 93a7828e7e1cd400b74302281741d7fd
+SHA1: 97efe84e1570bc70e67460840d38afe98dc8d093
+SHA256: a3e88798b4dcdea186aff27df8b11b945b337ffb3ef91c028d564f101a2478c8
+SHA512: b19eafa09c15822c8534d39a7328eded8efd5ff6b3843e102485df46a141fe12ef473acf8680e1d0e5d5160922c9d8b361f94f7d97c4383312bfa955f2697322
 Homepage: https://lunduke.com
 Description: LCOS 0.3 artwork (0.2-locked wallpapers, splash, logos)
  Current 0.2-locked LCOS artwork: stock wallpaper (jpg/png), 4K wood
@@ -63,40 +67,22 @@ Description: LCOS 0.3 artwork (0.2-locked wallpapers, splash, logos)
  Also ships the extra legacy desktop-base lcos-bw-720.jpg.
  Replaces old lcos-branding 1.0-2 / 0.2.0 (bw-720 + lcos32 only).
 
-Package: lcos-desktop
-Version: 0.3-1
-Architecture: all
-Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 24
-Depends: lcos-base (>= 0.3), lcos-desktop-config (>= 0.3), lcos-theme-clearlooks (>= 0.3)
-Recommends: xfce4, lightdm, lightdm-gtk-greeter, elementary-xfce-icon-theme, gtk2-engines, lcos-zork, micropolis
-Filename: pool/main/l/lcos-desktop/lcos-desktop_0.3-1_all.deb
-Size: 1352
-MD5sum: c8e26b08aab9651803849b897fc50702
-SHA1: eb8d369bd3a3439d6118635531ef35d3cd62b8cb
-SHA256: 322725bbe65cb06e632f31a15f3bc711dcfa5327c78127783631af0b16ad97e5
-Section: metapackages
-Priority: optional
-Homepage: https://lunduke.com
-Description: LCOS 0.3 XFCE desktop edition metapackage
- Pulls LCOS identity, XFCE look, and Clearlooks theme. Recommends the
- XFCE/LightDM stack plus Zork and Micropolis. Does not depend on
- Calamares or live-config installer bits.
-
 Package: lcos-desktop-config
-Version: 0.3-1
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 332
 Depends: lcos-branding (>= 0.3), lcos-theme-clearlooks (>= 0.3)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
+Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
 Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.3-1_all.deb
-Size: 20368
-MD5sum: 23eb2435377dbb7a6029a477881ede2b
-SHA1: 257b3b55c06d6c74e8280819651b10b2b14e16ed
-SHA256: 90e5b8943308c4f576a5de17211532d725221cf294b9e10e6c7fffc64b7fd295
-Section: x11
-Priority: optional
+Size: 20448
+MD5sum: fdc52a0709d6bc48604270b3e01ae740
+SHA1: 8d3f2c4521efee926ebfe3f025f21bef68fa9536
+SHA256: e06bd84220006c1a2c31592d090edcfc2ecf9a7a2ecd5c891cecd33447139fe0
+SHA512: e4657c16fadff487a5efcecaa26edde4312a33bd759bc37db076d58ba1079ac2cf7206a5d6404746879772af70115721b683171449c26e8ab4dbc6d97acb1dc7
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -106,70 +92,130 @@ Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  .
  Live-only installer bits are not included.
 
-Package: lcos-theme-clearlooks
-Version: 0.3-1
+Package: lcos-desktop
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: metapackages
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 24
+Depends: lcos-base (>= 0.3), lcos-desktop-config (>= 0.3), lcos-theme-clearlooks (>= 0.3), lcos-themes (>= 0.3), lcos-icon-theme (>= 0.3)
+Recommends: xfce4, lightdm, lightdm-gtk-greeter, elementary-xfce-icon-theme, gtk2-engines, lcos-zork, micropolis, mtpaint
+Filename: pool/main/l/lcos-desktop/lcos-desktop_0.3-1_all.deb
+Size: 1376
+MD5sum: 3d6a4b017c62e00b53d6383ad15e383c
+SHA1: a8abe51cbd49d4152f3c2d2c9d21ffda40be5afd
+SHA256: 18f96887d6a30689140a69045c12402deea0ba7ae25f3f523e0440a2cc5848a3
+SHA512: 956b1d2f127ebb9551893b7378feff25b7bd9582efbd05ac2bdca051c7190b97acf51c4ae7129c9055421e0975b539eed0e86d91eecb276fdaa156a8b1c108ba
+Homepage: https://lunduke.com
+Description: LCOS 0.3 XFCE desktop edition metapackage
+ Pulls LCOS identity, XFCE look, Clearlooks, and Lunduke Themes. Recommends the
+ XFCE/LightDM stack plus Zork and Micropolis. Does not depend on
+ Calamares or live-config installer bits.
+
+Package: lcos-icon-theme
+Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 184
+Recommends: elementary-xfce-icon-theme
+Filename: pool/main/l/lcos-icon-theme/lcos-icon-theme_0.3-1_all.deb
+Size: 73344
+MD5sum: 62cf22137ecb0996efe95ad039967acc
+SHA1: 21b4b89189ab48166e873f410d4fd5dc23e6fc7c
+SHA256: 628555b04966e497454fd7276526d428ee93dee49678abd325b65f2876ed5f25
+SHA512: 659b2631cc8e40e2b945ea54b252804afa8e8346e475ea06caa71c9d4c2e05d1e582071c7c67fba2f6de220c42b7d4004d69262a1b9a90ab412dfa83c97de4f7
+Homepage: https://lunduke.com
+Description: LCOS Flat Stock icon theme
+ LCOS-Flat-Stock desktop icons (folder, drive, terminal) at 32/48/96.
+ Inherits elementary-xfce for all other icons.
+
+Package: lcos-theme-clearlooks
+Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 1236
 Recommends: gtk2-engines
 Filename: pool/main/l/lcos-theme-clearlooks/lcos-theme-clearlooks_0.3-1_all.deb
-Size: 85604
-MD5sum: bb5c3fd66767d827b3f55f0a70adaaf3
-SHA1: ae119a947359ebbac872637aca2f70b045886d9d
-SHA256: d578c4fca5295deda37e7adbedd6157b506c1d5b0695282e202be29bf791370f
-Section: x11
-Priority: optional
+Size: 85640
+MD5sum: ff6a584b020879d349d43c8c26fb3e95
+SHA1: 2421bf5f25fcb28be3aaa0a179d38d2340bd3ba8
+SHA256: 0d7a24fed9e71d5e7db0bf1e0282be6632a83e802a3916f8c551b595a9a0e7ad
+SHA512: 1c7ac96beae330b34612ecd46c78b83ec800c9bcd6c7bc2b33062df757ee07ad3b88b204b5988470ae6e87235c24a4b8aa2fa4b9edb1016d295368d1420330b0
 Homepage: https://lunduke.com
 Description: Clearlooks and Clearlooks-Phenix themes for LCOS
  Vendored Clearlooks (xfwm4) and Clearlooks-Phenix (GTK2/3 + xfwm4)
  theme trees used by the LCOS XFCE desktop.
 
-Package: lcos-zork
-Version: 0.3-1
+Package: lcos-themes
 Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 1420
+Recommends: gtk2-engines
+Filename: pool/main/l/lcos-themes/lcos-themes_0.3-1_all.deb
+Size: 74736
+MD5sum: 8da17a3cc3ed4a6e19f42dc2453a5b56
+SHA1: 823ca534e382d65e128cef0e629309fbda4b6670
+SHA256: 0693f85588842ba5ac9ba8f515c70793f3d8ce3d23b61bbd6959852276cbe12a
+SHA512: c0a6748e731f3175c020449bd953fc851a8944509f34f7c9a357732e84991fcca5b126e542f1e72983af59c3f2dd2644ca8eaa81573de96fbf1c98227b6d8650
+Homepage: https://lunduke.com
+Description: Lunduke Themes
+ Lunduke-Steel (0.3 default) and Lunduke-Parchment Clearlooks recolors
+ (GTK2 clearlooks engine, Phenix GTK3, xfwm4 pixmaps). Same widget
+ geometry as stock Clearlooks / Clearlooks-Phenix; recolor only.
+
+Package: lcos-zork
+Architecture: all
+Version: 0.3-1
+Priority: optional
+Section: games
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 320
 Depends: frotz, cool-retro-term
 Filename: pool/main/l/lcos-zork/lcos-zork_0.3-1_all.deb
-Size: 156252
-MD5sum: 1976ea24aa809ea36226ed5036fee3ab
-SHA1: 686d376b3c107a3367698f57b809c9c3dcf6da5b
-SHA256: 2f1ab4b5d9fce5cf81971bc6ef5a97a375e38e6d6a69f632eae91f146fd1346d
-Section: games
-Priority: optional
+Size: 156300
+MD5sum: 1854a4c752138617852156b61e857b9b
+SHA1: a8e04193c870d6700aafa1bd02996ed8f4439ea0
+SHA256: eb92ac89426bb4d09363593bde5bdf39d966a1ffd9b890144c07daf5260d303f
+SHA512: e8125b80e976a5d3c9b3fb9312ff56f95ecdb8511e8076dcfc7ee62da4cda7e1124c0b975023ca4b4663f825ba12bae522e1918cfdba7583a917594b269ff49f
 Homepage: https://lunduke.com
 Description: Zork I–III for LCOS (frotz + Cool Retro Term)
  Story files zork{1,2,3}.z3 plus desktop launchers that open each game
  in cool-retro-term running frotz.
 
-Package: micropolis
-Source: micropolis-activity
-Version: 0.0.20071228-10
+Package: lunduke-paint
 Architecture: amd64
-Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
-Installed-Size: 985
-Depends: micropolis-data (= 0.0.20071228-10), libc6 (>= 2.29), libsdl-mixer1.2, libsdl1.2debian (>= 1.2.11), libx11-6, libxext6, libxpm4
-Filename: pool/main/m/micropolis/micropolis_0.0.20071228-10_amd64.deb
-Size: 369556
-MD5sum: 9dff153df02f8a51a35bcb183b9c491f
-SHA1: ad5bc0f03cffb54816f9f728be15f8ffe8bce427
-SHA256: 48ce956c97a2aae64124ddd23109e36a1355754151210e1b9d20721b04bf67c1
-Section: games
+Version: 0.1-1
 Priority: optional
-Homepage: http://www.donhopkins.com/home/micropolis/
-Description: real-time city management simulator
- This game simulates building and managing a whole city. The goal of the
- game is to build and design a city. The player can mark land as being
- zoned as commercial, industrial, or residential, add buildings, change
- the tax rate, build a power grid, build transportation systems and many
- other actions, in order to enhance the city.
- .
- Micropolis is the GPL-licensed version of SimCity.
+Section: graphics
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 1572
+Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.32.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.3.16), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), librsvg2-common
+Filename: pool/main/l/lunduke-paint/lunduke-paint_0.1-1_amd64.deb
+Size: 282120
+MD5sum: c62c6469082f67b9b0a3c9e828098631
+SHA1: 527db1b2798be0e32d7b2b1da3c65595c3d2c347
+SHA256: 761d799d51b6a4cc3e0d3018e3886f9dbf6ca68202fd995cde6ae84d72fd84c2
+SHA512: 433ce41cd715ad239f7ef8715e07559455ed5af246da29a81b5c459b1e236554ca619b76f81b42ce625d5947cbb4be2c5cb5d5e7e3bda07a6d9b416d6f6e0d97
+Homepage: https://lunduke.com
+Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
+ Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
+ Look and feel: classic MS Paint plus KolourPaint, with user layers
+ and a visible history list. Native project format is OpenRaster (.ora).
 
 Package: micropolis-data
-Source: micropolis-activity
-Version: 0.0.20071228-10
 Architecture: all
+Version: 0.0.20071228-10
+Priority: optional
+Section: games
+Source: micropolis-activity
 Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
 Installed-Size: 9096
 Depends: fonts-dejavu-core
@@ -179,8 +225,7 @@ Size: 2465808
 MD5sum: cf7817acb821b22088f24c1d011823b5
 SHA1: a186d7acf20a7db2bb97a77ee34f92c900919180
 SHA256: 8d30b1cd0eb340f42ae71ea596a28bbdd57111afa1f381755d8c445a5e8e7b5c
-Section: games
-Priority: optional
+SHA512: 18bf445fe25a6cda722bf725185d5d47fda4e878b06c1494589f08ef30e634a9e00430c44a6996a7256c9738580f9e913b36f58534dcad789a449c52f1ea5094
 Homepage: http://www.donhopkins.com/home/micropolis/
 Description: real-time city management simulator - data
  This game simulates building and managing a whole city. The goal of the
@@ -191,42 +236,49 @@ Description: real-time city management simulator - data
  .
  This package installs the data, like graphics and sounds, for the game.
 
-Package: xlibre
-Source: xlibre
-Version: 1:25.1.9-1+lcos1
+Package: micropolis
 Architecture: amd64
-Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1
-Depends: xserver-xlibre (>= 1:25.1.9-1+lcos1), libgl1, libgl1-mesa-dri, libglu1-mesa, xfonts-base, xfonts-100dpi, xfonts-75dpi, xfonts-scalable, x11-apps, x11-session-utils, x11-utils, x11-xkb-utils, x11-xserver-utils, xauth, xinit, xfonts-utils, xkb-data, xorg-docs-core, xterm | x-terminal-emulator
-Conflicts: xorg
-Provides: x-window-system, x-window-system-core, xorg (= 1:25.1.9-1+lcos1)
-Filename: pool/main/x/xlibre/xlibre_25.1.9-1+lcos1_amd64.deb
-Size: 1476
-MD5sum: ccb964e0bc7a14dd4c347807fd9b71ae
-SHA1: d3a165ddb0abcbbe05f4abe5c7dce09e626243c5
-SHA256: e0d8ddda1cda7493aff3ef736176238b747469890cb9b8dd98929c6e420f274c
-Section: x11
+Version: 0.0.20071228-10
 Priority: optional
-Homepage: https://github.com/X11Libre
-Description: XLibre X Window System
+Section: games
+Source: micropolis-activity
+Maintainer: Debian Games Team <pkg-games-devel@lists.alioth.debian.org>
+Installed-Size: 985
+Depends: micropolis-data (= 0.0.20071228-10), libc6 (>= 2.29), libsdl-mixer1.2, libsdl1.2debian (>= 1.2.11), libx11-6, libxext6, libxpm4
+Filename: pool/main/m/micropolis/micropolis_0.0.20071228-10_amd64.deb
+Size: 369556
+MD5sum: 9dff153df02f8a51a35bcb183b9c491f
+SHA1: ad5bc0f03cffb54816f9f728be15f8ffe8bce427
+SHA256: 48ce956c97a2aae64124ddd23109e36a1355754151210e1b9d20721b04bf67c1
+SHA512: ff4a3869dbec525c46bc82611ffe78a5a0ad4936cb43bbc598575c6fcbcd9d2ecf6b32d4a775ebb2ee8f433be80292561689561cbc719199e1e37e42b840220a
+Homepage: http://www.donhopkins.com/home/micropolis/
+Description: real-time city management simulator
+ This game simulates building and managing a whole city. The goal of the
+ game is to build and design a city. The player can mark land as being
+ zoned as commercial, industrial, or residential, add buildings, change
+ the tax rate, build a power grid, build transportation systems and many
+ other actions, in order to enhance the city.
+ .
+ Micropolis is the GPL-licensed version of SimCity.
 
 Package: xlibre-x11-common
-Source: xlibre
-Version: 1:25.1.9-1+lcos1
 Architecture: all
+Version: 1:25.1.9-1+lcos1
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 41
+Provides: x11-common (= 1:25.1.9-1+lcos1)
 Depends: lsb-base
 Conflicts: x11-common
-Provides: x11-common (= 1:25.1.9-1+lcos1)
 Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.9-1+lcos1_all.deb
 Size: 18392
 MD5sum: 394f872888b998005b34242a6fd83642
 SHA1: 2e43f09205faf959c8dedb11cfbb92cc6e1b1d14
 SHA256: 2f977684848deb6861d1d85cbbcc53a5d0c993f950f428ac45e6420355c15156
-Section: x11
-Priority: optional
-Multi-Arch: foreign
+SHA512: d5fe3f03ab62eb06a695eebcf134031a6785c2efe29318d809d10adaa2bbf336b906c04e1ae59b6481a59bca7c7b07259fe74fb8ffdd41d95603754d1fd7a16f
 Homepage: https://github.com/X11Libre
 Description: X Window System (X.Org) infrastructure
  x11-common contains the filesystem infrastructure required for further
@@ -237,68 +289,71 @@ Description: X Window System (X.Org) infrastructure
  Session scripts reused from the previous XLibre x11-common package; not ABI
  dependent. Rebuilt for LCOS 0.3.
 
-Package: xserver-xlibre
-Source: xlibre
-Version: 1:25.1.9-1+lcos1
+Package: xlibre
 Architecture: amd64
+Version: 1:25.1.9-1+lcos1
+Priority: optional
+Section: x11
+Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 1
-Depends: xserver-xlibre-core, xserver-xlibre-video-all | xlibre-driver-video, xserver-xlibre-input-all | xlibre-driver-input, xkb-data, x11-xkb-utils
-Conflicts: xserver-xorg
-Provides: xserver, xserver-xorg (= 1:25.1.9-1+lcos1)
-Filename: pool/main/x/xserver-xlibre/xserver-xlibre_25.1.9-1+lcos1_amd64.deb
-Size: 1380
-MD5sum: db0635784cfa7910b67a27c954ea93ab
-SHA1: a4012e1bf94db495f6a973f6008ab2ace17ed683
-SHA256: a460c0c5ace3e037ebf3edff1717c1fbcfdaaeb198edb37ad3403fb2c7217760
-Section: x11
-Priority: optional
+Provides: x-window-system, x-window-system-core, xorg (= 1:25.1.9-1+lcos1)
+Depends: xserver-xlibre (>= 1:25.1.9-1+lcos1), libgl1, libgl1-mesa-dri, libglu1-mesa, xfonts-base, xfonts-100dpi, xfonts-75dpi, xfonts-scalable, x11-apps, x11-session-utils, x11-utils, x11-xkb-utils, x11-xserver-utils, xauth, xinit, xfonts-utils, xkb-data, xorg-docs-core, xterm | x-terminal-emulator
+Conflicts: xorg
+Filename: pool/main/x/xlibre/xlibre_25.1.9-1+lcos1_amd64.deb
+Size: 1476
+MD5sum: ccb964e0bc7a14dd4c347807fd9b71ae
+SHA1: d3a165ddb0abcbbe05f4abe5c7dce09e626243c5
+SHA256: e0d8ddda1cda7493aff3ef736176238b747469890cb9b8dd98929c6e420f274c
+SHA512: 0f339036b886808da1645a2ca5141c55b58b2b93f63e428f32a85abcae8be63ad93b35b64ea9c5c81391e8e7b841072d99088f82a8398a91fc8d71dede5b37f9
 Homepage: https://github.com/X11Libre
-Description: XLibre X server
+Description: XLibre X Window System
 
 Package: xserver-xlibre-common
-Source: xlibre-server
-Version: 2:25.1.9-1+lcos1
 Architecture: all
+Version: 2:25.1.9-1+lcos1
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 34
+Provides: xserver-common (= 2:25.1.9-1+lcos1)
 Depends: xlibre-x11-common, xkb-data, x11-xkb-utils
 Recommends: xfonts-base, xauth
 Conflicts: xserver-common
 Replaces: xserver-xorg-core (<< 2:1.5.2)
-Provides: xserver-common (= 2:25.1.9-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.9-1+lcos1_all.deb
 Size: 16488
 MD5sum: 6c3dd5ad5c6c451b3ab599e3fe768543
 SHA1: 2f3c68e51cde0deed4b9ef3b654f5265132a51a5
 SHA256: 476bb5fcc91db89958811388c7c0992fb0b49b8110b19b4eecad14e5b5f2ad0a
-Section: x11
-Priority: optional
-Multi-Arch: foreign
+SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116ad89c99d915ebb219110b9358768f1b3eaa1765de9b341d692abc2ae5
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.
 
 Package: xserver-xlibre-core
-Source: xlibre-server
-Version: 2:25.1.9-1+lcos1
 Architecture: amd64
+Version: 2:25.1.9-1+lcos1
+Priority: optional
+Section: x11
+Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 4474
+Provides: xorg-input-abi-26, xorg-video-abi-28, xorg-video-abi-25, xserver-xorg-core (= 2:21.98), xserver-xorg-video-modesetting
 Depends: xserver-xlibre-common (>= 2:25.1.9-1+lcos1), keyboard-configuration, udev (>= 149), libegl1, libaudit1 (>= 1:2.2.1), libbsd0 (>= 0.7.0), libc6 (>= 2.38), libdrm2 (>= 2.4.89), libepoxy0 (>= 1.5.4), libeudev1 (>= 3.2.12), libgbm1 (>= 21.3.0~rc1), libgl1, libnettle8t64, libpciaccess0 (>= 0.10.7), libpixman-1-0 (>= 0.30.0), libseat1 (>= 0.5.0), libselinux1 (>= 3.1~), libunwind8, libxau6 (>= 1:1.0.11), libxcvt0 (>= 0.1.0), libxdmcp6, libxfont2 (>= 1:2.0.1), libxshmfence1
 Recommends: libgl1-mesa-dri (>= 7.10.2-4), default-logind | logind, xcvt
 Suggests: xfonts-100dpi | xfonts-75dpi, xfonts-scalable
 Conflicts: xserver-xorg-core, xserver-xorg-input-evtouch, xserver-xorg-video-modesetting
 Breaks: libgl1-mesa-dri (<< 18.0.5), systemd (<< 226-4~), xserver-xorg (<< 1:7.7+10~)
 Replaces: xserver-xorg (<< 1:7.7+10~), xserver-xorg-video-modesetting
-Provides: xorg-input-abi-26, xorg-video-abi-28, xorg-video-abi-25, xserver-xorg-core (= 2:21.98), xserver-xorg-video-modesetting
 Filename: pool/main/x/xserver-xlibre-core/xserver-xlibre-core_25.1.9-1+lcos1_amd64.deb
 Size: 1553512
 MD5sum: 86ad41ac0c41b5b608bcf6e9f8ced969
 SHA1: dbffd1db00b6b700823fb22892254e503f127d98
 SHA256: e34b86d703cf851988f799f9bd125ad98a48a5ff28bdfe459010806cbb2f3821
-Section: x11
-Priority: optional
+SHA512: c3dc1bf672dc2417de8cf7ccf0011520b88499fa8f5b71623a8c8be3cb1a468c712108263ee582b4a5dce4f58bba136c1a45e0bbb2b28e346e67ed11fe09bf3f
 Homepage: https://github.com/X11Libre
 Description: XLibre X server - core server
  The XLibre X server is an X server for several architectures and operating
@@ -313,173 +368,203 @@ Description: XLibre X server - core server
  This package is built from the XLibre xserver module tag xlibre-xserver-25.1.9.
 
 Package: xserver-xlibre-input-all
-Source: xlibre
-Version: 1:25.1.9-1+lcos1
 Architecture: amd64
+Version: 1:25.1.9-1+lcos1
+Priority: optional
+Section: x11
+Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 1
+Provides: xserver-xorg-input-all (= 1:25.1.9-1+lcos1)
 Depends: xserver-xlibre-input-libinput
 Conflicts: xserver-xorg-input-all
-Provides: xserver-xorg-input-all (= 1:25.1.9-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-input-all/xserver-xlibre-input-all_25.1.9-1+lcos1_amd64.deb
 Size: 1372
 MD5sum: a74b36fbe58c6ae846e72839b67d4fd3
 SHA1: 0383b91b2f3e16a83a9ccb3098d2df6fd24887b4
 SHA256: f9f97b32ea398c363f9f844b4a91cca1b958207535b7ecbcf49277c0c709b77d
-Section: x11
-Priority: optional
+SHA512: 7b14c644ac3c8a2b480c78567bc76a25bc86192409f9bd7ed11fe1490bd71d96d0320660fb97444e36b6c06eec6e02dad4a9c430837ee3fe9d42aa576baf7eba
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- input driver metapackage
 
 Package: xserver-xlibre-input-libinput
-Version: 25.0.1-1+lcos1
 Architecture: amd64
+Version: 25.0.1-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 109
+Provides: xlibre-driver-input, xserver-xorg-input-libinput (= 25.0.1-1+lcos1)
 Depends: libc6 (>= 2.38), libinput10 (>= 1.26.0), xorg-input-abi-26, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-input-libinput
-Provides: xlibre-driver-input, xserver-xorg-input-libinput (= 25.0.1-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-input-libinput/xserver-xlibre-input-libinput_25.0.1-1+lcos1_amd64.deb
 Size: 43408
 MD5sum: f820e155e72705652fbe4089bc7d230a
 SHA1: c1c9679c519cd2764a4bb56d333f27905a2c66e0
 SHA256: 117afb33c0bbc2ac538beed60db7cea17b2b8425a08fcc1d6f41ce45f87ea2ec
-Section: x11
-Priority: optional
+SHA512: 49adefdda4a8b9c5e85d318e1d34fa47b41a9921a1bb02d20c427a3bb461f44ba323e70e87c505ff1bc1d8532d4a0429ca83e2aa42ed833daf5096428f3f3774
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- libinput input driver
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-all
-Source: xlibre
-Version: 1:25.1.9-1+lcos1
 Architecture: amd64
+Version: 1:25.1.9-1+lcos1
+Priority: optional
+Section: x11
+Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 1
+Provides: xserver-xorg-video-all (= 1:25.1.9-1+lcos1)
 Depends: xserver-xlibre-video-amdgpu, xserver-xlibre-video-ati, xserver-xlibre-video-fbdev, xserver-xlibre-video-nouveau, xserver-xlibre-video-vesa, xserver-xlibre-video-vmware
 Conflicts: xserver-xorg-driver-all, xserver-xorg-video-all
-Provides: xserver-xorg-video-all (= 1:25.1.9-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-all/xserver-xlibre-video-all_25.1.9-1+lcos1_amd64.deb
 Size: 1416
 MD5sum: 1c90ca760e91a2058fd01ef1314655eb
 SHA1: 4cc1040cbef74249888d47b2d16167db91e38589
 SHA256: ee84ab83cb0a757325f3cbb45d6696b5cfc4e088dedc465eb77305f01e108fbb
-Section: x11
-Priority: optional
+SHA512: bdc67ddc907565d1162f55570fee0fb24d319e7bf0c9bb4f25148844e17dc01fe43f25aa1b0c867710cc68cf3ee6f53053510b1b240c90ad8f56c84f6e5fb226
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- output driver metapackage
 
 Package: xserver-xlibre-video-amdgpu
-Version: 25.1.2-1+lcos1
 Architecture: amd64
+Version: 25.1.2-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 180
+Provides: xlibre-driver-video, xserver-xorg-video-amdgpu (= 25.1.2-1+lcos1)
 Depends: libc6 (>= 2.17), libdrm-amdgpu1 (>= 2.4.73), libdrm2 (>= 2.4.89), libeudev1 (>= 3.2.12), libgbm1 (>= 17.1.0~rc2), xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-video-amdgpu
-Provides: xlibre-driver-video, xserver-xorg-video-amdgpu (= 25.1.2-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-amdgpu/xserver-xlibre-video-amdgpu_25.1.2-1+lcos1_amd64.deb
 Size: 71612
 MD5sum: 6427702417a5978ba79a33ea78fb8009
 SHA1: c99a95bb6902e8ac2105cc577dfda9b14e0b0423
 SHA256: 3e03da6ec399fadcf588f55f61504b3fc13124cbd770b153811b8afbd2bd5c67
-Section: x11
-Priority: optional
+SHA512: 445b4ae259007c71cc66fe7d46afbf75cb3e02e66148c4a2cfe74b28bcddab7b7987259175f77d713893b532a655839ab3dc1154d7bfc4ea76fef94ab02021e8
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- AMDGPU display driver
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-ati
-Version: 1:25.0.1-1+lcos1
 Architecture: amd64
+Version: 1:25.0.1-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 510
+Provides: xlibre-driver-video, xserver-xorg-video-ati (= 1:25.0.1-1+lcos1)
 Depends: libc6 (>= 2.17), libdrm-radeon1 (>= 2.4.39), libeudev1 (>= 3.2.12), libgbm1 (>= 8.1~0), libpciaccess0, xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-video-ati
-Provides: xlibre-driver-video, xserver-xorg-video-ati (= 1:25.0.1-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-ati/xserver-xlibre-video-ati_25.0.1-1+lcos1_amd64.deb
 Size: 146972
 MD5sum: 86a9049689fae3c2032ba0819ee3ccf6
 SHA1: 52ec1246d6c89f7ba50816cac35086e9f1bda562
 SHA256: d6dbccaea6995a0fb88fa3c0f4efd4aef92bbf4d384672ef40195c88831f421a
-Section: x11
-Priority: optional
+SHA512: bf299ad83d20c3ee1a12932811e15551ed471fffd501b26557a8ac14b448efd1f40635411f7dc735284e864227004ebbb2b1ab2c6416f5ddf298f3ea2fcf58e8
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- AMD/ATI display driver (ati wrapper + radeon)
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-fbdev
-Version: 1:25.0.0-1+lcos1
 Architecture: amd64
+Version: 1:25.0.0-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 29
+Provides: xlibre-driver-video, xserver-xorg-video-fbdev (= 1:25.0.0-1+lcos1)
 Depends: libc6 (>= 2.2.5), xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-video-fbdev
-Provides: xlibre-driver-video, xserver-xorg-video-fbdev (= 1:25.0.0-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-fbdev/xserver-xlibre-video-fbdev_25.0.0-1+lcos1_amd64.deb
 Size: 10400
 MD5sum: 4849f69ec8ad7e1654708eef4313d7fb
 SHA1: d04c0198e40d226f322af74eddeccc3c80191b6d
 SHA256: d3e287036d8ec34495e8b261e72b7781d99a5331937c73c466d8db66a2b66389
-Section: x11
-Priority: optional
+SHA512: 683b89fb5638787a138c5e01002085ffec0e0689c88ddaba0633072869d3a0d1fe3a907a6cc2b3e0599a2b327feab2b9d15960dc4c81fb2c623f964c1b79a8a7
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- fbdev display driver
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-nouveau
-Version: 1:25.0.1-1+lcos1
 Architecture: amd64
+Version: 1:25.0.1-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 224
+Provides: xlibre-driver-video, xserver-xorg-video-nouveau (= 1:25.0.1-1+lcos1)
 Depends: libc6 (>= 2.33), libdrm-nouveau2 (>= 2.4.38), libdrm2 (>= 2.4.61), libeudev1 (>= 3.2.12), xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-video-nouveau
-Provides: xlibre-driver-video, xserver-xorg-video-nouveau (= 1:25.0.1-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-nouveau/xserver-xlibre-video-nouveau_25.0.1-1+lcos1_amd64.deb
 Size: 85232
 MD5sum: 9d9fc407ab7875c249cf44c95cfa597a
 SHA1: c07f54684a01e3fcda1c262a3bd2a61b0de4c9ec
 SHA256: b9d8acb02f60f8c9dcd74d6adcf7d27558b5e29ba53cbbb8e7eab8473ebd027d
-Section: x11
-Priority: optional
+SHA512: 07a7ac415db8acb66bd79f41ee0471c14bb9122153cb702e56a41b1b149b7572d30010264a843059c1f7db643225649f2fabe05d31c6cbe854ad92870680c90e
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- Nouveau display driver
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-vesa
-Version: 1:25.0.0-1+lcos1
 Architecture: amd64
+Version: 1:25.0.0-1+lcos1
+Priority: optional
+Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 37
+Provides: xlibre-driver-video, xserver-xorg-video-vesa (= 1:25.0.0-1+lcos1)
 Depends: libc6 (>= 2.14), xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
 Conflicts: xserver-xorg-video-vesa
-Provides: xlibre-driver-video, xserver-xorg-video-vesa (= 1:25.0.0-1+lcos1)
 Filename: pool/main/x/xserver-xlibre-video-vesa/xserver-xlibre-video-vesa_25.0.0-1+lcos1_amd64.deb
 Size: 12708
 MD5sum: 5b438181ca814337462193d0c0e673f6
 SHA1: 6012af5ec75cbef2e225d69e8add9ddad1097cf0
 SHA256: 6edf0cfd6c242759592e23b8bd74594fd320e12aa31c2f5f45fb09823a1c08e9
-Section: x11
-Priority: optional
+SHA512: 1c3b1a29bab1f74d98107cb06adcec07f0a56421794eedf943eda1a027d17d2a3480d92d289c034759d4443e0925d46166d471382e49224c56d00ccca90e32b1
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- VESA display driver
  This package is built from the matching X11Libre driver tag for LCOS 0.3.
 
 Package: xserver-xlibre-video-vmware
-Version: 1:25.0.0-1+lcos1
 Architecture: amd64
-Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 66
-Depends: libc6 (>= 2.14), xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
-Conflicts: xserver-xorg-video-vmware
-Provides: xlibre-driver-video, xserver-xorg-video-vmware (= 1:25.0.0-1+lcos1)
-Filename: pool/main/x/xserver-xlibre-video-vmware/xserver-xlibre-video-vmware_25.0.0-1+lcos1_amd64.deb
-Size: 25632
-MD5sum: 1255909bfa2b32544b8dbe42b9e1a535
-SHA1: 044d9d075b09199801578d31e229c844dfd42e7c
-SHA256: 81a078e961ba6e8290aad139f8960e5f3f8de68ae343ebdabc706600e8c8879f
-Section: x11
+Version: 1:25.0.0-2+lcos1
 Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 192
+Provides: xlibre-driver-video, xserver-xorg-video-vmware (= 1:25.0.0-2+lcos1)
+Depends: libc6 (>= 2.34), libdrm2 (>= 2.4.74), libeudev1 (>= 3.2.12), libx11-6 (>= 2:1.4.99.1), libxatracker2 (>= 11.1.0~), libxext6, xorg-video-abi-28, xserver-xlibre-core (>= 2:25.1.9)
+Conflicts: xserver-xorg-video-vmware
+Filename: pool/main/x/xserver-xlibre-video-vmware/xserver-xlibre-video-vmware_25.0.0-2+lcos1_amd64.deb
+Size: 72620
+MD5sum: a3a321f6714f59c0aeb603ae6679fdda
+SHA1: 353b62017582642867290ec57cc34807a1149929
+SHA256: a5a920a8ad076458e06e5d5b7304e64856477e4a0d2fa75f1830c0d129ca6011
+SHA512: bd213dfef88cff30c869682e3e5649500b1468d7fcd3dfc2fb47ac3acdedf99ea03ca2ddaa322002c46d0eba71944d6af2cbf00098c2bf97970f4af17700ebf2
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- VMware display driver
- This package is built from the matching X11Libre driver tag for LCOS 0.3.
+ This package is built from the matching X11Libre driver tag for LCOS 0.3
+ with vmwgfx/KMS (BUILD_VMWGFX=yes) against XLibre 25.1.9 ABI 28.
+
+Package: xserver-xlibre
+Architecture: amd64
+Version: 1:25.1.9-1+lcos1
+Priority: optional
+Section: x11
+Source: xlibre
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 1
+Provides: xserver, xserver-xorg (= 1:25.1.9-1+lcos1)
+Depends: xserver-xlibre-core, xserver-xlibre-video-all | xlibre-driver-video, xserver-xlibre-input-all | xlibre-driver-input, xkb-data, x11-xkb-utils
+Conflicts: xserver-xorg
+Filename: pool/main/x/xserver-xlibre/xserver-xlibre_25.1.9-1+lcos1_amd64.deb
+Size: 1380
+MD5sum: db0635784cfa7910b67a27c954ea93ab
+SHA1: a4012e1bf94db495f6a973f6008ab2ace17ed683
+SHA256: a460c0c5ace3e037ebf3edff1717c1fbcfdaaeb198edb37ad3403fb2c7217760
+SHA512: 87fecf5668b1f69d9fa0fd8a51c3e55081745b1d5993caa38957d7c301ee484f6d1193755e9c1f8717790a9033b1df4b5e1b17faa32d7ae4b34873405c55d1cc
+Homepage: https://github.com/X11Libre
+Description: XLibre X server
 
