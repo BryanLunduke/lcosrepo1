@@ -1,28 +1,28 @@
 Architectures: amd64
 Codename: excalibur
 Components: main
-Date: Thu, 03 Sep 2026 17:10:33 +0000
+Date: Thu, 03 Sep 2026 18:18:14 +0000
 Description: LCOS overlay
 Label: LCOS
 Origin: LCOS
 Suite: excalibur
 MD5Sum:
- 7c469f337850c9a1baf502f3be326ca4            11392 main/binary-all/Packages
- 4b654c17f382e9882ef7e1cb82e5709e             4810 main/binary-all/Packages.gz
- 8ecfd105c76c752cacc5138effa0d50f            27805 main/binary-amd64/Packages
- 736958527c38beb2538d2aa6e1262d8e             9700 main/binary-amd64/Packages.gz
+ fa1e92d13d820325469e80433d47bf30            11392 main/binary-all/Packages
+ 977e8918e1f61515f811a4cde61d0b3c             4811 main/binary-all/Packages.gz
+ 80af98243a640bf5c7dbfdccb6d5f2d2            27805 main/binary-amd64/Packages
+ e57ade49143f36daac915127e745f8d8             9703 main/binary-amd64/Packages.gz
 SHA1:
- 66ee2b0f4358fab105919fdb182cd52be0ade8ac            11392 main/binary-all/Packages
- 6a0d50e33ea67c6c595030ba9cb5dd2a4a33740e             4810 main/binary-all/Packages.gz
- fafaa54a767281293b1743d2cc2e187e0280d1f2            27805 main/binary-amd64/Packages
- 4c245144c7990d406f8e793cfe87e53135599f2b             9700 main/binary-amd64/Packages.gz
+ 38f8cdb7ef561938062567c79525b6b50ea71829            11392 main/binary-all/Packages
+ 248a6964aa621944c5884ad03f271fbb451c82e5             4811 main/binary-all/Packages.gz
+ 6b28e73ffcafae7a8e86e77e11b79730fc45ef58            27805 main/binary-amd64/Packages
+ 226806df122c66e6ee9c378a4d2d007f0f76a4a5             9703 main/binary-amd64/Packages.gz
 SHA256:
- 97057ada37f29a8b7391dc310b315cb2a01e2fc5f3b09de71e903148ae5b2f62            11392 main/binary-all/Packages
- a77188296dc155a333dd804a9839421ce0f76a256f139d75eaf5fcab024f20a3             4810 main/binary-all/Packages.gz
- fd637ecf65bcb1961134e06c12d4ee1fe7858070db3756fb0f484ce272833f10            27805 main/binary-amd64/Packages
- 71a6c5ce4fc50fc4981b8ad748e80ce88f6bb5cbf0f9de17953d7557df41e225             9700 main/binary-amd64/Packages.gz
+ 1e37c8e3290304bdf95654b0dcb165d6b87f2be95e2e2fc8251fa6815ce90f7e            11392 main/binary-all/Packages
+ aceebd6121053a401d4ee97f30e3800d7762daf1d3c3ddc2bee6b035bf053e84             4811 main/binary-all/Packages.gz
+ 8be5385706253d4e992a7d79ce3234fcec6072997492a67a71e8867c93a8b49d            27805 main/binary-amd64/Packages
+ e3e90d931ea9cf604e66f7971b82dc813db4f5b5dac353de05b5dfc2662f0cd3             9703 main/binary-amd64/Packages.gz
 SHA512:
- e88f83dbd419be44554b611aa6f245a879c0322d25a4372a9cc8a0c75867e9df80e4faf56983899719e543a7f68ec6178145a0917ea642d589f85031f7ffc3ad            11392 main/binary-all/Packages
- 9f5db386b658eff21511512bbb17396f32a16c0658d48e751ddfb825c1c98890a712e6db8affa755a81d17a262a90d5c0b73ba721a3d6b967d0abf27ae465be5             4810 main/binary-all/Packages.gz
- 922d7e9b72e95340f81f348e0835b7d1f675ea86a5009358b6694b24ee7a3dcd1ac7eb5c1033a2a6976dea09a758e51e9d3846804e3c86c5ab9a3a277cc28754            27805 main/binary-amd64/Packages
- febd75ce9d1bb1443e42f105cb68821d1fe216aaa0be7ff12605303ac5d09948db66a2b16e6a125b8af6b130702217456e1cae8480dce2bde009865b03acc1a0             9700 main/binary-amd64/Packages.gz
+ 8f40538be0b30b06ed047de9262333ce56e7bd0ef9e7a468a6c8e59d1e2162c9341fab477733015de2c50d2d7fef0d8375865d6f93626076c14ff0560e1c90f8            11392 main/binary-all/Packages
+ 9664647d4e354996a0e87316b11ccfd9ab68a2d1b7308d2e9fc69ee29677ba35b7aefa8e79feebe2364bf4c4c1bed6766c8b62aa4d688c14946c17acfbd25ad3             4811 main/binary-all/Packages.gz
+ cd63582bdbf4785c4c51f9dc135a69164b960a9a221f96dd1b205e2dedf455048fa6ad533cdc83e4e266a4c3d3dd32643fc28a3c3a54f01d87e1044d81af27af            27805 main/binary-amd64/Packages
+ ae98bd2fd3444e91fd87b8f230faaa1e80b003f97b538f6b01c4f7274897733336cda3427e9c48512999db57344a3cd317e43317493b488d33f582b2266af5e2             9703 main/binary-amd64/Packages.gz

@@ -73,16 +73,16 @@ Version: 0.3-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 340
+Installed-Size: 344
 Depends: lcos-branding (>= 0.3), lcos-theme-clearlooks (>= 0.3)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
 Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.3-1_all.deb
-Size: 20612
-MD5sum: dcf6fd564abd1f6bd97083bce2f60452
-SHA1: 74167bf6346f113417787239f4ae74bf967c482b
-SHA256: b8fa642b815556deb006a1336d166319057f8276c580e298bd71ab0f12b65230
-SHA512: 6c610a12436d21c9838eb960025b99dadb919c27362546b8b8a4307e4e2bb631e1fafa1972f6f8c7247804f3f9c2aef15690262a05afe096076962d51612535a
+Size: 22180
+MD5sum: fc841b04db484883c8b06c4eaa2da663
+SHA1: 04be730823c2f41bd3309f739dcbc82689e7fd81
+SHA256: a38f7cb01f4912f9ee3f41d8429da1d60c02646ad566a60f49d0607678c90b4a
+SHA512: d07960b8002b0aea745b12c7847b486963a9de0c15c3b8fd8d64ced7f43fd9814b138406040732055b49cb6af6cc4d7286e70893c02871872d4903860fe0cc3c
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
