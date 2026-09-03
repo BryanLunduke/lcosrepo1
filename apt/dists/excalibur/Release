@@ -1,7 +1,7 @@
 Architectures: amd64
 Codename: excalibur
 Components: main
-Date: Thu, 03 Sep 2026 00:01:58 +0000
+Date: Thu, 03 Sep 2026 17:10:33 +0000
 Description: LCOS overlay
 Label: LCOS
 Origin: LCOS
@@ -9,20 +9,20 @@ Suite: excalibur
 MD5Sum:
  7c469f337850c9a1baf502f3be326ca4            11392 main/binary-all/Packages
  4b654c17f382e9882ef7e1cb82e5709e             4810 main/binary-all/Packages.gz
- 14d19cc98f3d2cd2bc2d5f2401862312            26805 main/binary-amd64/Packages
- 8a2c303c9334d9d870467be39c899b76             9344 main/binary-amd64/Packages.gz
+ 8ecfd105c76c752cacc5138effa0d50f            27805 main/binary-amd64/Packages
+ 736958527c38beb2538d2aa6e1262d8e             9700 main/binary-amd64/Packages.gz
 SHA1:
  66ee2b0f4358fab105919fdb182cd52be0ade8ac            11392 main/binary-all/Packages
  6a0d50e33ea67c6c595030ba9cb5dd2a4a33740e             4810 main/binary-all/Packages.gz
- 4063f29989a0bfee914251576ba6776bb545f3c8            26805 main/binary-amd64/Packages
- cd215ddb2b06f032b57a9a16b226341356134a13             9344 main/binary-amd64/Packages.gz
+ fafaa54a767281293b1743d2cc2e187e0280d1f2            27805 main/binary-amd64/Packages
+ 4c245144c7990d406f8e793cfe87e53135599f2b             9700 main/binary-amd64/Packages.gz
 SHA256:
  97057ada37f29a8b7391dc310b315cb2a01e2fc5f3b09de71e903148ae5b2f62            11392 main/binary-all/Packages
  a77188296dc155a333dd804a9839421ce0f76a256f139d75eaf5fcab024f20a3             4810 main/binary-all/Packages.gz
- 6857d9003f80b0ccc82518e2a9fe498a3d80ce610c39932bfd5d851b1eef0181            26805 main/binary-amd64/Packages
- 522d75065b282ff41ae5a31f4c2728bbd591dc93610ae4b9e597d26e7d7c88fd             9344 main/binary-amd64/Packages.gz
+ fd637ecf65bcb1961134e06c12d4ee1fe7858070db3756fb0f484ce272833f10            27805 main/binary-amd64/Packages
+ 71a6c5ce4fc50fc4981b8ad748e80ce88f6bb5cbf0f9de17953d7557df41e225             9700 main/binary-amd64/Packages.gz
 SHA512:
  e88f83dbd419be44554b611aa6f245a879c0322d25a4372a9cc8a0c75867e9df80e4faf56983899719e543a7f68ec6178145a0917ea642d589f85031f7ffc3ad            11392 main/binary-all/Packages
  9f5db386b658eff21511512bbb17396f32a16c0658d48e751ddfb825c1c98890a712e6db8affa755a81d17a262a90d5c0b73ba721a3d6b967d0abf27ae465be5             4810 main/binary-all/Packages.gz
- c1e8e48b722123c6d244ed6ade37eab21b287efe624d2a41de98e68fa00b1a352abc8bc73659a3ccd5e512c76a79407985619d948b3dbd40dfd80ddd8b0a0ac5            26805 main/binary-amd64/Packages
- 45862264b4a2e4056cf95565b1c66ce13ea1dda25924dda84c49a8a521dcdc2c3a4e1863499df752946df2225c1ad9198c8430bd26b7088f8b130d36bec05ea1             9344 main/binary-amd64/Packages.gz
+ 922d7e9b72e95340f81f348e0835b7d1f675ea86a5009358b6694b24ee7a3dcd1ac7eb5c1033a2a6976dea09a758e51e9d3846804e3c86c5ab9a3a277cc28754            27805 main/binary-amd64/Packages
+ febd75ce9d1bb1443e42f105cb68821d1fe216aaa0be7ff12605303ac5d09948db66a2b16e6a125b8af6b130702217456e1cae8480dce2bde009865b03acc1a0             9700 main/binary-amd64/Packages.gz

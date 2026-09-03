@@ -171,6 +171,25 @@ Description: Lunduke Themes
  (GTK2 clearlooks engine, Phenix GTK3, xfwm4 pixmaps). Same widget
  geometry as stock Clearlooks / Clearlooks-Phenix; recolor only.
 
+Package: lcos-updates
+Architecture: amd64
+Version: 0.1-1
+Priority: optional
+Section: admin
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 200
+Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.12.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtkmm-3.0-1t64 (>= 3.24.10), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), polkitd, apt, desktop-file-utils
+Filename: pool/main/l/lcos-updates/lcos-updates_0.1-1_amd64.deb
+Size: 42116
+MD5sum: 322e292f334ceb38e09d4c7970e56895
+SHA1: 23481ff132a8367629989176314675dbe9fd66fa
+SHA256: da5c4a0ea2170826b68025c2e760d1e85e7842f0914e76eeb4c1a2414209f7f8
+SHA512: a19cc8441eccdd8f33d15d180d1a2dce6f4ca58ca0e8d63d4f32c8c5eeecf4135f48c500645754b1de445920338fd3cc8efa475e3e386ceae5b973e52d4e1971
+Homepage: https://lunduke.com
+Description: Check for updates from Devuan and LCOS
+ A small GTK3 tool that checks for and installs apt upgrades
+ (not dist-upgrade) via a polkit helper. No daemon, no tray.
+
 Package: lcos-zork
 Architecture: all
 Version: 0.3-1
@@ -192,18 +211,18 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
 
 Package: lunduke-paint
 Architecture: amd64
-Version: 0.2-1
+Version: 0.2-2
 Priority: optional
 Section: graphics
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1688
-Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.36.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.3.16), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), librsvg2-common, shared-mime-info, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-paint/lunduke-paint_0.2-1_amd64.deb
-Size: 302788
-MD5sum: ab36969b29531f8c78f903e931867744
-SHA1: 55bd0f5bbc638d8c3d2f1ff69aa17ada7a240339
-SHA256: ece9548c14c344bdf60811f51e10ee6092e1920b37781e3cc8a87292c1fae68c
-SHA512: 3ec5134212a3e899e3b2cf0b1af4ab8f3ee02a330dd7dd9333bb8f62f6ecd8de1f9f6d7e8c333d9f4321aebab1dbd35584045344e2e0221b4042d9064745ae3c
+Installed-Size: 1780
+Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.36.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.3.16), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), librsvg2-common, shared-mime-info, desktop-file-utils, gtk-update-icon-cache
+Filename: pool/main/l/lunduke-paint/lunduke-paint_0.2-2_amd64.deb
+Size: 317584
+MD5sum: 7cfb67b06b6431178542379c314ea41f
+SHA1: 34d559001879e2c9d3af1b2a05cd9c0fa558e2fb
+SHA256: f020d3dbb58601407a53a8c3a9f44a311798252f2d002adee8267a6b9b7a55a5
+SHA512: 1566b663e1d977394112fddea77047bfe5c58374c900da19b94cabbb26b0b4003773441c362ecf80c5be4ef45452b5290a4b9cc7624325971caa23964ce6328e
 Homepage: https://lunduke.com
 Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
  Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
