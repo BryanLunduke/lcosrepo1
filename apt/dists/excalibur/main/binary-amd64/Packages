@@ -78,11 +78,11 @@ Depends: lcos-branding (>= 0.3), lcos-theme-clearlooks (>= 0.3)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
 Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.3-1_all.deb
-Size: 22180
-MD5sum: fc841b04db484883c8b06c4eaa2da663
-SHA1: 04be730823c2f41bd3309f739dcbc82689e7fd81
-SHA256: a38f7cb01f4912f9ee3f41d8429da1d60c02646ad566a60f49d0607678c90b4a
-SHA512: d07960b8002b0aea745b12c7847b486963a9de0c15c3b8fd8d64ced7f43fd9814b138406040732055b49cb6af6cc4d7286e70893c02871872d4903860fe0cc3c
+Size: 22176
+MD5sum: 5451c368d4dbb330503293ff6da787e2
+SHA1: cc6f8c70f6d9d11979b9478b1f249cae7834555d
+SHA256: 0cf2c57f418f935efe93a93d2dbb6dcaa47125b0d450322de1d129a528fa9f4a
+SHA512: 465c38f6bf6b15d06ff8de5dfc5e82a1ab569c38a15bf8d153887af00b66c544a0acaa1c8dd465ea9c08b36aa6abde4abd3ec794e8985d09b250816aec907985
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -211,18 +211,18 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
 
 Package: lunduke-paint
 Architecture: amd64
-Version: 0.3-1
+Version: 0.3-12
 Priority: optional
 Section: graphics
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1780
+Installed-Size: 1400
 Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.36.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.3.16), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), librsvg2-common, shared-mime-info, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-paint/lunduke-paint_0.3-1_amd64.deb
-Size: 318716
-MD5sum: fc830a1fc61786bb26404cd615e696a3
-SHA1: 7e09fcd6db0decf1c30b134d3f46b0acba918a82
-SHA256: 073bebd00188577226ad7c61b8cd6b87823d3ac4797c2ca47460bf66a2caae74
-SHA512: 7eaa48b1a1db18d1ba17ec3d0533deed962aaec43ef3f9eda1ca94c9ace4373f115d4b7fd5936b1b368a22518f0307e58b887e1b4fb055116025e3415a9534d7
+Filename: pool/main/l/lunduke-paint/lunduke-paint_0.3-12_amd64.deb
+Size: 317652
+MD5sum: 521dee89ea540f6b9d65984e77646e65
+SHA1: 8d4928397b9ecf2d78b99700145e935f9ee3fd2a
+SHA256: 8748ab1ceb6615bcc946d2988c2149ac912d02575dea57f202e029a6e01a5c99
+SHA512: 65cfe63d08dc52696716563a08b3fedf5e5b8f2f8f1be8e8e2c37cfd3c8240593a1c7245381d1e5fb6660148a5c9662b2bd93f91e2b92ef39bb97b07eab85a23
 Homepage: https://lunduke.com
 Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
  Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
@@ -586,4 +586,3 @@ SHA256: a460c0c5ace3e037ebf3edff1717c1fbcfdaaeb198edb37ad3403fb2c7217760
 SHA512: 87fecf5668b1f69d9fa0fd8a51c3e55081745b1d5993caa38957d7c301ee484f6d1193755e9c1f8717790a9033b1df4b5e1b17faa32d7ae4b34873405c55d1cc
 Homepage: https://github.com/X11Libre
 Description: XLibre X server
-

@@ -78,11 +78,11 @@ Depends: lcos-branding (>= 0.3), lcos-theme-clearlooks (>= 0.3)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
 Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.3-1_all.deb
-Size: 22180
-MD5sum: fc841b04db484883c8b06c4eaa2da663
-SHA1: 04be730823c2f41bd3309f739dcbc82689e7fd81
-SHA256: a38f7cb01f4912f9ee3f41d8429da1d60c02646ad566a60f49d0607678c90b4a
-SHA512: d07960b8002b0aea745b12c7847b486963a9de0c15c3b8fd8d64ced7f43fd9814b138406040732055b49cb6af6cc4d7286e70893c02871872d4903860fe0cc3c
+Size: 22176
+MD5sum: 5451c368d4dbb330503293ff6da787e2
+SHA1: cc6f8c70f6d9d11979b9478b1f249cae7834555d
+SHA256: 0cf2c57f418f935efe93a93d2dbb6dcaa47125b0d450322de1d129a528fa9f4a
+SHA512: 465c38f6bf6b15d06ff8de5dfc5e82a1ab569c38a15bf8d153887af00b66c544a0acaa1c8dd465ea9c08b36aa6abde4abd3ec794e8985d09b250816aec907985
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -267,4 +267,3 @@ SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116a
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.
-
