@@ -40,17 +40,17 @@ Description: LCOS archive signing keyring and overlay apt source
  Unsigned package; editor signs the archive later. Do not replace this key.
 
 Package: lcos-base
-Version: 0.5-1
+Version: 0.5-2
 Architecture: all
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 72
 Depends: lcos-archive-keyring (>= 0.5), lcos-branding (>= 0.5)
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_0.5-1_all.deb
-Size: 2232
-MD5sum: 56858e0132c55df7c16b04d7edbaf8cb
-SHA1: d2543355f4a4d4dcc2af6eddea421645e54c650c
-SHA256: 7e410563274922817dfd5d7b703a1a5303784a75ec27b7af74499b516abdb887
+Filename: pool/main/l/lcos-base/lcos-base_0.5-2_all.deb
+Size: 2364
+MD5sum: 41515c859975f1beff6fd487babc63ca
+SHA1: 8d4f31998cddccfc002a60c17c5b3b1482fcd285
+SHA256: 3c58f9b73cae72bf662ff74049249b21c3b8bbf05219e854aadbe1b6778028fd
 Section: admin
 Priority: optional
 Homepage: https://lunduke.com
@@ -60,6 +60,8 @@ Description: LCOS 0.5 identity, GRUB splash drop-in, overlay membership
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash).
  .
  Depends on the overlay keyring and branding artwork.
+ Postinst re-applies identity on configure so apt upgrades overwrite
+ stale 0.4 conffile text kept by noninteractive Updates.
 
 Package: lcos-branding
 Version: 0.5-1
