@@ -4,45 +4,45 @@ Hash: SHA256
 Architectures: amd64
 Codename: excalibur
 Components: main
-Date: Wed, 09 Sep 2026 19:08:24 +0000
+Date: Tue, 15 Sep 2026 04:00:34 +0000
 Description: LCOS overlay
 Label: LCOS
 Origin: LCOS
 Suite: excalibur
 MD5Sum:
- 44763d8f375f82a9978d657eaea4c0a5            11059 main/binary-all/Packages
- 37a8cab9696be3630e925b0039a792c1             4353 main/binary-all/Packages.gz
- 59605b8e57d2a83d0e9d22806c5523ca            25453 main/binary-amd64/Packages
- 1dbe558861b398332b5babf347cba183             7957 main/binary-amd64/Packages.gz
+ 584a3d1773aeddfaeef8f5b6be7bde1d             9719 main/binary-all/Packages
+ dee1495ee37a1e3541555d505fe1ada6             3935 main/binary-all/Packages.gz
+ 389698bce80133c912ccf73c9d88b59d            24114 main/binary-amd64/Packages
+ 94da80e923d0abe8660b0365c56ab409             7552 main/binary-amd64/Packages.gz
 SHA1:
- d7219b7582fe5275f78d81ef58fb74bdc792d7c7            11059 main/binary-all/Packages
- 66cce3f70a8bd8c91721e4184e7bec2fc7f86bd7             4353 main/binary-all/Packages.gz
- 1fa41f8a91f4bd8b82113b3bacbc523efbc83c7e            25453 main/binary-amd64/Packages
- 8ab89754c3184e06c9b7d3954fddd71a40e01d51             7957 main/binary-amd64/Packages.gz
+ ccfb7acb8b47791dc5c719a738b61b584531d2f9             9719 main/binary-all/Packages
+ 69df93fb57221ad5e028e9bef14ed56f49f70efb             3935 main/binary-all/Packages.gz
+ 99b9d6c9fb0fd4ab4f478c4ddf9a041198658a1a            24114 main/binary-amd64/Packages
+ 75deb3ea2a05d0384397b013d0b9c07272f6d1c4             7552 main/binary-amd64/Packages.gz
 SHA256:
- 456b1930af4d3222ecd90127ca2c9d3ea9b651e1af065d460cb93e325ad288cc            11059 main/binary-all/Packages
- 1db0a394c9a555cf18fc5126355edf828a72ecbe1b55f2ff2633ec06cf2cd29e             4353 main/binary-all/Packages.gz
- 8bebfd9c8162afd7eb2602d83c59e58e3bdf2a37234682a4250cdb24f68225de            25453 main/binary-amd64/Packages
- 5f8bd4980e3fc962a8b92d90f8cb9889ccd4be7fcd2d8e77f1bd20ea8d1d8fa6             7957 main/binary-amd64/Packages.gz
+ dde04b19139cbc7fb757777c3f3726a424fb6262b603eb35a6b353fdd6ca09df             9719 main/binary-all/Packages
+ aad78c49150730832a67beca832a51421e38e4905022413efa791711ced5d4c1             3935 main/binary-all/Packages.gz
+ 935f012df5acde3e16025dd0e5942a1f622a3f429c03354986b9e451f8230c68            24114 main/binary-amd64/Packages
+ 63ff668d37444cf586b74054936d740663caaf12f93ceea820d9f3d1b5720e0b             7552 main/binary-amd64/Packages.gz
 SHA512:
- ce0b2052b743404657909f2204e3d6d37a0797d9a54d78f9ce619d323e5c7f8bf29218e2661f0aa2c6c10aad42487d18a2571780fa1ddd615b5afa65bfef0d02            11059 main/binary-all/Packages
- 304b2d36d942e517b2c45d500adfda86f3883e80a54fa70551a2c93c90793eaa35abac6828647b0d0af0696e47e57df39cdfb073762a944735fe53b5ce2c7cf4             4353 main/binary-all/Packages.gz
- 65979840af19827391866d1e177c7ab594cc9272068d2dff66011736136653bdf78e233d4d11b61d5321fb65abf6c089bf6be8017553966903d739e7ecd98562            25453 main/binary-amd64/Packages
- db31d10bc9c055cf75db2bf57162d1193f2ceec7cf632f95665ebe969ae05557eaf2eb9d30d7f870ddbc4a0792c6b16e85512d84472702e8d05d2e3005600229             7957 main/binary-amd64/Packages.gz
+ 8a0eb7dc60448976ace02c1bd618a231dbf54771b6cf93b6a95eaa83570e38aad6b24daaffe5601f2530142df4ce5034b2da1a45dca3b73c5ded55ecf1e50990             9719 main/binary-all/Packages
+ 6e203e4593ddaaefe610657d02245c5d1071cb63c501991b593af49dde3eef740cddec33302945a5903b4acbfc387e14e974786469e246f0e046b5170086ea02             3935 main/binary-all/Packages.gz
+ c53e88326e2dbd0f14439981596ef8100be9f285dfab30a0d7cf5ec61392ee7f2e4a3006166380c5e0259ebd5319087380994376afbb7b9e2e7724502116d8e0            24114 main/binary-amd64/Packages
+ 5137521b60ef7c30db923ccff11a474fe79cfedecacef96e81b1db92d48353d74710c20697d0cd9ac202d410a29dc98b1fcaa52306c1c85e93538ebe0c2b9661             7552 main/binary-amd64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQJhBAEBCABLFiEEWgHUvc3R4VMdRWp1YNbn9svW1XIFAmqhrxobFIAAAAAABAAO
-bWFudTIsMi41KzEuMTIsMCwzERxsY29zQGx1bmR1a2UuY29tAAoJEGDW5/bL1tVy
-qc4QAIYW39H33Y9b4pbFFGg3g3roFi6l8dZ1bpo9e9yeayYpAgCOu5szY/IRE94o
-uMZtqfowartg+rYWJbecBPIxPH6Xy33p4UZb39/QkcQzLrk/8ho9PcktsXdPDqIG
-twBC7dqQX9izaXVvEZRpwL3ZkQDiRh9B20DJWDgI2XsFITjRRRkRgf9sY1gXT8Kk
-8Oon1OGMqCFpM80voBFngJBniXH70UZjCL38cDnD3jOSzHIuBPXEGPtoGCal2xBb
-iWnocQeAwi30fF9xlbof8hXxlMsDNpUCgQ2epvkANC8Cv9+D5uHOkdthaYd6VVnX
-fKfK82dP9RAsYuW73pR+jdLOmxZHlPhi/3hSXk0zjhts1WWV1qNTygDpGQ3HucKz
-aVEZwJPpHawPpiPArEeCskKPUV0dsikIuE8+/SPly+2gCe6Uls8QbR16Y+PgNEW0
-Us2ZN7Z+KOAx1HNlcoT15U4aBAdKssi/RiufFvwSktle6CR6mzuStUsx9jcSdaCK
-HvuaN1JA095xWD7+bI+czxqnJmjU9an8gKXX9V0pME0UHWFTfTpnzWiu1EqueRja
-Ak72OxkElktUtFdsm2D4wKWUoG0OzitwNJ1spXZ2Nay+uCLg7K5pcRYflGcxyRd1
-NUmgcr8ySIuv3AzhCEpHhBuIZd2odLx9+msxDbeP6W9UuPjG
-=AEl1
+iQJPBAEBCAA5FiEEWgHUvc3R4VMdRWp1YNbn9svW1XIFAmqow7YbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMCwzAAoJEGDW5/bL1tVyWDUQAK6UdApKpVbOyCod8d/j
+o0uU5p0o7tSxCSynC7HWsK0MQhn5tIZbmZqJTPbTvI+pSeaJRFqF1KgAI4UmHnFr
+9JaJmkkbrEDobUXUlpr7b+Ud3BiQLkRzKPXBV2Oi0X4zLCaQ2oFPLmJDc+q6geD2
+OnpA7HacYpor3dSisoWuQhJYb2/TZ6QLrUQSs7ENZ+SbcS+41xmbIelq70Wcun0f
+zcLIzAbe0b1bRhJv1cPxAWuZ8pebW0yfXH1lKwlP6LodJpr9vF2Xb88nHBE+pmf6
+s9+nU1zbi/SYpLZloBxG4h31wjPygx8hNKeXksKUeZRXX4532+LvfT+qqnRKnuOx
+By2xTZMbLIScGvYlHdk+hQWGH9xnslipgbUNg6uZzrVZ3oJ0tF7UZY3OQufPhigN
+dmszDEYcMyoWHMDZlDa12IUU9UVb0Kb/X8BQQCJ2+/8MFc3AsvTWJr3rwcRc0p+E
+9BAXJCYcJDcIDIQLnLWboSxlhS1yLFlTLe/HKnfAwqDZKL1PU8Elpfmdb4aossGk
+FjKWuXEJEy5/xkkjeC4JaVgjqyavcXKIKhmognkk5xdzAiCaGggoYHjVA+F5dGFH
+CAUdcSixm6ex1vEwwvpgPcSTpqnYHNKtdHLdQJllgTpPHjgAsT9b0LGZSDdLjFB2
+WL18ikxKgHKR98EPQ7UbHf9F
+=75o1
 -----END PGP SIGNATURE-----
