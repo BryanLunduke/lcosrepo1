@@ -223,6 +223,25 @@ Description: Linux kernel, version 7.2.6-lunduke
  This package contains the Linux kernel, modules and corresponding other
  files, version: 7.2.6-lunduke.
 
+Package: lunduke-edit
+Version: 0.3-1
+Architecture: amd64
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 276
+Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.12.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtkmm-3.0-1t64 (>= 3.24.10), libgtksourceviewmm-3.0-0v5 (>= 3.18.0), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), desktop-file-utils
+Filename: pool/main/l/lunduke-edit/lunduke-edit_0.3-1_amd64.deb
+Size: 66780
+MD5sum: b00b5a76b203e5b7c9a89ebe91e7b608
+SHA1: 0f90b53e39c7c726e8fde985633632fff5885d01
+SHA256: cd96246a99e89de9e74e9b495a602a3f2b43076aa697ab8b50b1066505137dc8
+Section: editors
+Priority: optional
+Homepage: https://lunduke.com
+Description: Lunduke Edit, a light GTK3 text editor for Linux X11
+ Lunduke Edit is a classic menubar text editor for the Lunduke Computer
+ Operating System. Look and feel: Windows 95 Notepad, Macintosh SimpleText,
+ and BBEdit Lite — with GtkSourceView undo, Find & Replace, and Print.
+
 Package: lunduke-linux-kernel
 Version: 7.2.6-lcos4
 Architecture: all
