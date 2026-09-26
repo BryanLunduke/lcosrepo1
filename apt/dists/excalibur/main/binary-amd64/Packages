@@ -201,18 +201,18 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
 
 Package: linux-headers-7.2.6-lunduke
 Architecture: amd64
-Version: 7.2.6-lcos5
+Version: 7.2.6-lcos7
 Priority: optional
 Section: kernel
 Source: linux-upstream
 Maintainer: LCOS Kernel <lcos@lunduke.com>
-Installed-Size: 57484
-Filename: pool/main/l/linux-headers-7.2.6-lunduke/linux-headers-7.2.6-lunduke_7.2.6-lcos5_amd64.deb
-Size: 9782312
-MD5sum: 74712e147a74bddaf4778c0a77eed684
-SHA1: a56db15ce7de71d458d3410e74f49bf24d32fe66
-SHA256: 88b114afa6da15808ceeeb7dabb36ac6d7abe19f6cd07f46e0b1fcf7bec6e19c
-SHA512: 4a2b74a14fb2f311d421722c92e163a687a7b5b873e3508785bbeab5c66fd10552864f22396d838dbada09dc6ddda8e128d079655d9ac9ca6e10d456a0b96e65
+Installed-Size: 57825
+Filename: pool/main/l/linux-headers-7.2.6-lunduke/linux-headers-7.2.6-lunduke_7.2.6-lcos7_amd64.deb
+Size: 9809304
+MD5sum: 5761b76175721ae86e16a2a80a6781d2
+SHA1: c2cfa552840a845834d86b882e5002f0de628c8a
+SHA256: 1997bf4355ad9d15fa2a8e3d4ee99a41d66522d28bcb2475c14486f50ba56826
+SHA512: 3178f6bb9b9bdb33e59795c89e0e9e44880bb5ca48467225308292d905aa48c6c1754504834f361c7d593988c09ae14925cfd45361f48be0d4491c61f8ecff30
 Homepage: https://www.kernel.org/
 Description: Linux kernel headers for 7.2.6-lunduke on amd64
  This package provides kernel header files for 7.2.6-lunduke on amd64
@@ -221,18 +221,18 @@ Description: Linux kernel headers for 7.2.6-lunduke on amd64
 
 Package: linux-image-7.2.6-lunduke
 Architecture: amd64
-Version: 7.2.6-lcos5
+Version: 7.2.6-lcos7
 Priority: optional
 Section: kernel
 Source: linux-upstream
 Maintainer: LCOS Kernel <lcos@lunduke.com>
-Installed-Size: 81734
-Filename: pool/main/l/linux-image-7.2.6-lunduke/linux-image-7.2.6-lunduke_7.2.6-lcos5_amd64.deb
-Size: 24543396
-MD5sum: f2e88920e915a3f6344a0f02147062c3
-SHA1: b144db04fbd36b6ca7c67d07846dd3f2a8021ae3
-SHA256: 8267f48465539959d67e9a48d7f7e14199d8fc772bce4f040cd676d375b87a71
-SHA512: 888cba613ea87211842fe90c41bc77ddd1eaf30fde0180b2d8ba23d4f411ce1ffa4459ff7716cde5f2bf4dfed5f70d2a89dbd4525d1f8eda2b67277c9d67b452
+Installed-Size: 118636
+Filename: pool/main/l/linux-image-7.2.6-lunduke/linux-image-7.2.6-lunduke_7.2.6-lcos7_amd64.deb
+Size: 30020124
+MD5sum: bce6a93ea318a3c5481d3c128e0d53ff
+SHA1: c379b451ef0eb8df68e4ad2da56d2a0357dc30ef
+SHA256: f16d3e5c89b74dc012ef31e7f5cc10e1c36953f92bdc83c5ea1250652b6af9ed
+SHA512: e7ed09704e7ed8a0626f854090306155be4ecb1b4284a9044a88eb3017a79e8f70425b44cb5757a41f9668c4e316f0bde627c5c10e1f25c5a3d7f059f614f92d
 Homepage: https://www.kernel.org/
 Description: Linux kernel, version 7.2.6-lunduke
  This package contains the Linux kernel, modules and corresponding other
@@ -260,28 +260,29 @@ Description: Lunduke Edit, a light GTK3 text editor for Linux X11
 
 Package: lunduke-linux-kernel
 Architecture: all
-Version: 7.2.6-lcos5
+Version: 7.2.6-lcos7
 Priority: optional
 Section: metapackages
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 28
-Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos5)
-Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos5)
-Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos5_all.deb
-Size: 1476
-MD5sum: 34c03fd407a252b4adbfb8d06f5b98d7
-SHA1: 2662f6189f460d6fe48d036e18019cc5d25fea8c
-SHA256: b7621ad2b20bff9f3c963707afc12e663b9923512198b8a4dd96477344f98255
-SHA512: d7f88ad5206ddf359323c5f5b4ec2eb26c46c349256dc12e136f80963d88ff034815f95b823c151e769fe2c00d29ca15e80dcb26b673df8aa3e4920725b7aaec
+Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos7)
+Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos7)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos7_all.deb
+Size: 1540
+MD5sum: fc9bc3aa763f14428183bce545770cc7
+SHA1: 7d3bfd44e505f55de6ba9092e13352b54c7d20d8
+SHA256: dcedad08027d742ded91ccac478c666ed974a7d4bfd8a55e104e457b75f77a4d
+SHA512: a300a59d4e5d17341cbe56bb8783600f9f8d168b7c8987d26fa18dc1aded5e96529db5abb8b784511f9d9ebf1aa381f57d2062bbafff920606e419bb052e2956
 Homepage: https://lunduke.com
-Description: Lunduke's Linux Kernel (optional LCOS overlay)
- Lunduke's Linux Kernel — optional alternate kernel for LCOS.
+Description: Lunduke's Linux Kernel for LCOS
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos7).
  .
- Installs linux-image-7.2.6-lunduke (ABI lcos5) alongside the Devuan-supplied
- kernel. Adds a GRUB/boot entry; does not remove or replace the default
- Devuan kernel. Headers are recommended for building out-of-tree modules.
+ Installs linux-image-7.2.6-lunduke. Headers are recommended for
+ building out-of-tree modules.
  .
- Not the default kernel in LCOS ISOs. Install only if you want LLK.
+ Default kernel on LCOS 0.7 ISOs (Devuan 6.x kernel removed from those
+ images). On earlier LCOS releases that still ship a Distro kernel,
+ installing this metapackage adds a GRUB entry alongside it.
 
 Package: lunduke-paint
 Architecture: amd64

@@ -1,17 +1,20 @@
-# LCOS apt overlay — LLK 7.2.6-lcos5 UNSIGNED staging for editor signing
+# LCOS apt overlay — LLK 7.2.6-lcos7 UNSIGNED staging for editor signing
 
-**Date:** 2026-09-24 (America/Chicago / CDT)
+**Date:** 2026-09-25 (America/Chicago / CDT)
 **Status:** UNSIGNED — ready for editor GPG sign. Do **not** push until signed.
 **Do not** invent GPG signatures. **Do not** publish unsigned `Release` as the live overlay.
 
 ## Why
 
-Fixes Doug Burks iptables bug on optional Lunduke Linux Kernel:
-- iptables-nft: `Could not fetch rule set generation id: Invalid argument`
-- iptables-legacy: `Module ip_tables not found`
+HW modules pass on optional Lunduke Linux Kernel (audio / Wi-Fi / BT / UVC / HID / IGC),
+building on prior lcos5 netfilter+uinput work.
 
-Root cause in lcos4: `CONFIG_NETFILTER_ADVANCED` / `CONFIG_NF_TABLES` / `IP_NF_FILTER` incomplete.
-lcos5 enables Distro-like netfilter (nft + legacy xtables modules).
+lcos7 includes:
+- Prior lcos5: Distro-like netfilter (nft + legacy xtables) + uinput
+- HW module pass: audio (snd-usb-audio, SOF, Realtek HDA via per-ALC modules),
+  Wi-Fi (iwlwifi, rtw88/rtw89, ath9k/10k/11k, brcmfmac, mt7921e, rtl8xxxu),
+  Bluetooth (bluetooth, btusb), UVC (uvcvideo), HID (i2c-hid-acpi, hid-multitouch),
+  Ethernet (igc, igb)
 
 ## Staging paths
 
@@ -20,10 +23,11 @@ lcos5 enables Distro-like netfilter (nft + legacy xtables modules).
 | Staging tree (rsync) | `/workspace/lcos-0.7-apt-staging/lcosrepo1/` |
 | Staging git worktree (local branch) | `/workspace/lcos-0.7-apt-staging/lcosrepo1-git/` |
 | Apt root | `…/apt/` |
-| **Unsigned Release** | `…/apt/dists/excalibur/Release` |
-| Local git branch | `staging-llk-7.2.6-lcos5` (NOT pushed) |
+| **Unsigned Release** (in tree) | `…/apt/dists/excalibur/Release` |
+| **Unsigned Release** (attach copy) | `/workspace/LCOS-excalibur-Release-llk-lcos7-UNSIGNED` |
+| Local git branch | `staging-llk-7.2.6-lcos7` (NOT pushed) |
 
-Base: LCOS 0.6 overlay pool + indexes, with LLK trio replaced **lcos4 → lcos5**.
+Base: live `BryanLunduke/lcosrepo1` master (LLK lcos5) with LLK trio replaced **lcos5 → lcos7**.
 `InRelease` / `Release.gpg` removed — editor must re-sign.
 
 **Not** included: `linux-libc-dev` (would conflict with Distro; not needed for LLK boot).
@@ -32,16 +36,17 @@ Base: LCOS 0.6 overlay pool + indexes, with LLK trio replaced **lcos4 → lcos5*
 
 | Package | Version | Arch | Bytes | SHA256 |
 |---------|---------|------|-------|--------|
-| linux-image-7.2.6-lunduke | 7.2.6-lcos5 | amd64 | 24543396 | 8267f48465539959d67e9a48d7f7e14199d8fc772bce4f040cd676d375b87a71 |
-| linux-headers-7.2.6-lunduke | 7.2.6-lcos5 | amd64 | 9782312 | 88b114afa6da15808ceeeb7dabb36ac6d7abe19f6cd07f46e0b1fcf7bec6e19c |
-| lunduke-linux-kernel | 7.2.6-lcos5 | all | 1476 | b7621ad2b20bff9f3c963707afc12e663b9923512198b8a4dd96477344f98255 |
+| linux-image-7.2.6-lunduke | 7.2.6-lcos7 | amd64 | 30020124 | f16d3e5c89b74dc012ef31e7f5cc10e1c36953f92bdc83c5ea1250652b6af9ed |
+| linux-headers-7.2.6-lunduke | 7.2.6-lcos7 | amd64 | 9809304 | 1997bf4355ad9d15fa2a8e3d4ee99a41d66522d28bcb2475c14486f50ba56826 |
+| lunduke-linux-kernel | 7.2.6-lcos7 | all | 1540 | dcedad08027d742ded91ccac478c666ed974a7d4bfd8a55e104e457b75f77a4d |
 
 Pool deb count: **30** (same as 0.6 overlay set; LLK versions bumped).
 
 ## Unsigned Release
 
-- Path: `/workspace/lcos-0.7-apt-staging/lcosrepo1/apt/dists/excalibur/Release`
-- SHA256: `50ede988152994f403d14d1d58279daa444f76c9c19119b169fa12d383a0b806`
+- Path (in tree): `/workspace/lcos-0.7-apt-staging/lcosrepo1/apt/dists/excalibur/Release`
+- Path (attach): `/workspace/LCOS-excalibur-Release-llk-lcos7-UNSIGNED`
+- SHA256: `0495a2573911361e8b4378afa140a1298519ae161b90921576e3fe63ee0b6e34`
 
 ## Editor signing commands
 
@@ -59,8 +64,8 @@ gpg --default-key 5A01D4BDCDD1E1531D456A7560D6E7F6CBD6D572 \
 ```
 
 Then commit+push **master** of `BryanLunduke/lcosrepo1` (or merge local branch
-`staging-llk-7.2.6-lcos5` after sign). Suggested message:
-`Publish LLK 7.2.6-lcos5 (netfilter/iptables fix) optional overlay.`
+`staging-llk-7.2.6-lcos7` after sign). Suggested message:
+`Publish LLK 7.2.6-lcos7 (HW modules: audio/Wi-Fi/BT/UVC/HID/IGC; prior netfilter+uinput) optional overlay.`
 
 **Do not push until signed.**
 
@@ -71,4 +76,4 @@ sudo apt update
 sudo apt install lunduke-linux-kernel
 ```
 
-Reboot → pick **7.2.6-lunduke** in GRUB. Then `iptables -nvL` / iptables-legacy should work.
+Reboot → pick **7.2.6-lunduke** in GRUB.

@@ -182,28 +182,29 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
 
 Package: lunduke-linux-kernel
 Architecture: all
-Version: 7.2.6-lcos5
+Version: 7.2.6-lcos7
 Priority: optional
 Section: metapackages
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 28
-Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos5)
-Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos5)
-Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos5_all.deb
-Size: 1476
-MD5sum: 34c03fd407a252b4adbfb8d06f5b98d7
-SHA1: 2662f6189f460d6fe48d036e18019cc5d25fea8c
-SHA256: b7621ad2b20bff9f3c963707afc12e663b9923512198b8a4dd96477344f98255
-SHA512: d7f88ad5206ddf359323c5f5b4ec2eb26c46c349256dc12e136f80963d88ff034815f95b823c151e769fe2c00d29ca15e80dcb26b673df8aa3e4920725b7aaec
+Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos7)
+Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos7)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos7_all.deb
+Size: 1540
+MD5sum: fc9bc3aa763f14428183bce545770cc7
+SHA1: 7d3bfd44e505f55de6ba9092e13352b54c7d20d8
+SHA256: dcedad08027d742ded91ccac478c666ed974a7d4bfd8a55e104e457b75f77a4d
+SHA512: a300a59d4e5d17341cbe56bb8783600f9f8d168b7c8987d26fa18dc1aded5e96529db5abb8b784511f9d9ebf1aa381f57d2062bbafff920606e419bb052e2956
 Homepage: https://lunduke.com
-Description: Lunduke's Linux Kernel (optional LCOS overlay)
- Lunduke's Linux Kernel — optional alternate kernel for LCOS.
+Description: Lunduke's Linux Kernel for LCOS
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos7).
  .
- Installs linux-image-7.2.6-lunduke (ABI lcos5) alongside the Devuan-supplied
- kernel. Adds a GRUB/boot entry; does not remove or replace the default
- Devuan kernel. Headers are recommended for building out-of-tree modules.
+ Installs linux-image-7.2.6-lunduke. Headers are recommended for
+ building out-of-tree modules.
  .
- Not the default kernel in LCOS ISOs. Install only if you want LLK.
+ Default kernel on LCOS 0.7 ISOs (Devuan 6.x kernel removed from those
+ images). On earlier LCOS releases that still ship a Distro kernel,
+ installing this metapackage adds a GRUB entry alongside it.
 
 Package: micropolis-data
 Architecture: all
@@ -282,4 +283,3 @@ SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116a
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.
-
