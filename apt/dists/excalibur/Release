@@ -1,28 +1,32 @@
 Architectures: amd64
 Codename: excalibur
 Components: main
-Date: Fri, 09 Oct 2026 22:59:31 +0000
+Date: Sat, 10 Oct 2026 03:28:48 +0000
 Description: LCOS overlay
 Label: LCOS
 Origin: LCOS
 Suite: excalibur
 MD5Sum:
- 45c356625a318dfe397712a9aa195917            13330 main/binary-all/Packages
- 483febf7df7aef41eec4af9df5eb25eb             5831 main/binary-all/Packages.gz
- 4645f7bb7f140c7ae2ce2a32dfaf6203            34054 main/binary-amd64/Packages
- 7bd63b3baa199e352758cb491c27d6f2            12103 main/binary-amd64/Packages.gz
+ b84348a5e827376003560ba1c165defc             2366 Release
+ 794a943c983da3dd26be007d215fa725            17312 main/binary-all/Packages
+ 5e516102ea4a90e78e650436d84feac6             7071 main/binary-all/Packages.gz
+ 396b758747d257af48b8c11e73f8ca21            49358 main/binary-amd64/Packages
+ dd8bde541429009a9687d7a5637e2ff3            16691 main/binary-amd64/Packages.gz
 SHA1:
- 2057bc19915cc8ee588e38e69bbc020c1153424a            13330 main/binary-all/Packages
- 4e90562e5830ec29a171e4068393d688f98a12ff             5831 main/binary-all/Packages.gz
- 2973d395674de842e3bfb146fc2d0de2515341f9            34054 main/binary-amd64/Packages
- 519095a01446d71cc78b239632b167af697263c4            12103 main/binary-amd64/Packages.gz
+ 747ab53b24afbe24d92b3afe4c73c6f28a4d430f             2366 Release
+ 2f15000623e02cb37b38f2058f4f16010e34a610            17312 main/binary-all/Packages
+ 15da98656db3cf457f335aaf15aa491c9ee466a1             7071 main/binary-all/Packages.gz
+ d0ac4f78e5c9145b36475904e32e8c654b7ed913            49358 main/binary-amd64/Packages
+ 4e8de6b0a2d480b3c048d247c1c1f3a8582c2e77            16691 main/binary-amd64/Packages.gz
 SHA256:
- 9fe67a310f6206c281fe194a2799969e8847af658cd507f2f87befd027f9c68c            13330 main/binary-all/Packages
- 2d640ae83e7fa42e5306e8106e0de958db38ff744ed8c130c7ba68de19b77541             5831 main/binary-all/Packages.gz
- d7e3c23f493fca02437dea00126c4f9231bcbfbb825bd5cb9ad720317d448a19            34054 main/binary-amd64/Packages
- 6f96749e211218871ed32962fbf663cb1721e364edf893f20ab3e5d8de826039            12103 main/binary-amd64/Packages.gz
+ d52bd66fe6b9e41c6b27029e05b2994386013a74168289c42a65cdb443db8494             2366 Release
+ c1292889fae2ae3eee668d4640f5f95098c7679d2888d198e91260b45b9722d0            17312 main/binary-all/Packages
+ d7e6da0eeef307fd74b1894f20b0b8aea911a854475b78c0114945e3998e4515             7071 main/binary-all/Packages.gz
+ 6e57cd67bd53940a7d0d2e16e872ac1b7171f62458c99e08539cf7cededf5ca4            49358 main/binary-amd64/Packages
+ 4e1cb8c660b67a440e644d695fe125f1bbd8c2550943c75825e4f32d56123bf1            16691 main/binary-amd64/Packages.gz
 SHA512:
- c6d25dad1733d58345ef6bc862b883c62dbe5dfcb1424985de085c798de557645efc3ab2f4a5bac2e405007e741488f3bb33c394e45c618bde512ecebf28961a            13330 main/binary-all/Packages
- 50b5a3f0d4045c0ab9334824c3885568060aedc2ed836fe72221102519d17f3af98ebfee27671656e41dbcbf22f397ec91d4b1289296158dc9d7d573a432baaa             5831 main/binary-all/Packages.gz
- 39a01da976b977b48ef70052cff5290ee70e3c88cb3462c724ddc1be28de75d7c8acb38f434da7cabbc90019c41f97f6ae4e7259fa8e083900efcc7edcfb08a7            34054 main/binary-amd64/Packages
- 66a72f68c400b828632de2f0f14c3c603c19e2bbb3f44c5634f7a5fd0bd4716ff9502ae5e95a2dfbcf5f6ef52d89f8255086d1c4b3ec5ca3bdde5aeb35047362            12103 main/binary-amd64/Packages.gz
+ 1a9a6ca1fd8c0a6874974aaf6939196facd4146112e91013e9bc531b86bd4e55148deb6164a882d9ae136c98fdab7ba50203f7967af2c725ae723ca6764a3d7f             2366 Release
+ b6ab1741a8cd3bbab7956c0b4339b4328e4f99ff06d801934e6064294ce5604eff939446600b733b153621ce175d56d608e8579dd562e100f90f3e51e4e5e1a6            17312 main/binary-all/Packages
+ 19ed0f67ce3a282e24fc8fdfc293ba86a018dc5bc03eea67afd9385086e8e610508958fec3de62fd4826797a83796be200e8360ede1de1784ee4a98ba941814b             7071 main/binary-all/Packages.gz
+ e043cd879e66c2b3a5b3ac652e0447d63b77b211c8b4cebf78e7fcc593fead405cfc87463f47244c3d2aa7e1ebeb2a1c59d5eca1dd13e6a3e3f7ae10261d9a4b            49358 main/binary-amd64/Packages
+ e1ed0d8065a8f904474ff41b67d77fc208a64a8d70624c59d66e04e89f864e6e1919ecb9132773891e224b700e6b95eeb64770e9883589ae4780b878fceb59f3            16691 main/binary-amd64/Packages.gz

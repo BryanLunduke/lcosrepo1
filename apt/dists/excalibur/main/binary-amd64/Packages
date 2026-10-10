@@ -1,3 +1,86 @@
+Package: firmware-amd-graphics
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 95023
+Filename: pool/main/f/firmware-nonfree/firmware-amd-graphics_20260810-1~bpo13+1_all.deb
+Size: 15983424
+MD5sum: 98a2746b27a53fbf0555da9f0fdcd6db
+SHA1: 85379150472201870d36bfd51f00023b85b1301a
+SHA256: 1142a4da4590f3628bbefb08a3042fb9aa31b865d556ba5894cf80d9f9aa1547
+SHA512: ace5133cde85dc99bcc7ee155ee8b1f723f482d8a980b5dcd53ed91d3d230b632b40330361fdffa0c1727bc6b88caee0a46c3758a406da3048c0bed7cf76fe58
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for AMD/ATI graphics and NPU chips
+ This package contains the binary firmware for AMD/ATI graphics and NPU
+ chips supported by the radeon, amdgpu, amdxdna and r128 drivers.
+
+Package: firmware-linux-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-misc-nonfree (= 20260810-1~bpo13+1), firmware-amd-graphics (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux-nonfree_20260810-1~bpo13+1_all.deb
+Size: 86500
+MD5sum: 20be0560bd899b472c61146becceca1b
+SHA1: d13173367e56a45c91eebf84c321309d01a95d57
+SHA256: 19fa414b01dd64eeb6335a3019324a9c610286cfb3ff9535592e83a0fcdca8ff
+SHA512: c0f6418ca78c9430a0d73dc3f356a6739f80918e5e26c7cd87386c801dcd02c6b92ae4ddf8d450ab47cc0b87c03b6914621d77b51054e51d4bfa250de1baeeea
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on non-free firmware which may be used with drivers
+ in the Linux kernel.
+
+Package: firmware-linux
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-linux-free, firmware-linux-nonfree (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux_20260810-1~bpo13+1_all.deb
+Size: 86480
+MD5sum: 9b7a300216a52832ace4a4d4f6e51611
+SHA1: c3d5de10777e0383f9c09bc469366eb1c7ed9f4d
+SHA256: 7fb08c1ad5e0564f7f4ced5c9cdf0225b4ec081eb42ebcc5ff4e3498955ce29d
+SHA512: 36be1566896a9e561d2a8a73d10a44520e085991c11a864b925b1d88b2eae6324a58e82c5cb73b19e7062d16f309eb03089238ff36420b2e6ac677735f311c2c
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on both free and non-free firmware which may be used
+ with drivers in the Linux kernel.
+
+Package: firmware-misc-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 20344
+Suggests: firmware-nvidia-graphics, firmware-intel-graphics, firmware-intel-misc, firmware-mediatek
+Conflicts: firmware-ti-connectivity (<< 20230625-3~)
+Filename: pool/main/f/firmware-nonfree/firmware-misc-nonfree_20260810-1~bpo13+1_all.deb
+Size: 5814768
+MD5sum: a52cec515fd6d3a2dcf1e241c7d4362f
+SHA1: 3ea668ddfde3375456a0b1025364f6dcbbf4433c
+SHA256: 647909b648e55e290bc0fdcd6639dba1754c53296221209273aa89f77a8041d8
+SHA512: 507004d3f6a87fb3f2bc0cba39ee1819fed435fd9de5a6e942d8fd0722f50849de88a6de0147a8c16880068c89b8cd053ba45d664261149f115c4f67ab58ca9a
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for various drivers in the Linux kernel
+ This package contains the binary firmware for various drivers in the Linux
+ kernel.  This is a collection of firmware blobs which are not individually
+ large enough to warrant a standalone package.
+
 Package: lcos-appimage-thumbnailer
 Architecture: all
 Version: 0.9.1-1
@@ -377,6 +460,234 @@ Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
  Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
  Look and feel: classic MS Paint plus KolourPaint, with user layers
  and a visible history list. Native project format is OpenRaster (.ora).
+
+Package: libegl-mesa0
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 472
+Provides: libegl-vendor
+Depends: libgbm1 (= 26.1.6-1~bpo13+1), mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libwayland-client0 (>= 1.23.0), libx11-6, libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6)
+Filename: pool/main/m/mesa/libegl-mesa0_26.1.6-1~bpo13+1_amd64.deb
+Size: 139132
+MD5sum: 2989b038c3aa17cf93ed537cf1681499
+SHA1: f0989e450b6d6a1d5a7826e0829139a01896a7f7
+SHA256: 0d175df6a4fac09eeedfaa9326da1c05c0e8a1911aa413281eb3e3a64ec09b28
+SHA512: babe3ed737491df0b6ea27f1be2cf0e1b0787f2afcdfe488fea9c6ad3f21f1c5517c74644d0c8a982dd74e0a5be868bd6ea5fd4cd1a4a4f7b92ea1b3b7d4a6b8
+Homepage: https://mesa3d.org/
+Description: free implementation of the EGL API -- Mesa vendor library
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package contains the Mesa vendor library for EGL.
+
+Package: libgbm1
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 207
+Depends: mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4)
+Filename: pool/main/m/mesa/libgbm1_26.1.6-1~bpo13+1_amd64.deb
+Size: 61528
+MD5sum: b0427ff9cc445417e9c71ddcd07e20ea
+SHA1: 44527ab7d939cac595ee618be9b6d9984b1521fc
+SHA256: cfe9a2d49fe55618f921e7ca02e41241376ba843d598f209bfbb65e6058c49a8
+SHA512: dc846e7376713c8c04ea45b0a35f910346b7108e2c0d1b4581c45d0a622c5204886437cad42341466aee717f76037f4b2e3c5fded96343fb0f33a7014a520091
+Homepage: https://mesa3d.org/
+Description: generic buffer management API -- runtime
+ This package contains the GBM buffer management library.  It provides a
+ mechanism for allocating buffers for graphics rendering tied to Mesa.
+ .
+ GBM is intended to be used as a native platform for EGL on drm or openwfd.
+
+Package: libgl1-mesa-dri
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 299
+Depends: libgbm1 (= 26.1.6-1~bpo13+1), libvulkan1, libc6 (>= 2.34)
+Filename: pool/main/m/mesa/libgl1-mesa-dri_26.1.6-1~bpo13+1_amd64.deb
+Size: 51404
+MD5sum: 2f0e2aa17740c7100065c7199d2035b1
+SHA1: 50ce9aacbe6af8602a00b1cdb8171a7b6642f554
+SHA256: 489f584bab1b3dcf09928a6e918e84c33296340f778286efde6d47357de800c1
+SHA512: 8d0f9c230539957091bc639c43804d95bb729af71dbd1595910164df1a833baa82c92b76fc5bc7e8c033ce069e0ff81f6453e2fef4b08987218b8b84ff773624
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenGL API -- DRI modules
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the OpenGL library itself, only the DRI
+ modules for accelerating direct rendering.
+ .
+ For a complete description of Mesa, please look at the
+ libglx-mesa0 package.
+
+Package: libglx-mesa0
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 433
+Provides: libglx-vendor
+Depends: libgl1-mesa-dri, mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libx11-6 (>= 2:1.4.99.1), libx11-xcb1, libxcb-dri3-0, libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-shm0, libxcb-xfixes0, libxcb1, libxext6, libxxf86vm1
+Breaks: glx-diversions (<< 0.8.4~), libopengl-perl (<< 0.6704+dfsg-2)
+Filename: pool/main/m/mesa/libglx-mesa0_26.1.6-1~bpo13+1_amd64.deb
+Size: 131680
+MD5sum: 95b2fc20bf60fbd51beb7ea88dd99ed5
+SHA1: 7ba28b386a4bc4afde0070f4cfcd44761fb7fd85
+SHA256: d6997367ca79b56b882f77d859f73b075c29c975f0f5ead667269eb48cc733be
+SHA512: 4c6377c77b13b70a2fb803b09f3de78ee4e4ca310d9f72179ac4c38f3a9c7903defe502703b1e2114149eb3e43009bb0b2b5718840b1b56a7c2fa47c48fe15e2
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenGL API -- GLX vendor library
+ Mesa is a 3-D graphics library with an API which is very similar to
+ that of OpenGL.  To the extent that Mesa utilizes the OpenGL command
+ syntax or state machine, it is being used with authorization from
+ Silicon Graphics, Inc.  However, the authors make no claim that Mesa
+ is in any way a compatible replacement for OpenGL or associated with
+ Silicon Graphics, Inc.
+ .
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the modules themselves: these can be found
+ in the libgl1-mesa-dri package.
+
+Package: mesa-libgallium
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 47757
+Provides: libglapi-mesa, mesa-va-drivers, mesa-vdpau-drivers, va-driver
+Depends: libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.124-1), libdrm-intel1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libllvm19 (>= 1:19.1.0), libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Breaks: mesa-va-drivers (<< 25.2.8-3), mesa-vdpau-drivers (<< 25.2.8-3)
+Replaces: mesa-va-drivers (<< 25.2.8-3), mesa-vdpau-drivers (<< 25.2.8-3)
+Enhances: libva2
+Filename: pool/main/m/mesa/mesa-libgallium_26.1.6-1~bpo13+1_amd64.deb
+Size: 11073632
+MD5sum: 53937bd95a790d902154426a8fa5f8e5
+SHA1: d4e5ea4891a1c20903e4fa730c5ea481b32541e8
+SHA256: 059b19b15ed2fc684e9c03449a4821de0470fe791b947c5d10d4605da1804ac1
+SHA512: 21b2138a474f3fad4a696b37af30120e261839d1ad10370e0833cbc8748ba88c480a856f562791575006c83bf6cda057c9b24fd551b3bf021279c6d572d185bb
+Homepage: https://mesa3d.org/
+Description: shared infrastructure for Mesa drivers
+ This package contains libgallium, a private library shared between
+ multiple Mesa drivers. This library is an implementation detail of Mesa
+ and should not be used directly by user code.
+
+Package: mesa-opencl-icd
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 45134
+Provides: opencl-icd
+Depends: libclc-19, ocl-icd-libopencl1 | libopencl1, libc6 (>= 2.38), libclang-cpp19 (>= 1:19.1.7), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libllvm19 (>= 1:19.1.0), libllvmspirvlib19.1, libstdc++6 (>= 11), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Filename: pool/main/m/mesa/mesa-opencl-icd_26.1.6-1~bpo13+1_amd64.deb
+Size: 10144444
+MD5sum: 5e3abdc3b13e92c1d012a96d9818a34a
+SHA1: b25933d53372af8e018cd58c29b4cb760466f380
+SHA256: 1adb18bc0b7f54f9bc8039263251f394cdc395c6beaa2637b84c4050f3f29f33
+SHA512: 42480586b35edee3530fd9124e2000dfb1db655761b54a01dcf15cb030023a05ff6f5b212ff21eb24e1822e29ec48593bc8c70761e66b5cfa54fd991037d65b6
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenCL API -- ICD runtime
+ This package contains the mesa implementation of the OpenCL (Open Compute
+ Language) library, which is intended for use with an ICD loader. OpenCL
+ provides a standardized interface for computational analysis on graphical
+ processing units.
+
+Package: mesa-va-drivers
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: oldlibs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 41
+Depends: mesa-libgallium (>= 26.1.6-1~bpo13+1)
+Filename: pool/main/m/mesa/mesa-va-drivers_26.1.6-1~bpo13+1_amd64.deb
+Size: 21856
+MD5sum: c181242c24f0f0f9936faf5d450ed25a
+SHA1: 8ba2297482c6df87dae4c8a4d0faffc06378385e
+SHA256: fa5deed6639ddd0799579ddcd941541013434d5bd5da8f78a85a182d6d5577e1
+SHA512: 2c3a481640218f6f3a992acb8e763ffc75e12ffab481092e704988e1b4feb54464edc1473cacbefd2f25ed873fe268f3933fde916462fa8dbd132015442d64cc
+Homepage: https://mesa3d.org/
+Description: Mesa VA-API graphics drivers - transitional package
+ This transitional package ensures that older versions of mesa-va-drivers
+ are replaced by mesa-libgallium during upgrades.
+ .
+ This is a transitional dummy package, it can be safely removed.
+
+Package: mesa-vdpau-drivers
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: oldlibs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 41
+Depends: mesa-libgallium (>= 26.1.6-1~bpo13+1)
+Filename: pool/main/m/mesa/mesa-vdpau-drivers_26.1.6-1~bpo13+1_amd64.deb
+Size: 21860
+MD5sum: e91ab90612c7ace2d59834df1cd2015f
+SHA1: 1f1dd6810af21c05c99c8ad0d2c12d8f35f9f020
+SHA256: 98b03a505d1357b8faf2b3b0003776fe78660d8b8d3486eb870b8d110e4d8cb7
+SHA512: c7c724b3e0dd60ab080baf2fbf35491cd765ed1db94d5cc71fc0c931177a1ca5d461178032be38b2bc7ccd8283534266174497c078a644464d60beb7a04904aa
+Homepage: https://mesa3d.org/
+Description: Mesa VDPAU graphics drivers - transitional package
+ This transitional package ensures that older versions of mesa-vdpau-drivers
+ are replaced by mesa-libgallium during upgrades.
+ .
+ This is a transitional dummy package, it can be safely removed.
+
+Package: mesa-vulkan-drivers
+Architecture: amd64
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 131618
+Provides: vulkan-icd
+Depends: libvulkan1, libc6 (>= 2.39), libdisplay-info2 (>= 0.2.0), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libllvm19 (>= 1:19.1.0), libpng16-16t64 (>= 1.6.46), libstdc++6 (>= 13.1), libwayland-client0 (>= 1.23.0), libx11-xcb1, libxcb-dri3-0 (>= 1.17.0), libxcb-present0 (>= 1.17.0), libxcb-randr0 (>= 1.13), libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Filename: pool/main/m/mesa/mesa-vulkan-drivers_26.1.6-1~bpo13+1_amd64.deb
+Size: 19718352
+MD5sum: 9a95af29e7c555dc4fdde77664b2bcb6
+SHA1: 9bf004c7551bb5f76846583ccd9b213f83b8e1a7
+SHA256: e2d4a843b8c55ed17c1e8856805f67b553b013b6ce5f15faeec4db7d4d38ff90
+SHA512: 2b421538bc20ba9164598b895fd0583ce6b47055713e6d3f3f01f47747fd4a1243ace65cb349bd9647326ff9d1947d284c7c876e02bb3e718b46857ae899deba
+Homepage: https://mesa3d.org/
+Description: Mesa Vulkan graphics drivers
+ Vulkan is a low-overhead 3D graphics and compute API. This package
+ includes Vulkan drivers provided by the Mesa project.
 
 Package: xlibre-x11-common
 Architecture: all

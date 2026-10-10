@@ -1,3 +1,86 @@
+Package: firmware-amd-graphics
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 95023
+Filename: pool/main/f/firmware-nonfree/firmware-amd-graphics_20260810-1~bpo13+1_all.deb
+Size: 15983424
+MD5sum: 98a2746b27a53fbf0555da9f0fdcd6db
+SHA1: 85379150472201870d36bfd51f00023b85b1301a
+SHA256: 1142a4da4590f3628bbefb08a3042fb9aa31b865d556ba5894cf80d9f9aa1547
+SHA512: ace5133cde85dc99bcc7ee155ee8b1f723f482d8a980b5dcd53ed91d3d230b632b40330361fdffa0c1727bc6b88caee0a46c3758a406da3048c0bed7cf76fe58
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for AMD/ATI graphics and NPU chips
+ This package contains the binary firmware for AMD/ATI graphics and NPU
+ chips supported by the radeon, amdgpu, amdxdna and r128 drivers.
+
+Package: firmware-linux-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-misc-nonfree (= 20260810-1~bpo13+1), firmware-amd-graphics (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux-nonfree_20260810-1~bpo13+1_all.deb
+Size: 86500
+MD5sum: 20be0560bd899b472c61146becceca1b
+SHA1: d13173367e56a45c91eebf84c321309d01a95d57
+SHA256: 19fa414b01dd64eeb6335a3019324a9c610286cfb3ff9535592e83a0fcdca8ff
+SHA512: c0f6418ca78c9430a0d73dc3f356a6739f80918e5e26c7cd87386c801dcd02c6b92ae4ddf8d450ab47cc0b87c03b6914621d77b51054e51d4bfa250de1baeeea
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on non-free firmware which may be used with drivers
+ in the Linux kernel.
+
+Package: firmware-linux
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-linux-free, firmware-linux-nonfree (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux_20260810-1~bpo13+1_all.deb
+Size: 86480
+MD5sum: 9b7a300216a52832ace4a4d4f6e51611
+SHA1: c3d5de10777e0383f9c09bc469366eb1c7ed9f4d
+SHA256: 7fb08c1ad5e0564f7f4ced5c9cdf0225b4ec081eb42ebcc5ff4e3498955ce29d
+SHA512: 36be1566896a9e561d2a8a73d10a44520e085991c11a864b925b1d88b2eae6324a58e82c5cb73b19e7062d16f309eb03089238ff36420b2e6ac677735f311c2c
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on both free and non-free firmware which may be used
+ with drivers in the Linux kernel.
+
+Package: firmware-misc-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 20344
+Suggests: firmware-nvidia-graphics, firmware-intel-graphics, firmware-intel-misc, firmware-mediatek
+Conflicts: firmware-ti-connectivity (<< 20230625-3~)
+Filename: pool/main/f/firmware-nonfree/firmware-misc-nonfree_20260810-1~bpo13+1_all.deb
+Size: 5814768
+MD5sum: a52cec515fd6d3a2dcf1e241c7d4362f
+SHA1: 3ea668ddfde3375456a0b1025364f6dcbbf4433c
+SHA256: 647909b648e55e290bc0fdcd6639dba1754c53296221209273aa89f77a8041d8
+SHA512: 507004d3f6a87fb3f2bc0cba39ee1819fed435fd9de5a6e942d8fd0722f50849de88a6de0147a8c16880068c89b8cd053ba45d664261149f115c4f67ab58ca9a
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for various drivers in the Linux kernel
+ This package contains the binary firmware for various drivers in the Linux
+ kernel.  This is a collection of firmware blobs which are not individually
+ large enough to warrant a standalone package.
+
 Package: lcos-appimage-thumbnailer
 Architecture: all
 Version: 0.9.1-1
