@@ -1,0 +1,611 @@
+Package: firmware-amd-graphics
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 95023
+Filename: pool/main/f/firmware-nonfree/firmware-amd-graphics_20260810-1~bpo13+1_all.deb
+Size: 15983424
+MD5sum: 98a2746b27a53fbf0555da9f0fdcd6db
+SHA1: 85379150472201870d36bfd51f00023b85b1301a
+SHA256: 1142a4da4590f3628bbefb08a3042fb9aa31b865d556ba5894cf80d9f9aa1547
+SHA512: ace5133cde85dc99bcc7ee155ee8b1f723f482d8a980b5dcd53ed91d3d230b632b40330361fdffa0c1727bc6b88caee0a46c3758a406da3048c0bed7cf76fe58
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for AMD/ATI graphics and NPU chips
+ This package contains the binary firmware for AMD/ATI graphics and NPU
+ chips supported by the radeon, amdgpu, amdxdna and r128 drivers.
+
+Package: firmware-linux-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-misc-nonfree (= 20260810-1~bpo13+1), firmware-amd-graphics (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux-nonfree_20260810-1~bpo13+1_all.deb
+Size: 86500
+MD5sum: 20be0560bd899b472c61146becceca1b
+SHA1: d13173367e56a45c91eebf84c321309d01a95d57
+SHA256: 19fa414b01dd64eeb6335a3019324a9c610286cfb3ff9535592e83a0fcdca8ff
+SHA512: c0f6418ca78c9430a0d73dc3f356a6739f80918e5e26c7cd87386c801dcd02c6b92ae4ddf8d450ab47cc0b87c03b6914621d77b51054e51d4bfa250de1baeeea
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on non-free firmware which may be used with drivers
+ in the Linux kernel.
+
+Package: firmware-linux
+Architecture: all
+Version: 20260810-1~bpo13+1
+Priority: optional
+Section: non-free-firmware/metapackages
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 453
+Depends: firmware-linux-free, firmware-linux-nonfree (= 20260810-1~bpo13+1)
+Recommends: intel-microcode, amd64-microcode
+Filename: pool/main/f/firmware-nonfree/firmware-linux_20260810-1~bpo13+1_all.deb
+Size: 86480
+MD5sum: 9b7a300216a52832ace4a4d4f6e51611
+SHA1: c3d5de10777e0383f9c09bc469366eb1c7ed9f4d
+SHA256: 7fb08c1ad5e0564f7f4ced5c9cdf0225b4ec081eb42ebcc5ff4e3498955ce29d
+SHA512: 36be1566896a9e561d2a8a73d10a44520e085991c11a864b925b1d88b2eae6324a58e82c5cb73b19e7062d16f309eb03089238ff36420b2e6ac677735f311c2c
+Description: Binary firmware for various drivers in the Linux kernel (metapackage)
+ This package depends on both free and non-free firmware which may be used
+ with drivers in the Linux kernel.
+
+Package: firmware-misc-nonfree
+Architecture: all
+Version: 20260810-1~bpo13+1
+Multi-Arch: foreign
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-nonfree
+Maintainer: Debian Kernel Team <debian-kernel@lists.debian.org>
+Installed-Size: 20344
+Suggests: firmware-nvidia-graphics, firmware-intel-graphics, firmware-intel-misc, firmware-mediatek
+Conflicts: firmware-ti-connectivity (<< 20230625-3~)
+Filename: pool/main/f/firmware-nonfree/firmware-misc-nonfree_20260810-1~bpo13+1_all.deb
+Size: 5814768
+MD5sum: a52cec515fd6d3a2dcf1e241c7d4362f
+SHA1: 3ea668ddfde3375456a0b1025364f6dcbbf4433c
+SHA256: 647909b648e55e290bc0fdcd6639dba1754c53296221209273aa89f77a8041d8
+SHA512: 507004d3f6a87fb3f2bc0cba39ee1819fed435fd9de5a6e942d8fd0722f50849de88a6de0147a8c16880068c89b8cd053ba45d664261149f115c4f67ab58ca9a
+Homepage: https://gitlab.com/kernel-firmware/linux-firmware
+Description: Binary firmware for various drivers in the Linux kernel
+ This package contains the binary firmware for various drivers in the Linux
+ kernel.  This is a collection of firmware blobs which are not individually
+ large enough to warrant a standalone package.
+
+Package: lcos-appimage-thumbnailer
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: utils
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 44
+Depends: python3, python3-gi, python3-pyelftools, gir1.2-gdkpixbuf-2.0, squashfs-tools, tumbler
+Filename: pool/main/l/lcos-appimage-thumbnailer/lcos-appimage-thumbnailer_0.9.2-1_all.deb
+Size: 3388
+MD5sum: c9df84940ab5c617a49f297b669d68a2
+SHA1: 4ca8803eca5a35483b1fccb971d07f8ff5f753c8
+SHA256: aab1456f451605d0a8b5534f0ca2105ade4805bafe620c59cff101cf67fd18b5
+SHA512: c00385a37ed4c70a01c11b44968e15eb7fedc6160a05ce6a3b7d7eff8852aca3454c1cb6fd42308901e6bc6a46a67cca4434a6efb04a98c76fd64fed4340efd9
+Homepage: https://lunduke.com
+Description: AppImage icon thumbnails for Thunar and XFCE desktop
+ Freedesktop thumbnailer that extracts .DirIcon from Type-2 (SquashFS)
+ AppImages for tumbler. Shows per-AppImage icons in Thunar and on the
+ XFCE desktop. Does not add AppImages to application menus.
+
+Package: lcos-archive-keyring
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: misc
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 60
+Filename: pool/main/l/lcos-archive-keyring/lcos-archive-keyring_0.9.2-1_all.deb
+Size: 7404
+MD5sum: 4a62848b0d515fa08c0d217e3a63f97f
+SHA1: 5f0be4c3672a7695f7c7bf9d6cc005b65969ff4d
+SHA256: 8274ae9d331c24f86588c588ceeac14a21fe158f63b7233ee0d9d5b38faa0281
+SHA512: 4791ed4bd8afa9651a6fc8a9b3719a802bfe473e54d2c1ba0094fe507d0a98d34f6744bd838948d80aa5329574d939b0add3819ec212be905aec0fa7e493494a
+Homepage: https://lunduke.com
+Description: LCOS archive signing keyring and overlay apt source
+ Public keyring for the LCOS overlay at https://lcos.lunduke.com/apt
+ plus /etc/apt/sources.list.d/lcos-overlay.list (signed-by this key).
+ .
+ Fingerprint: 5A01 D4BD CDD1 E153 1D45  6A75 60D6 E7F6 CBD6 D572
+ UID: LCOS Archive Signing Key <lcos@lunduke.com>
+ .
+ lcos-overlay.list is not a conffile (same lesson as os-release): point
+ releases must refresh the distro overlay source without dpkg prompts.
+ Local edits may be overwritten on upgrade; add extras in another .list.
+ .
+ Unsigned package; editor signs the archive later. Do not replace this key.
+
+Package: lcos-base
+Architecture: all
+Version: 0.9.2-5
+Priority: optional
+Section: admin
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 92
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog
+Replaces: base-files
+Filename: pool/main/l/lcos-base/lcos-base_0.9.2-5_all.deb
+Size: 6656
+MD5sum: ab6e195429a8f47b70362c25e5cfe488
+SHA1: 14e43882067118d74e67553c17cdfaab58aedf6c
+SHA256: cac5c67d1eab7eb3456c37975c8a064f0820c3fd3b63ec61f47f9ee7aa03c2b9
+SHA512: 04c2cd7a87c46943f434e279dcb22e9077dc8099f6ebc658cc74ed7e4430ba11ba058117bfff9d3d9cfa316eff5025fb5a30eb4dc4b9caad81c64be21f4d0350
+Homepage: https://lunduke.com
+Description: LCOS 0.9.2 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 0.9.2 (excalibur), lcos-write-os-release,
+ and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
+ GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
+ loglevel=2).
+ .
+ AMD GPUs (0.9.2-2, #115/#118): no Xorg driver override. Xorg
+ autoselects the AMD driver as in 0.8. The 0.9/0.9.1 modesetting snippets,
+ /etc/init.d/lcos-amdgpu-ddx and /usr/lib/lcos/lcos-amdgpu-ddx are removed
+ on upgrade.
+ .
+ insserv overrides so LightDM starts after elogind/seatd
+ and /etc/init.d/plymouth no longer quits Plymouth at boot (LightDM is the
+ single Plymouth quitter; the shutdown splash is kept).
+ .
+ Depends on the overlay keyring and branding artwork.
+ 0.9.1: recommends eject (#104) and cifs-utils + keyutils (#111). From
+ 0.9.1-3 they are Recommends, not Depends, so the Updates tool's plain
+ apt-get upgrade moves 0.8 systems without holding lcos-base back.
+ 0.9.2-4: eject, cifs-utils, keyutils and gvfs-backends (Thunar SMB
+ browsing) are Depends again; 0.9.2-5 adds dialog (debconf frontend,
+ #125). Updates 0.9.2-2+ installs kept-back
+ upgrades that only add packages, so upgraders receive them.
+ Postinst re-applies identity on configure so apt upgrades overwrite
+ stale 0.4 conffile text kept by noninteractive Updates.
+
+Package: lcos-branding
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 15960
+Provides: lcos-branding
+Conflicts: lcos-branding (<< 0.7)
+Replaces: lcos-branding (<< 0.7)
+Filename: pool/main/l/lcos-branding/lcos-branding_0.9.2-1_all.deb
+Size: 8472236
+MD5sum: fcf492aa4d6979196063760de41d6ce1
+SHA1: ad3759063d63aeb80f44271d2d509ed8c644a94b
+SHA256: dac561c96852067ec4400feecf8b8ba993479c4ed389777e5155eb226195039f
+SHA512: 295b833bd6f9c3d7d2eefef961af7f803233aca4f8da7334ea2727a8d353b8e048dc2a0f81f9e50b9542489ec415dfdbd9ab52a57d28597af0935d4adacca6fd
+Homepage: https://lunduke.com
+Description: LCOS 0.9.2 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 0.9.2 artwork: stock wallpaper (jpg/png), synthwave nebula-grid, 4K wood
+ backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
+ Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
+ greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
+ no longer quits Plymouth, LightDM does). postinst sets Theme=lcos when
+ plymouth is present.
+ Replaces old lcos-branding 1.0-2 / 0.2.0 (bw-720 + lcos32 only).
+
+Package: lcos-desktop-config
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 368
+Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
+Recommends: elementary-xfce-icon-theme, gtk2-engines
+Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.2-1_all.deb
+Size: 23496
+MD5sum: e8304e0b7af671644bbb8d2a63d97bb8
+SHA1: 38509067d3f014a65920881afbcd3488dee43c1e
+SHA256: a6fbe77c6dfbda8c0d896eeab60a213b6ab0b5cddcfeb3ae3ad5d96581ac59fa
+SHA512: e98d7f34ba25e8734ad4b4ac2fd0198041a2b2e5becf3489dd37a2bba09f4a8831c3e077baf2c7a908b91b40c8b9b1b6821b137ceca2fbff1197743e2054e10c
+Homepage: https://lunduke.com
+Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
+ System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
+ applications menu, wallpaper first-login seed (no overwrite), Hidden stock
+ helper .desktop overrides, Science directory hide, and Cool Retro Term
+ as the XFCE terminal helper. Games uses the lunduke-city package's
+ desktop file for Lunduke City; this package only hides stock Micropolis
+ if needed (usr/local/share/applications/micropolis.desktop).
+ .
+ Live-only installer bits are not included.
+
+Package: lcos-desktop
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: metapackages
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 28
+Depends: lcos-base (>= 0.7), lcos-desktop-config (>= 0.7), lcos-theme-clearlooks (>= 0.7), plymouth, libplymouth5, pulseaudio, pulseaudio-utils, pavucontrol, xfce4-pulseaudio-plugin, alsa-utils, xfce4-power-manager, xfce4-power-manager-plugins, upower, lcos-appimage-thumbnailer (>= 0.7), tumbler
+Recommends: xfce4, lightdm, lightdm-gtk-greeter, elementary-xfce-icon-theme, gtk2-engines, lcos-zork, micropolis, lunduke-paint
+Filename: pool/main/l/lcos-desktop/lcos-desktop_0.9.2-1_all.deb
+Size: 1984
+MD5sum: ab031a78acdbd9662dfc1f4e03f32119
+SHA1: 5f9843868051853511a93ea0e55858a569858743
+SHA256: 5c9e31060862e5f2180b9ca1a265d81b64982720d50b83304985bf38f84c2fd0
+SHA512: c6bce69fc5ba8fb45583d74019d1e5e2d07241729cbc526610ce74f8a4967620165f23a5cbb08d38f82274024e10461f525508444f454b4f8d78ad8cd67a5694
+Homepage: https://lunduke.com
+Description: LCOS XFCE desktop edition metapackage
+ Pulls LCOS identity, XFCE look, and Clearlooks. Depends on
+ Plymouth, PulseAudio/ALSA stack, XFCE power manager, and AppImage
+ thumbnailer/tumbler so upgrades get boot splash and media bits. Recommends
+ the XFCE/LightDM stack plus Zork, Micropolis, and Lunduke Paint. Does not
+ depend on Calamares or live-config installer bits.
+
+Package: lcos-theme-clearlooks
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: x11
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 1240
+Recommends: gtk2-engines
+Filename: pool/main/l/lcos-theme-clearlooks/lcos-theme-clearlooks_0.9.2-1_all.deb
+Size: 86024
+MD5sum: 24ff9e172772b0455306702f5f6a5dde
+SHA1: 9e0e314f5cbd01490b54a6ad2dc17d8b2d8942b2
+SHA256: 12a425263260d1450ab0f657c8aae66ebcaee012db72bff76dfdbc21e2721ca3
+SHA512: a659f3413a69847259d30cd0acbd56a1dd876f70a0147560939b754c2da06b896ac5a418844b37a10ef688d8f169f0290b61406bb76d10f6bfdc29c787baa537
+Homepage: https://lunduke.com
+Description: Clearlooks and Clearlooks-Phenix themes for LCOS
+ Vendored Clearlooks (xfwm4) and Clearlooks-Phenix (GTK2/3 + xfwm4)
+ theme trees used by the LCOS XFCE desktop.
+
+Package: lcos-zork
+Architecture: all
+Version: 0.9.2-1
+Priority: optional
+Section: games
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 324
+Depends: frotz, cool-retro-term
+Filename: pool/main/l/lcos-zork/lcos-zork_0.9.2-1_all.deb
+Size: 156648
+MD5sum: 5245c085bdaeb8c3a49bc927ed390c75
+SHA1: d5fa1c0fd74d004542ee3bc7e4af724a9867426e
+SHA256: 9078ed553e8eeabf1547fa734f169eac549a084bc15f4d344c479cfa932993f7
+SHA512: 1a6d6e62d762fae06ae0a8b6fa78577d0517b28d2469a9effd408494200ea343c907519d98aef9559b9532830c985d3a19f4469bb49a60dc6b8e4947a46c9ae1
+Homepage: https://lunduke.com
+Description: Zork I–III for LCOS (frotz + Cool Retro Term)
+ Story files zork{1,2,3}.z3 plus desktop launchers that open each game
+ in cool-retro-term running frotz.
+
+Package: lunduke-linux-kernel
+Architecture: all
+Version: 7.2.6-lcos19
+Priority: optional
+Section: metapackages
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 28
+Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos19)
+Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos19)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos19_all.deb
+Size: 2624
+MD5sum: e364d7a9f66372ebfc75b90ecb070ff6
+SHA1: 55d63ffd7ae379cf5065e0f56c2b3178aeaa1a4f
+SHA256: 6080ff2025b9c9c3976bcef8f1b89da0331ae1a8bc9cbfd1696c7cab7f419578
+SHA512: 7c94d35f2ad64b7cb2e3457b7d6b6231a7f1bc31cae61d6cf88fadf920d7509f8512fb35cbb8e83e6987795976ac0fdf02049e947eb0ec62433192f75abfbe8b
+Homepage: https://lunduke.com
+Description: Lunduke's Linux Kernel for LCOS
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos19).
+ .
+ Installs linux-image-7.2.6-lunduke. Headers are recommended for
+ building out-of-tree modules.
+ .
+ lcos19 adds, on lcos18 (LCOS#115/#118 AMD audit vs Ubuntu generic):
+ radeon (pre-GCN Radeons, CIK fallback), vga_switcheroo, DC for SI,
+ amdgpu userptr and HSA/KFD, compressed firmware loading, AMD platform
+ GPIO/I2C (piix4), devfreq. See docs/amdgpu-audit-lcos19.md.
+ .
+ lcos18 adds, on frozen lcos17: dm-crypt with AES-NI/XTS/ESSIV and
+ the AF_ALG skcipher/hash interfaces for LUKS disk encryption
+ (LCOS#123), UHID for Bluetooth LE mice and keyboards (LCOS#120), and
+ Synaptics RMI4 F11/F3A touchpad functions (LCOS#121).
+ .
+ lcos17 added the SMB2/SMB3 network file system client on
+ lcos16: cifs (CONFIG_CIFS=m, CONFIG_CIFS_XATTR=y, LCOS#111), so
+ Windows, Samba, and NAS shares mount with cifs-utils. SMB1 legacy
+ dialects (CIFS_ALLOW_INSECURE_LEGACY), SMB Direct, and the ksmbd
+ server stay off. Rust left off (No Forced Rust). No firmware blob is
+ included. Proprietary NVIDIA is not included.
+ .
+ LCOS 0.8 ISOs shipped 7.2.6-lcos12; that config stays frozen.
+ lcos13 through lcos17 stay frozen. This package is the
+ lcos18 revision of the same linux-image-7.2.6-lunduke name. On earlier
+ LCOS releases that still ship a Distro kernel, installing this
+ metapackage adds a GRUB entry alongside it.
+
+Package: libegl-mesa0
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 402
+Provides: libegl-vendor
+Depends: libgbm1 (= 26.1.6-1~bpo13+1), mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libwayland-client0 (>= 1.23.0), libx11-6, libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0 (>= 1.3), libxcb-shm0, libxcb-xfixes0, libxcb1 (>= 1.6)
+Filename: pool/main/m/mesa/libegl-mesa0_26.1.6-1~bpo13+1_i386.deb
+Size: 138116
+MD5sum: 0858f026cb8eb217bc85af596de1e298
+SHA1: 80662d7dbe0b44531f9675925771310fc4b57097
+SHA256: 2f3fae85839fd6edb67217c9f5c83261791432acc0b555b54f2846e3120bb647
+SHA512: 28f2aba906909432d6c9fd62fd22df3e487ab8d65b5abead4d2d39a4fda455175921e42e9ed599b5231a975d70d39b4df8f942d78a53b579665fb5f60d6724ae
+Homepage: https://mesa3d.org/
+Description: free implementation of the EGL API -- Mesa vendor library
+ This package contains the EGL native platform graphics interface library.
+ EGL provides a platform-agnostic mechanism for creating rendering surfaces
+ for use with other graphics libraries, such as OpenGL|ES.
+ .
+ This package contains the Mesa vendor library for EGL.
+
+Package: libgbm1
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 141
+Depends: mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4)
+Filename: pool/main/m/mesa/libgbm1_26.1.6-1~bpo13+1_i386.deb
+Size: 56188
+MD5sum: 62a67053fc2211a68f8809baeea2b462
+SHA1: 0dd899f11ff3984d42e04e344b464199dc4d1faa
+SHA256: 14798a3f68cddccf2425aadeef0165a0ff4e34497082e4c9e900e55bfa51f794
+SHA512: 80e514d052b8013857cc6cc582ef2408574c9e8bc575f7b4b0a11b33909b900cd0f3463d3d27d681c51cea9865ed64ef017eaebe558362e368ed05a0c583a67f
+Homepage: https://mesa3d.org/
+Description: generic buffer management API -- runtime
+ This package contains the GBM buffer management library.  It provides a
+ mechanism for allocating buffers for graphics rendering tied to Mesa.
+ .
+ GBM is intended to be used as a native platform for EGL on drm or openwfd.
+
+Package: libgl1-mesa-dri
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 273
+Depends: libgbm1 (= 26.1.6-1~bpo13+1), libvulkan1, libc6 (>= 2.34), libgcc-s1 (>= 3.0)
+Filename: pool/main/m/mesa/libgl1-mesa-dri_26.1.6-1~bpo13+1_i386.deb
+Size: 49580
+MD5sum: 19f7f8df8022b18a1625f57a7b4e689b
+SHA1: 544d16601e4d361fe68f3ceba78716e20c259603
+SHA256: 375c538df22e86bc2b6206af7be608b557e72dfc854d2fb58740affa4016ac91
+SHA512: 0aa1c3f27e8245b4e0c8d0c9f393bc24193e6f194b0cdf8c7feab2397b5a54c4d23ac0c1c8001d2de2c421172c386b13ad4ba2dcb13b1b3602adb720fc56aac1
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenGL API -- DRI modules
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the OpenGL library itself, only the DRI
+ modules for accelerating direct rendering.
+ .
+ For a complete description of Mesa, please look at the
+ libglx-mesa0 package.
+
+Package: libglx-mesa0
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 383
+Provides: libglx-vendor
+Depends: libgl1-mesa-dri, mesa-libgallium (= 26.1.6-1~bpo13+1), libc6 (>= 2.38), libdrm2 (>= 2.4.124-1), libexpat1 (>= 2.0.1), libgcc-s1 (>= 3.4), libx11-6 (>= 2:1.4.99.1), libx11-xcb1, libxcb-dri3-0, libxcb-glx0 (>= 1.8), libxcb-present0, libxcb-shm0, libxcb-xfixes0, libxcb1, libxext6, libxxf86vm1
+Breaks: glx-diversions (<< 0.8.4~), libopengl-perl (<< 0.6704+dfsg-2)
+Filename: pool/main/m/mesa/libglx-mesa0_26.1.6-1~bpo13+1_i386.deb
+Size: 129196
+MD5sum: 4d39c225350abf8225fc0ddfa11dbb4c
+SHA1: 2bbb90be4a824fc146bed1e4ab8f491ffe55bf20
+SHA256: 464d70f4bd3a55be7c4a3a0341857a263c101c0df87c8496c11443a10af9a2b4
+SHA512: d7da5e9f9e94ae1c7bf00fff2d75d7ecfc6753def426512296553fa997b0b19ced0e356e3533633cdf7e97905814b5b8bcd635e3276512544e2ca66c1b86ed65
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenGL API -- GLX vendor library
+ Mesa is a 3-D graphics library with an API which is very similar to
+ that of OpenGL.  To the extent that Mesa utilizes the OpenGL command
+ syntax or state machine, it is being used with authorization from
+ Silicon Graphics, Inc.  However, the authors make no claim that Mesa
+ is in any way a compatible replacement for OpenGL or associated with
+ Silicon Graphics, Inc.
+ .
+ This version of Mesa provides GLX and DRI capabilities: it is capable of
+ both direct and indirect rendering.  For direct rendering, it can use DRI
+ modules from the libgl1-mesa-dri package to accelerate drawing.
+ .
+ This package does not include the modules themselves: these can be found
+ in the libgl1-mesa-dri package.
+
+Package: mesa-libgallium
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 49593
+Provides: libglapi-mesa, mesa-va-drivers, mesa-vdpau-drivers, va-driver
+Depends: libc6 (>= 2.38), libdrm-amdgpu1 (>= 2.4.124-1), libdrm-intel1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 7), libllvm19 (>= 1:19.1.0), libsensors5 (>= 1:3.5.0), libstdc++6 (>= 11), libx11-xcb1, libxcb-dri3-0 (>= 1.13), libxcb-present0, libxcb-randr0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Breaks: mesa-va-drivers (<< 25.2.8-3), mesa-vdpau-drivers (<< 25.2.8-3)
+Replaces: mesa-va-drivers (<< 25.2.8-3), mesa-vdpau-drivers (<< 25.2.8-3)
+Enhances: libva2
+Filename: pool/main/m/mesa/mesa-libgallium_26.1.6-1~bpo13+1_i386.deb
+Size: 11389156
+MD5sum: 444d3673efb98f89b0d3016ce96a9fac
+SHA1: 7490cb10603d2269cac812a4b6f93728b272a5c4
+SHA256: 5e609f310e4a7903a2747565587af5a7b013f1bc3c791cfbecd55fb518d22d54
+SHA512: 3fd94e8d6345c5447235c91fea655b3335509f70d0501d6c51a736fec938bd5feecb48c9a338857ce390a6d89d141437c29c156516dfd267a748dcb014477fef
+Homepage: https://mesa3d.org/
+Description: shared infrastructure for Mesa drivers
+ This package contains libgallium, a private library shared between
+ multiple Mesa drivers. This library is an implementation detail of Mesa
+ and should not be used directly by user code.
+
+Package: mesa-opencl-icd
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 48444
+Provides: opencl-icd
+Depends: libclc-19, ocl-icd-libopencl1 | libopencl1, libc6 (>= 2.38), libclang-cpp19 (>= 1:19.1.7), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 4.2), libllvm19 (>= 1:19.1.0), libllvmspirvlib19.1, libstdc++6 (>= 11), libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Filename: pool/main/m/mesa/mesa-opencl-icd_26.1.6-1~bpo13+1_i386.deb
+Size: 10815732
+MD5sum: a3059c552129365de92018240f2a5693
+SHA1: 9d22a64980c2b7c56b255df1624f5b0403d2ca53
+SHA256: 2fce5328a55514b4e5d55e4115f49b7ccb9184a193dfb07b5476470c668ec414
+SHA512: e173d60bb00ce6c478e7711a1a6b9be17bd20166c6f7125749cad97e31bab44c907f45a79d8ccfc0883294eaa8c8be5580d67c964943960f488a31c56e064054
+Homepage: https://mesa3d.org/
+Description: free implementation of the OpenCL API -- ICD runtime
+ This package contains the mesa implementation of the OpenCL (Open Compute
+ Language) library, which is intended for use with an ICD loader. OpenCL
+ provides a standardized interface for computational analysis on graphical
+ processing units.
+
+Package: mesa-va-drivers
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: oldlibs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 41
+Depends: mesa-libgallium (>= 26.1.6-1~bpo13+1)
+Filename: pool/main/m/mesa/mesa-va-drivers_26.1.6-1~bpo13+1_i386.deb
+Size: 21856
+MD5sum: 8a9341e6b5d765ddeee49eda2c678e7a
+SHA1: f936b5be52e7e25b958061096778fb9e6cfcd53f
+SHA256: 47867f6b2b993484c3816cbd9ac3a7fd042deefa24411dfc4e558628c640a09c
+SHA512: af57f51ab04d971f01f29417713e03fc9abb5da9887966de4a2c82be436a6c5b1fa26f2c109b4b8f491343082d6ba3b01c858ccca1dbe769270d6f197a08ab6c
+Homepage: https://mesa3d.org/
+Description: Mesa VA-API graphics drivers - transitional package
+ This transitional package ensures that older versions of mesa-va-drivers
+ are replaced by mesa-libgallium during upgrades.
+ .
+ This is a transitional dummy package, it can be safely removed.
+
+Package: mesa-vdpau-drivers
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: oldlibs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 41
+Depends: mesa-libgallium (>= 26.1.6-1~bpo13+1)
+Filename: pool/main/m/mesa/mesa-vdpau-drivers_26.1.6-1~bpo13+1_i386.deb
+Size: 21860
+MD5sum: 29a3235ef5ca0f0755aaebeaa564ed8d
+SHA1: bb33ce5b1f27f7e6d5bd7ae362e9e4e6a62b5d5b
+SHA256: 19864a55a99adfa4e42bd71bfd940c49fc8636a0f62f144ebdd6cb322e7e0587
+SHA512: 45a24a820db1669e8f1422e0dd249671e759b20c720107ee96f1b6a8bdc852bb70f56a87cc779d35a824eba5660e2e4a99cd66f0515bb9dc600841d31a4e2852
+Homepage: https://mesa3d.org/
+Description: Mesa VDPAU graphics drivers - transitional package
+ This transitional package ensures that older versions of mesa-vdpau-drivers
+ are replaced by mesa-libgallium during upgrades.
+ .
+ This is a transitional dummy package, it can be safely removed.
+
+Package: mesa-vulkan-drivers
+Architecture: i386
+Version: 26.1.6-1~bpo13+1
+Multi-Arch: same
+Priority: optional
+Section: libs
+Source: mesa
+Maintainer: Debian X Strike Force <debian-x@lists.debian.org>
+Installed-Size: 133331
+Provides: vulkan-icd
+Depends: libvulkan1, libc6 (>= 2.39), libdisplay-info2 (>= 0.2.0), libdrm-amdgpu1 (>= 2.4.124-1), libdrm2 (>= 2.4.124-1), libelf1t64 (>= 0.142), libexpat1 (>= 2.0.1), libgcc-s1 (>= 7), libllvm19 (>= 1:19.1.0), libpng16-16t64 (>= 1.6.46), libstdc++6 (>= 13.1), libwayland-client0 (>= 1.23.0), libx11-xcb1, libxcb-dri3-0 (>= 1.17.0), libxcb-present0 (>= 1.17.0), libxcb-randr0 (>= 1.13), libxcb-shm0, libxcb-sync1, libxcb-xfixes0, libxcb1 (>= 1.9.2), libxshmfence1, libzstd1 (>= 1.5.5), zlib1g (>= 1:1.2.3.4)
+Filename: pool/main/m/mesa/mesa-vulkan-drivers_26.1.6-1~bpo13+1_i386.deb
+Size: 20362552
+MD5sum: e19a605c32034adb08dabb3dcac49913
+SHA1: 62e8491e047158a20a77d800aa4292c6effb125c
+SHA256: 2005aa5e9e454684498f0b897b2bafa0422ebf6eb4041306a8ec4bba0509c9fa
+SHA512: 894f9cd1d87655316aa9d55dbe52c9c44b138330a2a747a87aeb428ca11a50b3b2cf4f2ca0d56932821d2df39cfd4663c42a29ce06641c2cf55f91dcd3031bb5
+Homepage: https://mesa3d.org/
+Description: Mesa Vulkan graphics drivers
+ Vulkan is a low-overhead 3D graphics and compute API. This package
+ includes Vulkan drivers provided by the Mesa project.
+
+Package: xlibre-x11-common
+Architecture: all
+Version: 1:25.1.9-1+lcos1
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Source: xlibre
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 41
+Provides: x11-common (= 1:25.1.9-1+lcos1)
+Depends: lsb-base
+Conflicts: x11-common
+Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.9-1+lcos1_all.deb
+Size: 18392
+MD5sum: 394f872888b998005b34242a6fd83642
+SHA1: 2e43f09205faf959c8dedb11cfbb92cc6e1b1d14
+SHA256: 2f977684848deb6861d1d85cbbcc53a5d0c993f950f428ac45e6420355c15156
+SHA512: d5fe3f03ab62eb06a695eebcf134031a6785c2efe29318d809d10adaa2bbf336b906c04e1ae59b6481a59bca7c7b07259fe74fb8ffdd41d95603754d1fd7a16f
+Homepage: https://github.com/X11Libre
+Description: X Window System (X.Org) infrastructure
+ x11-common contains the filesystem infrastructure required for further
+ installation of the X Window System in any configuration; it does not
+ provide a full installation of clients, servers, libraries, and utilities
+ required to run the X Window System.
+ .
+ Session scripts reused from the previous XLibre x11-common package; not ABI
+ dependent. Rebuilt for LCOS 0.3.
+
+Package: xserver-xlibre-common
+Architecture: all
+Version: 2:25.1.9-1+lcos1
+Multi-Arch: foreign
+Priority: optional
+Section: x11
+Source: xlibre-server
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 34
+Provides: xserver-common (= 2:25.1.9-1+lcos1)
+Depends: xlibre-x11-common, xkb-data, x11-xkb-utils
+Recommends: xfonts-base, xauth
+Conflicts: xserver-common
+Replaces: xserver-xorg-core (<< 2:1.5.2)
+Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.9-1+lcos1_all.deb
+Size: 16488
+MD5sum: 6c3dd5ad5c6c451b3ab599e3fe768543
+SHA1: 2f3c68e51cde0deed4b9ef3b654f5265132a51a5
+SHA256: 476bb5fcc91db89958811388c7c0992fb0b49b8110b19b4eecad14e5b5f2ad0a
+SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116ad89c99d915ebb219110b9358768f1b3eaa1765de9b341d692abc2ae5
+Homepage: https://github.com/X11Libre
+Description: common files used by various X servers
+ This package provides files necessary for all XLibre based X servers.
+
