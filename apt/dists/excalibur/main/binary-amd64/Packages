@@ -83,18 +83,18 @@ Description: Binary firmware for various drivers in the Linux kernel
 
 Package: lcos-appimage-thumbnailer
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: utils
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 44
 Depends: python3, python3-gi, python3-pyelftools, gir1.2-gdkpixbuf-2.0, squashfs-tools, tumbler
-Filename: pool/main/l/lcos-appimage-thumbnailer/lcos-appimage-thumbnailer_0.9.2-1_all.deb
-Size: 3388
-MD5sum: c9df84940ab5c617a49f297b669d68a2
-SHA1: 4ca8803eca5a35483b1fccb971d07f8ff5f753c8
-SHA256: aab1456f451605d0a8b5534f0ca2105ade4805bafe620c59cff101cf67fd18b5
-SHA512: c00385a37ed4c70a01c11b44968e15eb7fedc6160a05ce6a3b7d7eff8852aca3454c1cb6fd42308901e6bc6a46a67cca4434a6efb04a98c76fd64fed4340efd9
+Filename: pool/main/l/lcos-appimage-thumbnailer/lcos-appimage-thumbnailer_0.9.3-1_all.deb
+Size: 3420
+MD5sum: 90f44239503bee9f5e90ced4eb1d3584
+SHA1: b99ef1396518a33efef4f21d298276b7fa3b8881
+SHA256: 6aed7953109c7536584ad425962cfbc3185c0f9321a2a653a16a5de35638ac7b
+SHA512: c0d9eb5591a3f4803c9dbca66d71a02cdfc8727cd456f1e69f6e9d58032bf632a29bd183ee91d7fdb1330423b4e1190c8dae0881f116f8437b1a722c3ee9a344
 Homepage: https://lunduke.com
 Description: AppImage icon thumbnails for Thunar and XFCE desktop
  Freedesktop thumbnailer that extracts .DirIcon from Type-2 (SquashFS)
@@ -103,17 +103,17 @@ Description: AppImage icon thumbnails for Thunar and XFCE desktop
 
 Package: lcos-archive-keyring
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: misc
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 60
-Filename: pool/main/l/lcos-archive-keyring/lcos-archive-keyring_0.9.2-1_all.deb
-Size: 7404
-MD5sum: 4a62848b0d515fa08c0d217e3a63f97f
-SHA1: 5f0be4c3672a7695f7c7bf9d6cc005b65969ff4d
-SHA256: 8274ae9d331c24f86588c588ceeac14a21fe158f63b7233ee0d9d5b38faa0281
-SHA512: 4791ed4bd8afa9651a6fc8a9b3719a802bfe473e54d2c1ba0094fe507d0a98d34f6744bd838948d80aa5329574d939b0add3819ec212be905aec0fa7e493494a
+Filename: pool/main/l/lcos-archive-keyring/lcos-archive-keyring_0.9.3-1_all.deb
+Size: 7440
+MD5sum: a11cc8b6dbb5fbdb7b99652819149b36
+SHA1: 2ae69e5dada6556508676405c5084010e4bfe187
+SHA256: ec97d009cd3dbed7913c3fe73ff1e34c71431996b61cfbc60dfc661213f20dc5
+SHA512: 04fc97fa6a20914959b074acde76eeb3961e86f974351b2e983e2b1f940f66bbe9620178432182c3034b96c750aa2e708a19c07bb3b098a3c02d700a00ee2f0f
 Homepage: https://lunduke.com
 Description: LCOS archive signing keyring and overlay apt source
  Public keyring for the LCOS overlay at https://lcos.lunduke.com/apt
@@ -130,22 +130,22 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 0.9.2-5
+Version: 0.9.3-3
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 92
-Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog
+Installed-Size: 104
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_0.9.2-5_all.deb
-Size: 6656
-MD5sum: ab6e195429a8f47b70362c25e5cfe488
-SHA1: 14e43882067118d74e67553c17cdfaab58aedf6c
-SHA256: cac5c67d1eab7eb3456c37975c8a064f0820c3fd3b63ec61f47f9ee7aa03c2b9
-SHA512: 04c2cd7a87c46943f434e279dcb22e9077dc8099f6ebc658cc74ed7e4430ba11ba058117bfff9d3d9cfa316eff5025fb5a30eb4dc4b9caad81c64be21f4d0350
+Filename: pool/main/l/lcos-base/lcos-base_0.9.3-3_all.deb
+Size: 7680
+MD5sum: af92bf3b8cfb0f212a22d8535748569f
+SHA1: fca3972854e7057788f2d232e95901aad9341814
+SHA256: 8b60c0d02a6e20d45baebf2a297bc17c8571a508c15237c7768c2ec5e0a5d1ae
+SHA512: 5d14f0102826929ef1efa9c343e3006367beacdf194703f6947b9a5f9c89773a51733b6fe92a5cdd79e24a46e603048a6d8ad855e312fb4db942182723ef552d
 Homepage: https://lunduke.com
-Description: LCOS 0.9.2 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 0.9.2 (excalibur), lcos-write-os-release,
+Description: LCOS 0.9.3 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 0.9.3 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
  loglevel=2).
@@ -167,12 +167,19 @@ Description: LCOS 0.9.2 identity, GRUB drop-in, X/boot-order system config
  browsing) are Depends again; 0.9.2-5 adds dialog (debconf frontend,
  #125). Updates 0.9.2-2+ installs kept-back
  upgrades that only add packages, so upgraders receive them.
+ 0.9.3-1: ships /etc/apt/preferences.d/lcos-amd-backports.pref (not a
+ conffile) with i386 Mesa pinned to excalibur-backports too (#129).
+ 0.9.3-2: Depends xfce4-screensaver (screen lock on lid close/suspend,
+ #109), xarchiver + thunar-archive-plugin (archive manager, #132) and
+ exfatprogs (exFAT tools, #131) so upgraders get the 0.9.3 ISO additions.
+ 0.9.3-3: Depends xdg-desktop-portal-gtk (pulls xdg-desktop-portal) so
+ Chromium/Brave file pickers work (#135).
  Postinst re-applies identity on configure so apt upgrades overwrite
  stale 0.4 conffile text kept by noninteractive Updates.
 
 Package: lcos-branding
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
@@ -180,15 +187,15 @@ Installed-Size: 15960
 Provides: lcos-branding
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_0.9.2-1_all.deb
-Size: 8472236
-MD5sum: fcf492aa4d6979196063760de41d6ce1
-SHA1: ad3759063d63aeb80f44271d2d509ed8c644a94b
-SHA256: dac561c96852067ec4400feecf8b8ba993479c4ed389777e5155eb226195039f
-SHA512: 295b833bd6f9c3d7d2eefef961af7f803233aca4f8da7334ea2727a8d353b8e048dc2a0f81f9e50b9542489ec415dfdbd9ab52a57d28597af0935d4adacca6fd
+Filename: pool/main/l/lcos-branding/lcos-branding_0.9.3-1_all.deb
+Size: 8472240
+MD5sum: bd083d05068205861668bd8569a0e5e9
+SHA1: 8c3385fc2ceb379d96f022a0ea5182359e51fa0c
+SHA256: 82b1b516a372e0499ed49162a0f11fb98e5a57fa5361ba96af96391887f352f1
+SHA512: de74961b6fc64b898b321e4b49c27116a7c298334cb2691d3c70457d1a8afcc0648de66c54d1e5c522d62315c8975dea4cf98c25076609a285dcaf014300c374
 Homepage: https://lunduke.com
-Description: LCOS 0.9.2 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 0.9.2 artwork: stock wallpaper (jpg/png), synthwave nebula-grid, 4K wood
+Description: LCOS 0.9.3 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 0.9.3 artwork: stock wallpaper (jpg/png), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
@@ -198,20 +205,20 @@ Description: LCOS 0.9.2 artwork (wallpapers, splash, logos, Plymouth)
 
 Package: lcos-desktop-config
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-2
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 368
+Installed-Size: 404
 Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
-Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.2-1_all.deb
-Size: 23496
-MD5sum: e8304e0b7af671644bbb8d2a63d97bb8
-SHA1: 38509067d3f014a65920881afbcd3488dee43c1e
-SHA256: a6fbe77c6dfbda8c0d896eeab60a213b6ab0b5cddcfeb3ae3ad5d96581ac59fa
-SHA512: e98d7f34ba25e8734ad4b4ac2fd0198041a2b2e5becf3489dd37a2bba09f4a8831c3e077baf2c7a908b91b40c8b9b1b6821b137ceca2fbff1197743e2054e10c
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.3-2_all.deb
+Size: 24512
+MD5sum: 0e544ca7d62e2cd745e5c50d4f9dafc3
+SHA1: e7817c153916b6a8c7d1c9181210c8f9fb1b0741
+SHA256: 2c8e4f2a668a8b0dffcf151cd2c7254f46b95469325378d5f0440b701b49000d
+SHA512: 047e4fc5fdbf77016e4442fd07edef71d8cf5b5c9376622c046ee003162b5dae864c6bcbbf25db2f8b558885b2a7a03cdc6139edaa6e513745d0e42795a06847
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -225,19 +232,19 @@ Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
 
 Package: lcos-desktop
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: metapackages
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 28
 Depends: lcos-base (>= 0.7), lcos-desktop-config (>= 0.7), lcos-theme-clearlooks (>= 0.7), plymouth, libplymouth5, pulseaudio, pulseaudio-utils, pavucontrol, xfce4-pulseaudio-plugin, alsa-utils, xfce4-power-manager, xfce4-power-manager-plugins, upower, lcos-appimage-thumbnailer (>= 0.7), tumbler
 Recommends: xfce4, lightdm, lightdm-gtk-greeter, elementary-xfce-icon-theme, gtk2-engines, lcos-zork, micropolis, lunduke-paint
-Filename: pool/main/l/lcos-desktop/lcos-desktop_0.9.2-1_all.deb
-Size: 1984
-MD5sum: ab031a78acdbd9662dfc1f4e03f32119
-SHA1: 5f9843868051853511a93ea0e55858a569858743
-SHA256: 5c9e31060862e5f2180b9ca1a265d81b64982720d50b83304985bf38f84c2fd0
-SHA512: c6bce69fc5ba8fb45583d74019d1e5e2d07241729cbc526610ce74f8a4967620165f23a5cbb08d38f82274024e10461f525508444f454b4f8d78ad8cd67a5694
+Filename: pool/main/l/lcos-desktop/lcos-desktop_0.9.3-1_all.deb
+Size: 2020
+MD5sum: 12ae89df6fbeaef474f2081bbdabc1df
+SHA1: 7ee9ef36c163ca285b2edd74c07807ec664a6662
+SHA256: 749ec5f8a5a733b45a204e082872324a1f64e3fe0ee25e49a9d088a8149c9a2a
+SHA512: ef04c09f19ccdb1406a82291123634ca616625ced80b739724f57e49a6c6862b4ddb98c8243128f3cf714b9b7aefb75b05674afb6570a18505c2442cbdb78756
 Homepage: https://lunduke.com
 Description: LCOS XFCE desktop edition metapackage
  Pulls LCOS identity, XFCE look, and Clearlooks. Depends on
@@ -248,18 +255,18 @@ Description: LCOS XFCE desktop edition metapackage
 
 Package: lcos-theme-clearlooks
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 1240
 Recommends: gtk2-engines
-Filename: pool/main/l/lcos-theme-clearlooks/lcos-theme-clearlooks_0.9.2-1_all.deb
-Size: 86024
-MD5sum: 24ff9e172772b0455306702f5f6a5dde
-SHA1: 9e0e314f5cbd01490b54a6ad2dc17d8b2d8942b2
-SHA256: 12a425263260d1450ab0f657c8aae66ebcaee012db72bff76dfdbc21e2721ca3
-SHA512: a659f3413a69847259d30cd0acbd56a1dd876f70a0147560939b754c2da06b896ac5a418844b37a10ef688d8f169f0290b61406bb76d10f6bfdc29c787baa537
+Filename: pool/main/l/lcos-theme-clearlooks/lcos-theme-clearlooks_0.9.3-1_all.deb
+Size: 86016
+MD5sum: f19588e914518fc4f1734d3d5eae2deb
+SHA1: 6fdf8c82f0e86383c1b5c0eda934f42a78d6a34a
+SHA256: c010723dd94538b88bddc0f169dc3d742749e09df8cf232c0c2027bf97755109
+SHA512: f0cfda35f7ad5a63ba64832b92bc0e7f4c9b26c5d16dc3f0af4beb34090ac5ff8aefef20f0ec41033e03bce51073b78acf7d887de680c6b667bea5335d056f4e
 Homepage: https://lunduke.com
 Description: Clearlooks and Clearlooks-Phenix themes for LCOS
  Vendored Clearlooks (xfwm4) and Clearlooks-Phenix (GTK2/3 + xfwm4)
@@ -267,18 +274,18 @@ Description: Clearlooks and Clearlooks-Phenix themes for LCOS
 
 Package: lcos-updates
 Architecture: amd64
-Version: 0.9.2-2
+Version: 0.9.3-2
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 764
+Installed-Size: 768
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.30.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), polkitd, pkexec, apt, desktop-file-utils
-Filename: pool/main/l/lcos-updates/lcos-updates_0.9.2-2_amd64.deb
-Size: 283516
-MD5sum: c5f25fcd80f1b17bdc5891d952cd0f08
-SHA1: 007cb895b4e7bd1a5ac47276a1c8179a8f6e5186
-SHA256: 8b1d828644a39abf546096ce957c7e9dba071c6935e27b06786329b6ede05145
-SHA512: d240cdbbd2982ea7e28cd99a5330d1529d05c8ceafd1ae31230db206e3fe26226b019f23cad4be330ed3d0aa5a9dd5af30657b98cbedfc81a618282a3aecef60
+Filename: pool/main/l/lcos-updates/lcos-updates_0.9.3-2_amd64.deb
+Size: 285216
+MD5sum: dcb21f286da5ad218a2df6a02a1cdf31
+SHA1: d0adf9698aec49a30b8f5a1f31056f037036c41c
+SHA256: febd1e52f655fdfb5f8920bdd49cf89ff537309b9194926ad3e998288ea3b648
+SHA512: 4bfb7e81803fe8867c1d915333fd0ae4962aaa262d93e5302ce1318196188833ede2d921aad1aedc50a6246e462ebe057ea10d5037579d16807c6da6258b1a8b
 Homepage: https://lunduke.com
 Description: Check for updates from Devuan and LCOS
  A small GTK3 tool that checks for and installs apt upgrades
@@ -286,18 +293,18 @@ Description: Check for updates from Devuan and LCOS
 
 Package: lcos-zork
 Architecture: all
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: games
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 324
 Depends: frotz, cool-retro-term
-Filename: pool/main/l/lcos-zork/lcos-zork_0.9.2-1_all.deb
-Size: 156648
-MD5sum: 5245c085bdaeb8c3a49bc927ed390c75
-SHA1: d5fa1c0fd74d004542ee3bc7e4af724a9867426e
-SHA256: 9078ed553e8eeabf1547fa734f169eac549a084bc15f4d344c479cfa932993f7
-SHA512: 1a6d6e62d762fae06ae0a8b6fa78577d0517b28d2469a9effd408494200ea343c907519d98aef9559b9532830c985d3a19f4469bb49a60dc6b8e4947a46c9ae1
+Filename: pool/main/l/lcos-zork/lcos-zork_0.9.3-1_all.deb
+Size: 156692
+MD5sum: 7c4a4727cc49cd2f693360eb8dbae8f2
+SHA1: 540d10185d452da1b7ba52ef9fcde4d9a873e8c0
+SHA256: 4c996ae2829ac52d9922054ea9ebece6031544959e852e0c3bf5ca8151eb5a7c
+SHA512: 2021119bd77f408a64cae1e48aa4fa787f882d994fe0ac03f1202f1cc9bba25c318b4ece1ed7cd2c836f3e2f3edec04a580ae413e1c14a6dd063881101a97469
 Homepage: https://lunduke.com
 Description: Zork I–III for LCOS (frotz + Cool Retro Term)
  Story files zork{1,2,3}.z3 plus desktop launchers that open each game
@@ -305,18 +312,18 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
 
 Package: linux-headers-7.2.6-lunduke
 Architecture: amd64
-Version: 7.2.6-lcos19
+Version: 7.2.6-lcos20
 Priority: optional
 Section: kernel
 Source: linux-upstream
 Maintainer: box <box@grok-bot-vm-407066029>
-Installed-Size: 58187
-Filename: pool/main/l/linux-headers-7.2.6-lunduke/linux-headers-7.2.6-lunduke_7.2.6-lcos19_amd64.deb
-Size: 9842020
-MD5sum: f52609036cf09eb0067e4da3eb75f7f6
-SHA1: 2b21f1b8df415b1e1855356ff3333465c8f1255c
-SHA256: 6b06ef9a3c553bc7eff0fae8248bca7b9d021054482d23634851367da64c816a
-SHA512: 447ab5e0f9301346ae07d13f43dedbfaefd2c3e9f6a9ac3215d26c9343018f7313034d31661e64aebeb17774867b9a2f858c59a4e203f42f6c7306436692cc24
+Installed-Size: 58188
+Filename: pool/main/l/linux-headers-7.2.6-lunduke/linux-headers-7.2.6-lunduke_7.2.6-lcos20_amd64.deb
+Size: 9842180
+MD5sum: d0a998f29860eb08bf4bf1ae01a89097
+SHA1: 817590d300ea05d8459503f77608ade8285c63df
+SHA256: 8495d17977644081db0ce74ce943ee0f24b82145e54e05747a8b023229d3e2fe
+SHA512: e38b125852198861f7575d915cfaa86e941b335fea3c344c55868893e3c1df70d5c793b575d958796018dac6db845df05423f81e3435c614f165de261a3408d1
 Homepage: https://www.kernel.org/
 Description: Linux kernel headers for 7.2.6-lunduke on amd64
  This package provides kernel header files for 7.2.6-lunduke on amd64
@@ -325,18 +332,18 @@ Description: Linux kernel headers for 7.2.6-lunduke on amd64
 
 Package: linux-image-7.2.6-lunduke
 Architecture: amd64
-Version: 7.2.6-lcos19
+Version: 7.2.6-lcos20
 Priority: optional
 Section: kernel
 Source: linux-upstream
 Maintainer: box <box@grok-bot-vm-407066029>
-Installed-Size: 170104
-Filename: pool/main/l/linux-image-7.2.6-lunduke/linux-image-7.2.6-lunduke_7.2.6-lcos19_amd64.deb
-Size: 38111736
-MD5sum: af9fd2a02affa6e40810a83e0a03dcde
-SHA1: aae7e0a2af41af6a733812cf933e5e9a7cb77529
-SHA256: b4c4b0ec08e87cdd8ced6377884c3c7817c97ab07508096a89cbbdbbc49108fc
-SHA512: 4a79476aaa8ecf695847cee42b4ec1ca60011df2261b11670d52950ec4ce627c5457f46f93c82559ea6824e825136539c49eb7a455c3ab37e12d1a5f05efd9d2
+Installed-Size: 170321
+Filename: pool/main/l/linux-image-7.2.6-lunduke/linux-image-7.2.6-lunduke_7.2.6-lcos20_amd64.deb
+Size: 38145532
+MD5sum: 96cd14af7a7b3b6f85c54499f0fc5dec
+SHA1: 44ffe266cea2f12ef55bd73e2f193362d8c69f65
+SHA256: fa5dc26812f21e4b48481bbadb6886c1397ef2c1417e2d34fd55dc82ae266b1d
+SHA512: 78b4f409b29d831e82a34ee37c82ebfc1f958890113b599d33a0a2f150190254bfee38e95a63888009b38ffc19d3332bc1025a1378da5c679c896710ff2437f3
 Homepage: https://www.kernel.org/
 Description: Linux kernel, version 7.2.6-lunduke
  This package contains the Linux kernel, modules and corresponding other
@@ -344,18 +351,18 @@ Description: Linux kernel, version 7.2.6-lunduke
 
 Package: lunduke-about
 Architecture: amd64
-Version: 0.9.2-2
+Version: 0.9.3-1
 Priority: optional
 Section: utils
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 952
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.52.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 13.1), libx11-6, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-about/lunduke-about_0.9.2-2_amd64.deb
-Size: 440980
-MD5sum: 8947690b80798f4aaffcef24da3b565b
-SHA1: d09de071900d298ce908b9eb6523f56453cdda11
-SHA256: 4e82c9ac197e43cb9c89be49d47adf45cad1a8c7a6bd7a3eebae970f0ef7f9c2
-SHA512: 689ed8c9d044ea9cd8624b4554893980835488a4c72e486a41556fc3c2a26c9438189d66bdfa88f0718247f37b0a1e42241d8159d4f6bea825109db7956f9349
+Filename: pool/main/l/lunduke-about/lunduke-about_0.9.3-1_amd64.deb
+Size: 441068
+MD5sum: 7fe38c43d3d250c9d97ec18cd060c3f5
+SHA1: 4518c82f902eb38e64afa6b9e1b3c2f472d45578
+SHA256: dd8c81365bead10f7c229b816ada1a30aa35aaf20c08f47940e9ce888c521d42
+SHA512: e81f2583d28cc216fe9f11607dc95606928e3775b6088302455d83bfa726cb3a28b095e61ce0a8b995509b5f0cbc88b1401e79ead0485fd562dbfad621252e47
 Homepage: https://lunduke.com
 Description: About This Computer for LCOS (Mac OS 9 style)
  Classic Mac OS 9–inspired About This Computer window for the Lunduke
@@ -364,19 +371,19 @@ Description: About This Computer for LCOS (Mac OS 9 style)
 
 Package: lunduke-city
 Architecture: amd64
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: games
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 3724
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.34), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.12.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.19.12), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), desktop-file-utils, gtk-update-icon-cache, shared-mime-info
 Recommends: libpulse0
-Filename: pool/main/l/lunduke-city/lunduke-city_0.9.2-1_amd64.deb
-Size: 1874708
-MD5sum: 011f91dfd6828aec3070572d859aceed
-SHA1: 873c7d1f4784c52e598df7d5cfc1025bab70df58
-SHA256: 8b729477167d97bfd2333427e11189230e88404b6ea87cd59aa604f2ce971b79
-SHA512: 4c6236169e42809ba215759ea2adede4be3489fe56d556ee68f2f4b72b51196d91b7f331350b8c88b2018dac897abfbe4d0143b6c7a671f798a8c5233038de5a
+Filename: pool/main/l/lunduke-city/lunduke-city_0.9.3-1_amd64.deb
+Size: 1874440
+MD5sum: c2ae81a240d71ca93e0a3a48e44492f8
+SHA1: 33669cbeb26fa1e8b7cb68c89ac9f81e2189d121
+SHA256: b419bdef5166b3528336f6cd6fd8755b13b72e1f2573263444f6075bef915f2a
+SHA512: 03028787a7c8d99627f4b520c6c7f8d5ffa8e165b289935028f062f6bd2b1ee7b2d9b1c963ad73f3bc2e577d41808c0a174b92a4d177447b72d237297a6c7eb1
 Homepage: https://lunduke.com
 Description: Lunduke City, a gtkmm city-builder for LCOS
  Windowed city-building game for the Lunduke Computer Operating System.
@@ -386,18 +393,18 @@ Description: Lunduke City, a gtkmm city-builder for LCOS
 
 Package: lunduke-edit
 Architecture: amd64
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: editors
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 860
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.28.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libgtksourceview-3.0-1 (>= 2.91.4), libgtksourceviewmm-3.0-0v5 (>= 3.18.0), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), libx11-6, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-edit/lunduke-edit_0.9.2-1_amd64.deb
-Size: 339116
-MD5sum: 071a1f5ece09d271e3aa6e5f19827e16
-SHA1: 8263bbbd79874871fcf4c8d989f4a5cc108fbd85
-SHA256: b4bdd420ca557067d16cac8c7d27243e4245922026016c63e947fea5e9a89c67
-SHA512: 8de84028449f662d1fc62490501c405b378397892e393e81561216608d7a52c26f71203103a4fbc73c651b7f75ec76871c774247181737babc2698233c6d6a5f
+Filename: pool/main/l/lunduke-edit/lunduke-edit_0.9.3-1_amd64.deb
+Size: 339372
+MD5sum: bdc6b92789b28718084dc749ac9c5186
+SHA1: 3cf45e884fa73c07e7d44d87c20fa61150406a57
+SHA256: 77896bae8512c8a21f594215c4090002ef63613b262bdec4639e6c7bef926a4c
+SHA512: 59a405a8acf7c6f4746dbb6df4e64969fb6f53ec37dbc8dc924ec595c9e5023407caeec905ade18d05c02010418e90fd75c1409199f40e66e3dbcaa2fa093310
 Homepage: https://lunduke.com
 Description: Lunduke Edit, a light GTK3 text editor for Linux X11
  Lunduke Edit is a classic menubar text editor for the Lunduke Computer
@@ -406,25 +413,28 @@ Description: Lunduke Edit, a light GTK3 text editor for Linux X11
 
 Package: lunduke-linux-kernel
 Architecture: all
-Version: 7.2.6-lcos19
+Version: 7.2.6-lcos20
 Priority: optional
 Section: metapackages
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 28
-Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos19)
-Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos19)
-Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos19_all.deb
-Size: 2624
-MD5sum: e364d7a9f66372ebfc75b90ecb070ff6
-SHA1: 55d63ffd7ae379cf5065e0f56c2b3178aeaa1a4f
-SHA256: 6080ff2025b9c9c3976bcef8f1b89da0331ae1a8bc9cbfd1696c7cab7f419578
-SHA512: 7c94d35f2ad64b7cb2e3457b7d6b6231a7f1bc31cae61d6cf88fadf920d7509f8512fb35cbb8e83e6987795976ac0fdf02049e947eb0ec62433192f75abfbe8b
+Depends: linux-image-7.2.6-lunduke (= 7.2.6-lcos20)
+Recommends: linux-headers-7.2.6-lunduke (= 7.2.6-lcos20)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.6-lcos20_all.deb
+Size: 2776
+MD5sum: ede9325620f30ce64d26998fa43cd647
+SHA1: be0ac20e0fc1765d7c9b37f0cce51c6264efb1ad
+SHA256: d2dedd3725420cf5b7b6ddec8dc1aa9798e7501b7e6dfeeec5599ece6e9cecb3
+SHA512: c3f1e359678c13af0adb1750666dd6df7c33dca1975e9098bcd391ad575ae80a4fd045a4afed37ecb2368bbff6093c16deb19b70258829cc8d2a8b5d58f1b87a
 Homepage: https://lunduke.com
 Description: Lunduke's Linux Kernel for LCOS
- Lunduke's Linux Kernel — LCOS kernel package (ABI lcos19).
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos20).
  .
  Installs linux-image-7.2.6-lunduke. Headers are recommended for
  building out-of-tree modules.
+ .
+ lcos20 adds, on lcos19: exFAT filesystem (CONFIG_EXFAT_FS=m, default
+ iocharset utf8, LCOS#131) for USB sticks, SD cards and Ventoy drives.
  .
  lcos19 adds, on lcos18 (LCOS#115/#118 AMD audit vs Ubuntu generic):
  radeon (pre-GCN Radeons, CIK fallback), vga_switcheroo, DC for SI,
@@ -451,18 +461,18 @@ Description: Lunduke's Linux Kernel for LCOS
 
 Package: lunduke-paint
 Architecture: amd64
-Version: 0.9.2-1
+Version: 0.9.3-1
 Priority: optional
 Section: graphics
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 2144
 Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.36.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.9.10), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.18.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.2.0), librsvg2-common, shared-mime-info, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-paint/lunduke-paint_0.9.2-1_amd64.deb
-Size: 757988
-MD5sum: 6e1545a9b6b686e849de10cdd7398126
-SHA1: 8abe6a4a3985a0064063c1e092dab2d6989713ed
-SHA256: 7795186eeae0ae6d6a2126bb077c6566f52ce105c9affc8557dae6bcf3816c8c
-SHA512: 1301c7d0ec484bf0ffffaa9aaa7eeff99e4f102f6aa9c33fa23cee3456f400c09811fee611fc8f97aee5c530e095fac626309f95ea3a622b2737214d8519d156
+Filename: pool/main/l/lunduke-paint/lunduke-paint_0.9.3-1_amd64.deb
+Size: 757368
+MD5sum: e3d0871e5a720e20c2249e160e02b5ef
+SHA1: 0db345de9706f5e17c6afdcdb897a686216e39de
+SHA256: 750b6f32468ff1c62690ce0d8bd6c46b720d9e3549a567a40ef93661a1e89fae
+SHA512: 2af897488db37ae3dd1df93dc76619dc88d920ddede3d0f16400d6d86b2585971a28d75dc5f483bdf424e93a107a4be824561b3c39dca97d729016849199019c
 Homepage: https://lunduke.com
 Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
  Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
