@@ -1,0 +1,56 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
+Architectures: amd64 i386
+Codename: excalibur
+Components: main
+Date: Wed, 21 Oct 2026 00:02:13 +0000
+Description: LCOS overlay
+Label: LCOS
+Origin: LCOS
+Suite: excalibur
+MD5Sum:
+ bb726ee91e9bbb7e36775083f947144e            24988 main/binary-all/Packages
+ 4966c9a0d086f8fdeef1c26685739365            10580 main/binary-all/Packages.gz
+ db06f63d977274e18c3c40fc1a3dc203            57054 main/binary-amd64/Packages
+ 5e60d9678cb954c7fdf664a7f7a3cdeb            20224 main/binary-amd64/Packages.gz
+ 0e0854973c40ca8ccad21adcf96dd79a            36308 main/binary-i386/Packages
+ 2835a1886431759f894159d40a480d77            14049 main/binary-i386/Packages.gz
+SHA1:
+ bae95ed29ba74259985822148cf96061c85ad44b            24988 main/binary-all/Packages
+ 8f17008f77cb742aacd5f5977b43641f122432b6            10580 main/binary-all/Packages.gz
+ 57d5a5b870b17df729ff08fa9ccc16a1a58758ba            57054 main/binary-amd64/Packages
+ 4ca3e296f9107e532edbbcfa32f075199a943d2a            20224 main/binary-amd64/Packages.gz
+ 017fe33fd842611659d44fc56f76466ef4ad5e50            36308 main/binary-i386/Packages
+ 8adec8b1f2cccfbed8fae8a85430f1be05831d5d            14049 main/binary-i386/Packages.gz
+SHA256:
+ a5e40c91fb613f533edb684a0e865a6533f832c27d1ab9d0028e0c436fff878c            24988 main/binary-all/Packages
+ 60d1f53ecb13408963385ab1735f3b6ec02c14f76581ce4523fc4f45ffde4f2f            10580 main/binary-all/Packages.gz
+ 84077911d85150904faba7b2fc9eeb3545ed3a5c12edf76f16bc14a88fe7def8            57054 main/binary-amd64/Packages
+ 54aa9bb24b66dbb8c9aeea18d247bac65c245698f33aaec1133edf2b4b9ff730            20224 main/binary-amd64/Packages.gz
+ 9c37353d28783bbc50c9111b009c5bb0f8aa870ce1a4dff121267f25ab4acb81            36308 main/binary-i386/Packages
+ ba69daa4b07ed2198a4282f0e5b8191abc815efc30f4820452b7c5606de98192            14049 main/binary-i386/Packages.gz
+SHA512:
+ d0b8b633b698e8e1d2419cdfd1c2f39749b8c5592c0154cf2e295b409909779c56e1ec085f1aae2900444d1eb7d37a589907fe0682b462ce5a78e325247eb925            24988 main/binary-all/Packages
+ 13930d57312c681c17e385f07d964d1ad59c4621218ad093235253e1b4b0d277aab8a3cba8340b216dd47a1f387760f77ffd47cb9015d36c1af0bdc455a3992e            10580 main/binary-all/Packages.gz
+ ce5aed525c938aa188f6d596000b1f98b06138c266610439af246e73c84d43d36733a4a4ecfc123e20eb2545787f2b7d4e749c6b6189feafcaad6124ecd7e6ab            57054 main/binary-amd64/Packages
+ 3791cdd994fc0c638811c49c4dc6d29d8ffddd7278a389b24e88250d48e7237985e886ef70329911876d674957dd9055c55ffe4ae6c4ec0d3ca36bc165e806ce            20224 main/binary-amd64/Packages.gz
+ bd0daeb5b5cc54fa47c2349172a606e5ab824b318abc643f34f89550dc8b6e2a985b1d0d251c820bf44183153df03d0237d9d1663d4f5f1b14843578c7cfcee5            36308 main/binary-i386/Packages
+ 6f7eec091de17d1c99282ffc4654408ac4e63a0a727482d0a879e936ee4c35401fb9a7369e62ab67b92680a18837965ea9e67433875d1bd9808c0757b5ccdee7            14049 main/binary-i386/Packages.gz
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAEBCAA5FiEEWgHUvc3R4VMdRWp1YNbn9svW1XIFAmrYAsYbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMCwzAAoJEGDW5/bL1tVy/F4P/i99eemIrn2+f5/V2LTG
+QtMvB3ladawlg9eoyhD1RA+UUgiS8TmI9m3Hv89DkfPoUmnsRD471jQWibuGaX3I
+vSNNJ4DpsTvFSiPHGaLJvEOAaj+Jgy12aaCAPbc5IaJjUcF41C0U54fyKLIx3fB8
+x5u9Om+P+6y3PWitGb7IhHuojy9F/KlUsIx3Um2XfkMxzD7vQxsuhN/KA6DZhK4N
+n4ppsyYO54kRehWSttAd6bXG16OETg1XRUyO8Y5UbsWIvK2WtAki1E84KRxTO3RB
+Z932+U8bYoFwRSohXt12iNEssiwb19i8D1fX4zRc70OG+hWRt9PhMUYyy3bnzOD2
+lz4yjjDM0ctkB76cpOVmUjEupHe9OtdTmNbSX/s9pOzJq+eAHNj2QO5LDuiLHT9Y
++HigoxE0+426jYYi0Id5Iv6GqcSFavcJ93mSWgLFLKYrdaG7HuYKa+wp1mh+gl02
+wwo55eWQ31zfkf5boHR+6mnhJRv0c77HHzoMnSipz2yPw8WBf448xQhnb3YMbos1
+397pX+AQ5nwNQFG6vwOeTzxTsfUK+mPL57dDaW6UEl8AXCRwL31uduItgUqbdn8Z
+VzxBLtTC+NCaktB6GPEw+a34/RecZgAOvB1Q59pq/OKbLtqPG2PCMoj9n4hF9iEc
+OjRZBkPzSZ6GjsCbBIfqeyXO
+=xuJQ
+-----END PGP SIGNATURE-----
