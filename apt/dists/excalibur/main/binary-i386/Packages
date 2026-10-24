@@ -130,22 +130,22 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 0.9.5-6
+Version: 0.9.6-3
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 188
-Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g
+Installed-Size: 192
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_0.9.5-6_all.deb
-Size: 20232
-MD5sum: 79b81768b4e958cd2561a51602f594b4
-SHA1: 455fa5ee62b3bd4bad4912a3b10e166825872a83
-SHA256: 4e6cdb65087de90f842b5780fe0e121ff6a2adf9260359c5a307bd0e8cef29f1
-SHA512: b49844aec7235de86cbffb83ab24455b0da2e939288bf2e02a7121d85b57ea1a4f09e9223b33566957c968544274ca96845800f5022f4483593fc83f5b1ddd04
+Filename: pool/main/l/lcos-base/lcos-base_0.9.6-3_all.deb
+Size: 20892
+MD5sum: 50617cbd1d2902086514728024c02c56
+SHA1: 5dfb42e06c3b845bc8849cf237b628b54b366fa8
+SHA256: c7b8e5f1e9202652f8bffb946421c4c298c421fd2f00a9f19e77bda3a6850853
+SHA512: fbacef7440818f52425c7058bab8c6d2ae51f7b058225fbe7967f7b27a416b2554ce50af42f7a450ed96c55672b032774d824ae29ee10b240abae892737beec4
 Homepage: https://lunduke.com
-Description: LCOS 0.9.5 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 0.9.5 (excalibur), lcos-write-os-release,
+Description: LCOS 0.9.6 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 0.9.6 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
  loglevel=2).
@@ -234,51 +234,68 @@ Description: LCOS 0.9.5 identity, GRUB drop-in, X/boot-order system config
  /etc/apt/apt.conf.d/00lcos-noninteractive (APT::Get::Assume-Yes) when it
  is unchanged from what the images shipped, so terminal apt asks before
  installing or removing again; an edited copy is kept.
+ 0.9.6-1: Recommends libmtp-runtime (mtp-probe, called by the
+ libmtp-common udev rule; only a libmtp9t64 Recommends, so images built
+ with --apt-recommends false logged "mtp-probe" errors and missed MTP
+ devices not in libmtp's list). Editor 2026-10-22. Identity stays 0.9.5.
+ 0.9.6-2: identity 0.9.6 (os-release, /usr/lib/os-release, issue,
+ issue.net, lcos-write-os-release). libmtp-runtime moves from Recommends
+ to Depends so upgraders get it (Updates installs with Recommends off).
+ Editor 2026-10-22.
+ 0.9.6-3: Depends gdebi (graphical .deb installer; lcos-desktop-config
+ 0.9.6-1 makes it the default for .deb files) so upgraders get the 0.9.6
+ ISO addition (Updates installs with Recommends off). Editor 2026-10-23.
  Postinst re-applies identity on configure so apt upgrades overwrite
  stale 0.4 conffile text kept by noninteractive Updates.
 
 Package: lcos-branding
 Architecture: all
-Version: 0.9.4-1
+Version: 0.9.6-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 15960
+Installed-Size: 12264
 Provides: lcos-branding
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_0.9.4-1_all.deb
-Size: 8472320
-MD5sum: 035b82cbb0008c9eca6b6b80c9b4003a
-SHA1: 3fc97169836416218d735420110b8ab7a8355a30
-SHA256: 7514d505f019a342a21badfe2f1b4311c51f2bcc25aebf5ce04d5e4b498cd76c
-SHA512: 4be345a9e6ad2bdfe094f30b607124871cfd687fc6f1f33eb0b35b99a275ac98a7b531e6e62b5f8d74f3528042b48e7699fac0d87be2a2c7aea63505bafc2472
+Filename: pool/main/l/lcos-branding/lcos-branding_0.9.6-1_all.deb
+Size: 5243388
+MD5sum: db7246e972b56b762b875f646358bdb9
+SHA1: f3b0039438d07e6aff203d235e4b6f5221faf663
+SHA256: 044759cf6e85b9d99a76c98531a028b9c455ad817ed4ec64ffeaa5e4ed48e8cf
+SHA512: 87470ec2448e79f2acbf59a3bd0cd804c5abaa04b72e01579634a4ad47a53969d1921f16d3b28aa8dd9c56c5e55eebd6ccde46682d55b3f197178d0d8e7afc16
 Homepage: https://lunduke.com
 Description: LCOS 0.9.4 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 0.9.4 artwork: stock wallpaper (jpg/png), synthwave nebula-grid, 4K wood
+ LCOS 0.9.4 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
  no longer quits Plymouth, LightDM does). postinst sets Theme=lcos when
  plymouth is present.
  Replaces old lcos-branding 1.0-2 / 0.2.0 (bw-720 + lcos32 only).
+ .
+ 0.9.6-1: drops the duplicate lcos-desktop-stock.png (same 1792x1008
+ picture as lcos-desktop-stock.jpg; nothing referenced it) from
+ /usr/share/backgrounds/lcos, /usr/share/xfce4/backdrops and
+ /usr/share/images/desktop-base. lcos-desktop-stock.jpg stays the stock
+ wallpaper. Editor 2026-10-23.
 
 Package: lcos-desktop-config
 Architecture: all
-Version: 0.9.5-3
+Version: 0.9.6-3
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 424
+Installed-Size: 432
 Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
-Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.5-3_all.deb
-Size: 26280
-MD5sum: 8e78d5206dc2bd22f0260b4f4a0668d0
-SHA1: 76bb051a401beabdc5381dccb86227b4904ee19b
-SHA256: 240528ad61f312434c107683164f088b0319c383e39bcb59eae1e5eb31328472
-SHA512: 1040398b367858da42e394875d483c4cef3c81ef98a58044f7b3ecb2096a35ecc8ea3a57fe6765554579c4b88c41c8933a28bc60003c7f57aa631d38d7c2f7d5
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.6-3_all.deb
+Size: 28424
+MD5sum: db336a06b50e45d9a1c13b960c3f29a6
+SHA1: d1271e85fec2de201086bea713a0a018ffd4dfaa
+SHA256: d8777814a6db229eda44f542db805c44f17a959b45d1e51d2a51156eee8440c2
+SHA512: 3e66a4ddf5d0c00cabdc2968468ac4a2daa7247dc3a8430435673139e2d846806b4b6bf29bf731c4b19484600cb7262a4ee29ba7e7e78100cdf8ec85c5bbea4e
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -301,6 +318,30 @@ Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  one finds no brave binary, so links opened a browser chooser); and
  /etc/xdg/mimeapps.list defaults x-scheme-handler/http and https to
  brave-origin.desktop.
+ .
+ 0.9.6-1: /etc/xdg/mimeapps.list defaults Debian packages
+ (application/vnd.debian.binary-package, alias application/x-deb) to
+ gdebi.desktop, so double-clicking a downloaded .deb opens GDebi to
+ install it instead of Xarchiver; Xarchiver keeps every other archive
+ type. GDebi itself comes from lcos-base 0.9.6-3 (Depends gdebi).
+ Editor 2026-10-23.
+ .
+ 0.9.6-2: Thunar's "Open Terminal Here" opens Cool Retro Term in that
+ folder instead of the home folder (#166). The Cool Retro Term
+ TerminalEmulator helper now runs /usr/bin/lcos-cool-retro-term, which
+ starts cool-retro-term with --workdir set to the directory it was
+ launched in (cool-retro-term ignores its starting directory without it).
+ .
+ 0.9.6-3: a custom wallpaper survives reboots. lcos-set-wallpaper (login
+ autostart) treated a monitor with no top-level last-image as new and
+ stamped its workspace0 with the stock wallpaper, centered, on every
+ login; xfdesktop 4.20 keeps the user's choice only under
+ workspaceN/last-image, so the choice was wiped at each reboot. It now
+ exits at once after the first seeded login, skips any monitor whose
+ workspaces hold a non-stock image, and stamps workspace0 only when it
+ has no image yet. The stock default style is now zoomed (image-style 5)
+ instead of centered (1) in /etc/xdg and skel xfce4-desktop.xml and in
+ the script. Editor 2026-10-23.
  .
  Live-only installer bits are not included.
 
