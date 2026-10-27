@@ -81,6 +81,28 @@ Description: Binary firmware for various drivers in the Linux kernel
  kernel.  This is a collection of firmware blobs which are not individually
  large enough to warrant a standalone package.
 
+Package: firmware-sof-signed
+Architecture: all
+Version: 2026.09.1-1
+Priority: optional
+Section: non-free-firmware/kernel
+Source: firmware-sof
+Maintainer: Mark Pearson <mpearson-lenovo@squebb.ca>
+Installed-Size: 56849
+Pre-Depends: dpkg (>= 1.17.14)
+Filename: pool/main/f/firmware-sof/firmware-sof-signed_2026.09.1-1_all.deb
+Size: 3242312
+MD5sum: 39eee7367570fe53397d77e3f82fa812
+SHA1: c9118a46e0a8d8bc106f293886bc6027941fd10b
+SHA256: d58a00a54522982318dd515fd8b864c0001c8ee01d0a9c6ffe519b7975d135ec
+SHA512: 981426bc29c5e9bf9387e6e91aadfc3ee0738d4c71b30481176e3ca8c118e778912100c11faa3e174eea2fc240db7ca177a4323d6b84107876c53cd7511397c1
+Homepage: https://github.com/thesofproject/sof-bin
+Description: Intel SOF firmware - signed
+ Provides the Intel SOF audio firmware and topology needed for audio
+ functionality on some Intel system.
+ .
+ This package contains the pre-built and signed binaries.
+
 Package: lcos-appimage-thumbnailer
 Architecture: all
 Version: 0.9.4-1
@@ -130,22 +152,22 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 0.9.6-3
+Version: 0.9.7-1
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 192
 Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_0.9.6-3_all.deb
-Size: 20892
-MD5sum: 50617cbd1d2902086514728024c02c56
-SHA1: 5dfb42e06c3b845bc8849cf237b628b54b366fa8
-SHA256: c7b8e5f1e9202652f8bffb946421c4c298c421fd2f00a9f19e77bda3a6850853
-SHA512: fbacef7440818f52425c7058bab8c6d2ae51f7b058225fbe7967f7b27a416b2554ce50af42f7a450ed96c55672b032774d824ae29ee10b240abae892737beec4
+Filename: pool/main/l/lcos-base/lcos-base_0.9.7-1_all.deb
+Size: 20952
+MD5sum: 7025a1528a57e4d12a623b3f88b954ad
+SHA1: be2a2baeb751b699ae6fef706ef047dcf5c43ee9
+SHA256: 977fdef3b916e8504ad3c48c0de421707d96c26cd3b62f519be2b98c3e671d6d
+SHA512: d72c404ea7472110be887d6a7b43e124f9a1fc36f5e6dd3246965506217f97ef73d369dc0b63cecd0d7f7fe0e2643d0a2260d17c5f9c419264aeb56007933db3
 Homepage: https://lunduke.com
-Description: LCOS 0.9.6 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 0.9.6 (excalibur), lcos-write-os-release,
+Description: LCOS 0.9.7 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 0.9.7 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
  loglevel=2).
@@ -245,12 +267,15 @@ Description: LCOS 0.9.6 identity, GRUB drop-in, X/boot-order system config
  0.9.6-3: Depends gdebi (graphical .deb installer; lcos-desktop-config
  0.9.6-1 makes it the default for .deb files) so upgraders get the 0.9.6
  ISO addition (Updates installs with Recommends off). Editor 2026-10-23.
+ 0.9.7-1: version bump for LCOS 0.9.7; identity 0.9.7 (os-release,
+ /usr/lib/os-release, issue, issue.net, lcos-write-os-release). Depends
+ unchanged from 0.9.6-3. Editor 2026-10-24.
  Postinst re-applies identity on configure so apt upgrades overwrite
  stale 0.4 conffile text kept by noninteractive Updates.
 
 Package: lcos-branding
 Architecture: all
-Version: 0.9.6-1
+Version: 0.9.7-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
@@ -258,15 +283,15 @@ Installed-Size: 12264
 Provides: lcos-branding
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_0.9.6-1_all.deb
-Size: 5243388
-MD5sum: db7246e972b56b762b875f646358bdb9
-SHA1: f3b0039438d07e6aff203d235e4b6f5221faf663
-SHA256: 044759cf6e85b9d99a76c98531a028b9c455ad817ed4ec64ffeaa5e4ed48e8cf
-SHA512: 87470ec2448e79f2acbf59a3bd0cd804c5abaa04b72e01579634a4ad47a53969d1921f16d3b28aa8dd9c56c5e55eebd6ccde46682d55b3f197178d0d8e7afc16
+Filename: pool/main/l/lcos-branding/lcos-branding_0.9.7-1_all.deb
+Size: 5243436
+MD5sum: 06cd7fae6279c6f414a9c56b8603645c
+SHA1: 837dd08132f55c1c827be80ad7d3a90837f953ed
+SHA256: 2e7a1f22abdfc9ccf8fd12187cdfb89f1e9a653611031b8f2945edfc566c23be
+SHA512: 9f3bc58ba2c8ed6b72acaa418563af2fd49586267509c40962eecd19c7f4bbcf242a3fb128f9f2713a025fdce49e188405a4ef75d66a8d4987f31f8309654849
 Homepage: https://lunduke.com
-Description: LCOS 0.9.4 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 0.9.4 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
+Description: LCOS 0.9.7 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 0.9.7 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
@@ -282,7 +307,7 @@ Description: LCOS 0.9.4 artwork (wallpapers, splash, logos, Plymouth)
 
 Package: lcos-desktop-config
 Architecture: all
-Version: 0.9.6-3
+Version: 0.9.7-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
@@ -290,12 +315,12 @@ Installed-Size: 432
 Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
-Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.6-3_all.deb
-Size: 28424
-MD5sum: db336a06b50e45d9a1c13b960c3f29a6
-SHA1: d1271e85fec2de201086bea713a0a018ffd4dfaa
-SHA256: d8777814a6db229eda44f542db805c44f17a959b45d1e51d2a51156eee8440c2
-SHA512: 3e66a4ddf5d0c00cabdc2968468ac4a2daa7247dc3a8430435673139e2d846806b4b6bf29bf731c4b19484600cb7262a4ee29ba7e7e78100cdf8ec85c5bbea4e
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_0.9.7-1_all.deb
+Size: 28476
+MD5sum: 34c94b23ba6593fb01b8d5b7edf51747
+SHA1: d2e211f43eb1dd0f49157ada3309bd3281d60e6f
+SHA256: 82ea553ab988a2c6ea33854275a75576c9e59af016a994016a84fd9fdbe9d959
+SHA512: cfef2e8b0b380ed83e1be459fc675c697fec91217be164b418d3269da21ef6076c4c910c1d4b800842f5291bb3e5bc39d8f673ee5b60f4464dc51ddb3d23b2a0
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
