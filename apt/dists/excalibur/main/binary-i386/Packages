@@ -152,25 +152,25 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 1.0.0-2
+Version: 1.0.1-5
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 192
-Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils
+Installed-Size: 224
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils, less
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_1.0.0-2_all.deb
-Size: 21124
-MD5sum: c07802980665e5c63b33d9c8fcee75fe
-SHA1: 3547cfa643fe8496ae8e4d2c455e842f22d6bce9
-SHA256: 3eccd36130008153afc00993b6e7cecbc368e4389ff338913c7fb8085b8642b8
-SHA512: 441ffca9aed4905de32e00b6e5b9202fa7ef747ed0c2ecef7ba8d51aaf81a27b112f64d7879219d60167fa5f35a9646ec10bf2998dcfd5cc471e96b3fc2e56e3
+Filename: pool/main/l/lcos-base/lcos-base_1.0.1-5_all.deb
+Size: 26936
+MD5sum: 727bc1bcf3f33c1c5b698e4d5dc92512
+SHA1: cec59236e18ce3b9f21235536c2b1c466912b6ed
+SHA256: 817a1b3926d9b525256634b1706e76f576946eabf216a9de175e0e16b2f7d196
+SHA512: ba5265a27114d534f5f05af5b9353b7259e621d80d1669a6a556c8ec3cf5427f9dad630a3263a4d5f9a5afa4b12b7c58749271600608c990b47156349d910831
 Homepage: https://lunduke.com
-Description: LCOS 1.0.0 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 1.0.0 (excalibur), lcos-write-os-release,
+Description: LCOS 1.0.1 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 1.0.1 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
- loglevel=2).
+ loglevel=2 $lcos_quirks) and /etc/grub.d/05_lcos_quirks.
  .
  AMD GPUs (0.9.2-2, #115/#118): no Xorg driver override. Xorg
  autoselects the AMD driver as in 0.8. The 0.9/0.9.1 modesetting snippets,
@@ -276,28 +276,71 @@ Description: LCOS 1.0.0 identity, GRUB drop-in, X/boot-order system config
  1.0.0-2: Depends usbutils (lsusb, #176) so upgraders get the 1.0.0
  ISO addition (Updates installs with Recommends off). Identity stays
  1.0.0. Editor 2026-10-27.
+ 1.0.1-1: version bump for LCOS 1.0.1; identity 1.0.1. Ships
+ /etc/grub.d/05_lcos_quirks, which sets the GRUB variable lcos_quirks
+ from SMBIOS at boot; lcos.cfg appends $lcos_quirks to
+ GRUB_CMDLINE_LINUX_DEFAULT. Only entry: Dell XPS 13 DX13260 (SKU 0E53)
+ gets xe.enable_panel_replay=0 (eDP Panel Replay judder); other machines
+ get nothing. Postinst runs update-grub once on upgrade from below
+ 1.0.1-1. The apt pin also takes firmware-cirrus and firmware-intel-misc
+ from excalibur-backports. Depends unchanged from 1.0.0-2. Editor
+ 2026-11-02.
+ 1.0.1-2: Dell XPS 13 DX13260 (SKU 0E53) only: the GRUB quirk adds
+ mem_sleep_default=s2idle, and the elogind hook
+ /usr/libexec/system-sleep/lcos-sleep writes s2idle back to
+ /sys/power/mem_sleep before each suspend (elogind writes "deep" first),
+ so suspend avoids S3 deep sleep on that model. The same hook keeps a
+ small synced sleep log, /var/log/lcos/sleep.log (about 512 KB plus one
+ old copy), with kernel PM messages, so a hang on suspend or resume
+ leaves evidence. No daemon. Other machines unaffected unless
+ /etc/lcos/sleep-log exists (log only). Postinst runs update-grub once on
+ upgrade from below 1.0.1-2. Editor 2026-11-03.
+ 1.0.1-3: /etc/elogind/sleep.conf.d/50-lcos-mem-sleep.conf sets
+ SuspendMode= empty (#195). elogind 255's compiled SuspendMode is
+ "deep s2idle" and it writes "deep" to /sys/power/mem_sleep before
+ every suspend, which overrides the kernel default (s2idle on
+ modern-standby laptops such as the HP Elite Dragonfly G2; the same
+ mechanism as the XPS 13 SKU 0E53 case). An empty assignment clears
+ that mode list instead of falling back to the compiled default, so
+ elogind leaves mem_sleep alone and each machine keeps the mode its
+ firmware advertises. SuspendState is not set to freeze. The SKU 0E53
+ GRUB quirk and lcos-sleep hook are unchanged extra safety. Editor
+ 2026-11-07.
+ 1.0.1-4: postinst configure always runs
+ /usr/lib/lcos/lcos-reboot-required (after the first-install --init).
+ dpkg drops a pending /boot file trigger when lcos-base is unpacked in
+ the same apt run, so the triggered branch never runs on a 1.0 to 1.0.1
+ upgrade and Updates never saw /var/run/reboot-required. The triggered
+ branch is unchanged for a later kernel install. Editor 2026-11-08.
  Postinst re-applies identity on configure so apt upgrades overwrite
  stale 0.4 conffile text kept by noninteractive Updates.
+ 1.0.1-5: Depends less (the pager). debootstrap --variant=minbase with
+ --apt-recommends false never installed it: less is Priority important,
+ and man-db only Suggests it, so it was missing from the ISO.
+ sensible-utils already points man at less once the package is present.
+ Updates installs with Recommends off, so this is a Depends. Also listed
+ in base.list.chroot. Editor 2026-11-10.
 
 Package: lcos-branding
 Architecture: all
-Version: 1.0.0-1
+Version: 1.0.1-3
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 12264
+Installed-Size: 12268
 Provides: lcos-branding
+Depends: plymouth-label
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_1.0.0-1_all.deb
-Size: 5243564
-MD5sum: 7b21c404c77dfc740902119b5cfb4657
-SHA1: 779cccd57619bc1028836ec2b2d9379d2009cc24
-SHA256: c5d0f4119e08e4a5be3636d54fde80229e45deb6726fecfda1d54c507d7df0c5
-SHA512: c170eae4afdadf5f8e6348c64e10e54b1b73ec71098aeb61e3548a91148775e42a8328f54acdbfcd9b130e674ec3943ffa69e96d7106f18e2d504f3d3129bc03
+Filename: pool/main/l/lcos-branding/lcos-branding_1.0.1-3_all.deb
+Size: 5245472
+MD5sum: 7a1ff61d9a39e9f1392c2159443504f1
+SHA1: 8a5b0bae7ff9037507b5f4b2bf654cdb97c8128c
+SHA256: 35bb72c0970ed53c3c40860b073daa4d454f6c8c9b22907be01094c5a49e5e1d
+SHA512: 71b2cc9cdfd4a2591269b6de4df23ab82172e101365384bd0ea3cc4b18a57c5ab8fc766a68a2fcd1dae499b3ec621d1ca7e07447eeabf00de0167b2d75362cc3
 Homepage: https://lunduke.com
-Description: LCOS 1.0.0 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 1.0.0 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
+Description: LCOS 1.0.1 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 1.0.1 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
@@ -310,23 +353,35 @@ Description: LCOS 1.0.0 artwork (wallpapers, splash, logos, Plymouth)
  /usr/share/backgrounds/lcos, /usr/share/xfce4/backdrops and
  /usr/share/images/desktop-base. lcos-desktop-stock.jpg stays the stock
  wallpaper. Editor 2026-10-23.
+ 1.0.1-2: the Plymouth script theme draws the passphrase prompt over
+ the splash (#196). Depends plymouth-label (label-pango.so; script
+ themes cannot draw text without it, and update-initramfs warns when
+ it is missing). On upgrade from below 1.0.1-2, postinst runs
+ update-initramfs so an installed encrypted system picks up the theme
+ and the label plugin. Editor 2026-11-07.
+ 1.0.1-3: that upgrade rebuild uses "update-initramfs -u -k all", so
+ every installed kernel gets the label plugin, not only the newest.
+ 1.0.1-2 left initrd.img-7.2.6-lunduke without label-pango.so, and an
+ encrypted 1.0 system that boots 7.2.6 from Advanced options missed the
+ LUKS prompt text. The one-shot runs on upgrade from below 1.0.1-3.
+ Editor 2026-11-08.
 
 Package: lcos-desktop-config
 Architecture: all
-Version: 1.0.0-1
+Version: 1.0.1-2
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 432
+Installed-Size: 448
 Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
-Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_1.0.0-1_all.deb
-Size: 28500
-MD5sum: 961ced6e4481012bba105d2d83375c52
-SHA1: 6ce2be2167d4d23fb4c98062317d7cb32e98819d
-SHA256: e15db721eeffcdb27154d48c4a8fe824adb3f41df976c4aede2db2cfde3edc3c
-SHA512: 51032d8c5acc18739e8730e7d359c309c03a91366b10230676cc3c3f054b68bbe2280cb4956a5007d5d9ac0dfff43a8a7677044bb6bd83f6e7e36f0c3efa47e9
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_1.0.1-2_all.deb
+Size: 30108
+MD5sum: a6b76a6d8989ae7f7fbcc9ffd9e3c358
+SHA1: e2dfdeeffa40629b6d82c028bf2e66a02024eabd
+SHA256: 74e4bd265386b0ae1b446cfcc579ca359a5600c7065f296af1f169d2dc3cd0ae
+SHA512: bf3ee8243260a81b3ea71d723e870df2f2bd5545444b962046089a3f6cce6e4cf8f131a4bfac1c918f80b3b995550bc50731a3d464dc7ba3100728dc9e9422ce
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -373,6 +428,15 @@ Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  has no image yet. The stock default style is now zoomed (image-style 5)
  instead of centered (1) in /etc/xdg and skel xfce4-desktop.xml and in
  the script. Editor 2026-10-23.
+ .
+ 1.0.1-2: one workspace by default (no virtual desktops). xfwm4
+ /general/workspace_count is 1 and /general/workspace_names is a single
+ entry ("Workspace 1"), in /etc/xdg and skel, and in the includes.chroot
+ copies. Alt+Insert (add workspace) and Alt+Delete (delete workspace)
+ are unbound: xfce4-keyboard-shortcuts.xml in /etc/xdg/lcos and skel
+ sets /xfwm4/custom/override and a full copy of the libxfce4ui 4.20.1
+ xfwm4 shortcuts, with those two commands empty. Other shortcuts stay
+ the stock ones. Editor 2026-11-09.
  .
  Live-only installer bits are not included.
 
@@ -436,6 +500,125 @@ Homepage: https://lunduke.com
 Description: Zork I–III for LCOS (frotz + Cool Retro Term)
  Story files zork{1,2,3}.z3 plus desktop launchers that open each game
  in cool-retro-term running frotz.
+
+Package: lunduke-linux-kernel
+Architecture: all
+Version: 7.2.15-lcos33
+Priority: optional
+Section: metapackages
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 28
+Depends: linux-image-7.2.15-lunduke (= 7.2.15-lcos33)
+Recommends: linux-headers-7.2.15-lunduke (= 7.2.15-lcos33)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.15-lcos33_all.deb
+Size: 4940
+MD5sum: b303482e85a319987c6b6ef248139e0f
+SHA1: 210a2982b554ac1bbc393598a2a8cc8c9fddfdc0
+SHA256: e4a62d9a96638516d675d7d2a6b21b7d15bc8a8780df757f934987066ee49a7e
+SHA512: 33068706c013d72dec63e7ac209600070b9a89b6f54d27977608af78d5b40677fd0d7dcf0a701b700f9d7fbcdfad1b8bdbf81d9fcf7b66b79be19d64e92476ba
+Homepage: https://lunduke.com
+Description: Lunduke's Linux Kernel for LCOS
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos33).
+ .
+ Installs linux-image-7.2.15-lunduke. Headers are recommended for
+ building out-of-tree modules.
+ .
+ lcos33 (LCOS 1.0.1, editor 2026-11-06) adds, on lcos32: WireGuard
+ (WIREGUARD=m), OpenVPN data-channel offload (OVPN=m), IPv4 IPsec
+ (INET_ESP/INET_AH=m), IPv6 policy routing (IPV6_MULTIPLE_TABLES,
+ IPV6_SUBTREES), FQ and CAKE qdiscs, 802.1Q VLAN (with GVRP/MVRP),
+ macvlan/ipvlan, the rest of the Ralink/rt2x00 family (RT73/RT2800/
+ RT2500/RT2400 USB and PCI), ATH5K, Atheros L1C/L1E ethernet,
+ Corsair/Razer/Glorious/Plantronics HID, VMware balloon, Samsung
+ Galaxy Book, MSI WMI Platform, and TUXEDO/Uniwill (UNIWILL_LAPTOP=m).
+ Same 7.2.15-lunduke kernel release. Mesh, zswap, PPP/PPPoE, and
+ Intel IPW2100/2200 stay off.
+ .
+ lcos32 (LCOS 1.0.1, editor 2026-11-04) adds, on lcos31, the ACPI
+ Smart Battery System driver (ACPI_SBS=m: sbs, sbshc) for the 2014
+ MacBook Air battery (LCOS#191). Same 7.2.15-lunduke kernel release.
+ .
+ lcos31 (LCOS 1.0.1, editor 2026-11-03) adds, on lcos30, driver
+ modules: Synaptics RMI4 HID touchpads (HID_RMI, RMI4_I2C, LCOS#182),
+ Intel 10GbE X520 (IXGBE, IXGBEVF, LCOS#183), traffic control for the
+ libvirt default network (HTB, TBF, ingress, fq_codel, SFQ, u32,
+ flower, fw, csum/gact/mirred/police actions, LCOS#184), and Broadcom
+ b44 wired plus Intel 3945/4965 Wi-Fi (B44, IWLEGACY, IWL3945,
+ IWL4965, LCOS#187). Same 7.2.15-lunduke kernel release.
+ .
+ lcos30 (LCOS 1.0.1, editor 2026-11-02) moves to upstream Linux 7.2.15,
+ the final 7.2.y stable release (9 stable releases of fixes over 7.2.6,
+ including the Dell XPS 13 DX13260 speaker-ID fix from 7.2.10). The
+ kernel release is now 7.2.15-lunduke, so the package names change to
+ linux-image-7.2.15-lunduke and linux-headers-7.2.15-lunduke. They
+ install beside 7.2.6-lunduke, which stays installed as a GRUB fallback.
+ Config is lcos28 plus, from the lcos29 config (PR #25), the Ensoniq
+ ES1371 sound driver for VMware guests (CONFIG_SND_ENS1371=m), plus
+ Intel Touch Host Controller touchscreens (INTEL_THC_HID, INTEL_QUICKI2C,
+ INTEL_QUICKSPI =m), haptic touchpads (HID_HAPTIC=y) and compressed RAM
+ swap (ZRAM=m with zstd). No source patches. lcos29 (7.2.6) was never
+ built.
+ .
+ lcos28 adds, on lcos27: the Apple SPI keyboard and trackpad driver
+ (CONFIG_KEYBOARD_APPLESPI=m, applespi, ACPI APP000D) for the 12-inch
+ MacBook (MacBook8,1, 2015) and later SPI MacBook/MacBook Pro models.
+ It keeps the same 7.2.6-lunduke kernel release.
+ .
+ lcos27 adds, on lcos25: ExpressCard/eSATA support (SATA_SIL24=m,
+ SATA_MV=m, HOTPLUG_PCI_ACPI=y, USB_XHCI_PCI_RENESAS=m). It keeps the
+ same 7.2.6-lunduke kernel release. lcos26 was a per-build naming
+ experiment that was backed out and is not a base for lcos27.
+ .
+ lcos25 adds, on lcos24: UDF filesystem (CONFIG_UDF_FS=m, DVD/Blu-ray
+ and packet-written media, LCOS#149), LED flash class
+ (CONFIG_LEDS_CLASS_FLASH=m) and the LED brightness_hw_changed sysfs
+ attribute (CONFIG_LEDS_BRIGHTNESS_HW_CHANGED=y, a bool) needed by the
+ out-of-tree tuxedo-drivers keyboard backlight (kernel#14).
+ .
+ lcos24 adds, on lcos23 (Ubuntu 26.10 hardware gap, editor 2026-10-15):
+ Intel IPU3/IPU6 laptop cameras with VSC and common sensors, Logitech
+ HID++/Unifying, joydev/xpad/Steam Controller HID, Intel PMC/PCH
+ thermal helpers, AMD HSMP and TAC5XX2 SoundWire codec, ACPI ambient
+ light sensor. INPUT_AMD_SFH_TABLETMODE is 7.3-only and was skipped.
+ .
+ lcos23 adds, on lcos22 (LCOS#141): Chromebook touchpad support for
+ the Acer C720 and other 2013-era Chromebooks, chromeos_laptop (creates
+ the I2C touchpad device on stock/legacy firmware) and cyapa (Cypress
+ APA touchpads), both =m.
+ .
+ lcos22 adds, on lcos21 (LCOS#138): Realtek USB Wi-Fi 6/6E/7 rtw89
+ RTL8852CU (TP-Link), RTL8852BU, RTL8851BU, RTL8922AU, and PCIe
+ RTL8814AE (rtw88), all =m.
+ .
+ lcos21 adds, on lcos20: Intel VMD (CONFIG_VMD=m) for NVMe behind
+ Intel Volume Management Device (Dell "RAID On"), and PCIe native
+ hotplug (CONFIG_HOTPLUG_PCI_PCIE=y).
+ .
+ lcos20 adds, on lcos19: exFAT filesystem (CONFIG_EXFAT_FS=m, default
+ iocharset utf8, LCOS#131) for USB sticks, SD cards and Ventoy drives.
+ .
+ lcos19 adds, on lcos18 (LCOS#115/#118 AMD audit vs Ubuntu generic):
+ radeon (pre-GCN Radeons, CIK fallback), vga_switcheroo, DC for SI,
+ amdgpu userptr and HSA/KFD, compressed firmware loading, AMD platform
+ GPIO/I2C (piix4), devfreq. See docs/amdgpu-audit-lcos19.md.
+ .
+ lcos18 adds, on frozen lcos17: dm-crypt with AES-NI/XTS/ESSIV and
+ the AF_ALG skcipher/hash interfaces for LUKS disk encryption
+ (LCOS#123), UHID for Bluetooth LE mice and keyboards (LCOS#120), and
+ Synaptics RMI4 F11/F3A touchpad functions (LCOS#121).
+ .
+ lcos17 added the SMB2/SMB3 network file system client on
+ lcos16: cifs (CONFIG_CIFS=m, CONFIG_CIFS_XATTR=y, LCOS#111), so
+ Windows, Samba, and NAS shares mount with cifs-utils. SMB1 legacy
+ dialects (CIFS_ALLOW_INSECURE_LEGACY), SMB Direct, and the ksmbd
+ server stay off. Rust left off (No Forced Rust). No firmware blob is
+ included. Proprietary NVIDIA is not included.
+ .
+ LCOS 0.8 ISOs shipped 7.2.6-lcos12; that config stays frozen.
+ lcos13 through lcos17 stay frozen. This package is the
+ lcos28 revision of the same linux-image-7.2.6-lunduke name. On earlier
+ LCOS releases that still ship a Distro kernel, installing this
+ metapackage adds a GRUB entry alongside it.
 
 Package: lunduke-linux-kernel
 Architecture: all
@@ -750,22 +933,22 @@ Description: Mesa Vulkan graphics drivers
 
 Package: xlibre-x11-common
 Architecture: all
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 41
-Provides: x11-common (= 1:25.1.9-1+lcos1)
+Installed-Size: 176
+Provides: x11-common (= 1:25.1.11-1+lcos1)
 Depends: lsb-base
 Conflicts: x11-common
-Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.9-1+lcos1_all.deb
-Size: 18392
-MD5sum: 394f872888b998005b34242a6fd83642
-SHA1: 2e43f09205faf959c8dedb11cfbb92cc6e1b1d14
-SHA256: 2f977684848deb6861d1d85cbbcc53a5d0c993f950f428ac45e6420355c15156
-SHA512: d5fe3f03ab62eb06a695eebcf134031a6785c2efe29318d809d10adaa2bbf336b906c04e1ae59b6481a59bca7c7b07259fe74fb8ffdd41d95603754d1fd7a16f
+Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.11-1+lcos1_all.deb
+Size: 18424
+MD5sum: 339c5fe0abf00062111932b2ccb76a7b
+SHA1: a2fdcd88b6b95363a93797d434698b68f785adc7
+SHA256: d399b08e512b3269385ec342e0882ce3edd046717e8242e0c85817985baa3ccc
+SHA512: 9569b9646b51e58273c52d02db75ec98ccd78040ff94c9ebdf50176672f4f2afff4a007fa430597f68f2a8f5a711c1519c2a81b990831b669d7da1cce4b6e0c7
 Homepage: https://github.com/X11Libre
 Description: X Window System (X.Org) infrastructure
  x11-common contains the filesystem infrastructure required for further
@@ -778,24 +961,24 @@ Description: X Window System (X.Org) infrastructure
 
 Package: xserver-xlibre-common
 Architecture: all
-Version: 2:25.1.9-1+lcos1
+Version: 2:25.1.11-1+lcos1
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 34
-Provides: xserver-common (= 2:25.1.9-1+lcos1)
+Installed-Size: 96
+Provides: xserver-common (= 2:25.1.11-1+lcos1)
 Depends: xlibre-x11-common, xkb-data, x11-xkb-utils
 Recommends: xfonts-base, xauth
 Conflicts: xserver-common
 Replaces: xserver-xorg-core (<< 2:1.5.2)
-Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.9-1+lcos1_all.deb
-Size: 16488
-MD5sum: 6c3dd5ad5c6c451b3ab599e3fe768543
-SHA1: 2f3c68e51cde0deed4b9ef3b654f5265132a51a5
-SHA256: 476bb5fcc91db89958811388c7c0992fb0b49b8110b19b4eecad14e5b5f2ad0a
-SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116ad89c99d915ebb219110b9358768f1b3eaa1765de9b341d692abc2ae5
+Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.11-1+lcos1_all.deb
+Size: 16668
+MD5sum: b1802a09524fd083e5fd127d80060b8b
+SHA1: aac4129702e1aafa98939522e31ab3a2671c34e0
+SHA256: 22ef0de657658a2dd9afe1d145dccd51f999ea69d702be14441d88b40b4eeed5
+SHA512: cd195ddb2d66fd6ea6695bec4909b363f4fbb8af2411eaaba018ab61dc38ddbb13dc15ff8db19199b7627180dc1f6fcc866f08d3ece58708fbc12573fa3d2c2e
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.

@@ -152,25 +152,25 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 1.0.0-2
+Version: 1.0.1-5
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 192
-Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils
+Installed-Size: 224
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils, less
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_1.0.0-2_all.deb
-Size: 21124
-MD5sum: c07802980665e5c63b33d9c8fcee75fe
-SHA1: 3547cfa643fe8496ae8e4d2c455e842f22d6bce9
-SHA256: 3eccd36130008153afc00993b6e7cecbc368e4389ff338913c7fb8085b8642b8
-SHA512: 441ffca9aed4905de32e00b6e5b9202fa7ef747ed0c2ecef7ba8d51aaf81a27b112f64d7879219d60167fa5f35a9646ec10bf2998dcfd5cc471e96b3fc2e56e3
+Filename: pool/main/l/lcos-base/lcos-base_1.0.1-5_all.deb
+Size: 26936
+MD5sum: 727bc1bcf3f33c1c5b698e4d5dc92512
+SHA1: cec59236e18ce3b9f21235536c2b1c466912b6ed
+SHA256: 817a1b3926d9b525256634b1706e76f576946eabf216a9de175e0e16b2f7d196
+SHA512: ba5265a27114d534f5f05af5b9353b7259e621d80d1669a6a556c8ec3cf5427f9dad630a3263a4d5f9a5afa4b12b7c58749271600608c990b47156349d910831
 Homepage: https://lunduke.com
-Description: LCOS 1.0.0 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 1.0.0 (excalibur), lcos-write-os-release,
+Description: LCOS 1.0.1 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 1.0.1 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
- loglevel=2).
+ loglevel=2 $lcos_quirks) and /etc/grub.d/05_lcos_quirks.
  .
  AMD GPUs (0.9.2-2, #115/#118): no Xorg driver override. Xorg
  autoselects the AMD driver as in 0.8. The 0.9/0.9.1 modesetting snippets,
@@ -276,28 +276,71 @@ Description: LCOS 1.0.0 identity, GRUB drop-in, X/boot-order system config
  1.0.0-2: Depends usbutils (lsusb, #176) so upgraders get the 1.0.0
  ISO addition (Updates installs with Recommends off). Identity stays
  1.0.0. Editor 2026-10-27.
+ 1.0.1-1: version bump for LCOS 1.0.1; identity 1.0.1. Ships
+ /etc/grub.d/05_lcos_quirks, which sets the GRUB variable lcos_quirks
+ from SMBIOS at boot; lcos.cfg appends $lcos_quirks to
+ GRUB_CMDLINE_LINUX_DEFAULT. Only entry: Dell XPS 13 DX13260 (SKU 0E53)
+ gets xe.enable_panel_replay=0 (eDP Panel Replay judder); other machines
+ get nothing. Postinst runs update-grub once on upgrade from below
+ 1.0.1-1. The apt pin also takes firmware-cirrus and firmware-intel-misc
+ from excalibur-backports. Depends unchanged from 1.0.0-2. Editor
+ 2026-11-02.
+ 1.0.1-2: Dell XPS 13 DX13260 (SKU 0E53) only: the GRUB quirk adds
+ mem_sleep_default=s2idle, and the elogind hook
+ /usr/libexec/system-sleep/lcos-sleep writes s2idle back to
+ /sys/power/mem_sleep before each suspend (elogind writes "deep" first),
+ so suspend avoids S3 deep sleep on that model. The same hook keeps a
+ small synced sleep log, /var/log/lcos/sleep.log (about 512 KB plus one
+ old copy), with kernel PM messages, so a hang on suspend or resume
+ leaves evidence. No daemon. Other machines unaffected unless
+ /etc/lcos/sleep-log exists (log only). Postinst runs update-grub once on
+ upgrade from below 1.0.1-2. Editor 2026-11-03.
+ 1.0.1-3: /etc/elogind/sleep.conf.d/50-lcos-mem-sleep.conf sets
+ SuspendMode= empty (#195). elogind 255's compiled SuspendMode is
+ "deep s2idle" and it writes "deep" to /sys/power/mem_sleep before
+ every suspend, which overrides the kernel default (s2idle on
+ modern-standby laptops such as the HP Elite Dragonfly G2; the same
+ mechanism as the XPS 13 SKU 0E53 case). An empty assignment clears
+ that mode list instead of falling back to the compiled default, so
+ elogind leaves mem_sleep alone and each machine keeps the mode its
+ firmware advertises. SuspendState is not set to freeze. The SKU 0E53
+ GRUB quirk and lcos-sleep hook are unchanged extra safety. Editor
+ 2026-11-07.
+ 1.0.1-4: postinst configure always runs
+ /usr/lib/lcos/lcos-reboot-required (after the first-install --init).
+ dpkg drops a pending /boot file trigger when lcos-base is unpacked in
+ the same apt run, so the triggered branch never runs on a 1.0 to 1.0.1
+ upgrade and Updates never saw /var/run/reboot-required. The triggered
+ branch is unchanged for a later kernel install. Editor 2026-11-08.
  Postinst re-applies identity on configure so apt upgrades overwrite
  stale 0.4 conffile text kept by noninteractive Updates.
+ 1.0.1-5: Depends less (the pager). debootstrap --variant=minbase with
+ --apt-recommends false never installed it: less is Priority important,
+ and man-db only Suggests it, so it was missing from the ISO.
+ sensible-utils already points man at less once the package is present.
+ Updates installs with Recommends off, so this is a Depends. Also listed
+ in base.list.chroot. Editor 2026-11-10.
 
 Package: lcos-branding
 Architecture: all
-Version: 1.0.0-1
+Version: 1.0.1-3
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 12264
+Installed-Size: 12268
 Provides: lcos-branding
+Depends: plymouth-label
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_1.0.0-1_all.deb
-Size: 5243564
-MD5sum: 7b21c404c77dfc740902119b5cfb4657
-SHA1: 779cccd57619bc1028836ec2b2d9379d2009cc24
-SHA256: c5d0f4119e08e4a5be3636d54fde80229e45deb6726fecfda1d54c507d7df0c5
-SHA512: c170eae4afdadf5f8e6348c64e10e54b1b73ec71098aeb61e3548a91148775e42a8328f54acdbfcd9b130e674ec3943ffa69e96d7106f18e2d504f3d3129bc03
+Filename: pool/main/l/lcos-branding/lcos-branding_1.0.1-3_all.deb
+Size: 5245472
+MD5sum: 7a1ff61d9a39e9f1392c2159443504f1
+SHA1: 8a5b0bae7ff9037507b5f4b2bf654cdb97c8128c
+SHA256: 35bb72c0970ed53c3c40860b073daa4d454f6c8c9b22907be01094c5a49e5e1d
+SHA512: 71b2cc9cdfd4a2591269b6de4df23ab82172e101365384bd0ea3cc4b18a57c5ab8fc766a68a2fcd1dae499b3ec621d1ca7e07447eeabf00de0167b2d75362cc3
 Homepage: https://lunduke.com
-Description: LCOS 1.0.0 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 1.0.0 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
+Description: LCOS 1.0.1 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 1.0.1 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
@@ -310,23 +353,35 @@ Description: LCOS 1.0.0 artwork (wallpapers, splash, logos, Plymouth)
  /usr/share/backgrounds/lcos, /usr/share/xfce4/backdrops and
  /usr/share/images/desktop-base. lcos-desktop-stock.jpg stays the stock
  wallpaper. Editor 2026-10-23.
+ 1.0.1-2: the Plymouth script theme draws the passphrase prompt over
+ the splash (#196). Depends plymouth-label (label-pango.so; script
+ themes cannot draw text without it, and update-initramfs warns when
+ it is missing). On upgrade from below 1.0.1-2, postinst runs
+ update-initramfs so an installed encrypted system picks up the theme
+ and the label plugin. Editor 2026-11-07.
+ 1.0.1-3: that upgrade rebuild uses "update-initramfs -u -k all", so
+ every installed kernel gets the label plugin, not only the newest.
+ 1.0.1-2 left initrd.img-7.2.6-lunduke without label-pango.so, and an
+ encrypted 1.0 system that boots 7.2.6 from Advanced options missed the
+ LUKS prompt text. The one-shot runs on upgrade from below 1.0.1-3.
+ Editor 2026-11-08.
 
 Package: lcos-desktop-config
 Architecture: all
-Version: 1.0.0-1
+Version: 1.0.1-2
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 432
+Installed-Size: 448
 Depends: lcos-branding (>= 0.7), lcos-theme-clearlooks (>= 0.7)
 Recommends: elementary-xfce-icon-theme, gtk2-engines
 Replaces: libgarcon-common, xfce4-panel, xfce4-helpers, xfce4-settings
-Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_1.0.0-1_all.deb
-Size: 28500
-MD5sum: 961ced6e4481012bba105d2d83375c52
-SHA1: 6ce2be2167d4d23fb4c98062317d7cb32e98819d
-SHA256: e15db721eeffcdb27154d48c4a8fe824adb3f41df976c4aede2db2cfde3edc3c
-SHA512: 51032d8c5acc18739e8730e7d359c309c03a91366b10230676cc3c3f054b68bbe2280cb4956a5007d5d9ac0dfff43a8a7677044bb6bd83f6e7e36f0c3efa47e9
+Filename: pool/main/l/lcos-desktop-config/lcos-desktop-config_1.0.1-2_all.deb
+Size: 30108
+MD5sum: a6b76a6d8989ae7f7fbcc9ffd9e3c358
+SHA1: e2dfdeeffa40629b6d82c028bf2e66a02024eabd
+SHA256: 74e4bd265386b0ae1b446cfcc579ca359a5600c7065f296af1f169d2dc3cd0ae
+SHA512: bf3ee8243260a81b3ea71d723e870df2f2bd5545444b962046089a3f6cce6e4cf8f131a4bfac1c918f80b3b995550bc50731a3d464dc7ba3100728dc9e9422ce
 Homepage: https://lunduke.com
 Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  System and skel XFCE look: xfconf XML, panel default.xml, helpers.rc,
@@ -374,6 +429,15 @@ Description: LCOS XFCE defaults (xdg, skel, wallpaper, menus)
  instead of centered (1) in /etc/xdg and skel xfce4-desktop.xml and in
  the script. Editor 2026-10-23.
  .
+ 1.0.1-2: one workspace by default (no virtual desktops). xfwm4
+ /general/workspace_count is 1 and /general/workspace_names is a single
+ entry ("Workspace 1"), in /etc/xdg and skel, and in the includes.chroot
+ copies. Alt+Insert (add workspace) and Alt+Delete (delete workspace)
+ are unbound: xfce4-keyboard-shortcuts.xml in /etc/xdg/lcos and skel
+ sets /xfwm4/custom/override and a full copy of the libxfce4ui 4.20.1
+ xfwm4 shortcuts, with those two commands empty. Other shortcuts stay
+ the stock ones. Editor 2026-11-09.
+ .
  Live-only installer bits are not included.
 
 Package: lcos-desktop
@@ -420,18 +484,18 @@ Description: Clearlooks and Clearlooks-Phenix themes for LCOS
 
 Package: lcos-updates
 Architecture: amd64
-Version: 1.0.0-1
+Version: 1.0.1-1
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 988
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.30.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), polkitd, pkexec, apt, desktop-file-utils
-Filename: pool/main/l/lcos-updates/lcos-updates_1.0.0-1_amd64.deb
-Size: 347856
-MD5sum: 84d32162e5201ed0200adfe76c28d942
-SHA1: 5c9ab9ad00a297c4971e9e57c8bae45360039e72
-SHA256: 7e6b980f6320f4ae6b4f93eb9899903bea7500143b6450cd908d4f401e44e0e1
-SHA512: 229a79814aa79091b2c16b81da8e2b1e14d10a693019e083afd65d26cc0a1fd1a1af3ad23578a9cd6f6279bcfd348770d7e6f743b1c065922e90a699edae24fd
+Filename: pool/main/l/lcos-updates/lcos-updates_1.0.1-1_amd64.deb
+Size: 347556
+MD5sum: 58e4797cbfa926dfd98cd96ea33f5d18
+SHA1: 251d7ef3a32203ce9e77f6d5c6616df65feab16d
+SHA256: baaf2881c6269360defb3bff724daeced6bd58671f23b9423c9d437c782f41d6
+SHA512: 5dcac6f4a227df5ae7aaa20fa290d74c7c78f243c9bcab2f55fac523eadf51239465f0341087de572724873644dac89adb7e861beb3cf38137eaadf8ace85161
 Homepage: https://lunduke.com
 Description: Check for updates from Devuan and LCOS
  A small GTK3 tool that checks for and installs apt upgrades
@@ -456,6 +520,26 @@ Description: Zork I–III for LCOS (frotz + Cool Retro Term)
  Story files zork{1,2,3}.z3 plus desktop launchers that open each game
  in cool-retro-term running frotz.
 
+Package: linux-headers-7.2.15-lunduke
+Architecture: amd64
+Version: 7.2.15-lcos33
+Priority: optional
+Section: kernel
+Source: linux-upstream
+Maintainer: box <box@grok-bot-vm-407066029>
+Installed-Size: 58286
+Filename: pool/main/l/linux-headers-7.2.15-lunduke/linux-headers-7.2.15-lunduke_7.2.15-lcos33_amd64.deb
+Size: 9855480
+MD5sum: 1eac4be2048286d8ddeec651c7e5a8f6
+SHA1: d5dabdbabf99f0e8efd60b779e9167349db74b56
+SHA256: 02645534d8fe8ab3993d448eb4ac7a733c353013aa13cf02787f688030028e8d
+SHA512: b21932cf1f46b245a3b6263cb56ad429733c6df36fc5a3b4d01a159bcc638bf8dab9c5fc6d339d0e571e96b1da36dbfa15ab8c497bcfc6be43e3b15e22f8eb56
+Homepage: https://www.kernel.org/
+Description: Linux kernel headers for 7.2.15-lunduke on amd64
+ This package provides kernel header files for 7.2.15-lunduke on amd64
+ .
+ This is useful for people who need to build external modules
+
 Package: linux-headers-7.2.6-lunduke
 Architecture: amd64
 Version: 7.2.6-lcos28
@@ -475,6 +559,25 @@ Description: Linux kernel headers for 7.2.6-lunduke on amd64
  This package provides kernel header files for 7.2.6-lunduke on amd64
  .
  This is useful for people who need to build external modules
+
+Package: linux-image-7.2.15-lunduke
+Architecture: amd64
+Version: 7.2.15-lcos33
+Priority: optional
+Section: kernel
+Source: linux-upstream
+Maintainer: box <box@grok-bot-vm-407066029>
+Installed-Size: 182617
+Filename: pool/main/l/linux-image-7.2.15-lunduke/linux-image-7.2.15-lunduke_7.2.15-lcos33_amd64.deb
+Size: 40154976
+MD5sum: 60ce9e41f73d0242efbbe540da299e51
+SHA1: d22be6a37aa099978e5b6fd46df6af9587db1394
+SHA256: 682f8fc008e9c32d51dab4e303704dbe687a02feffbb994378e637b621b1d0d4
+SHA512: d2c50464f221ef5b6a19af88d16d279e129d04fd64c8aafdb29a0b884c1d9d00dccba8911b5977b22adab8d87f60bc7854600b702ffd414fad085074202edf1d
+Homepage: https://www.kernel.org/
+Description: Linux kernel, version 7.2.15-lunduke
+ This package contains the Linux kernel, modules and corresponding other
+ files, version: 7.2.15-lunduke.
 
 Package: linux-image-7.2.6-lunduke
 Architecture: amd64
@@ -497,19 +600,19 @@ Description: Linux kernel, version 7.2.6-lunduke
 
 Package: lunduke-about
 Architecture: amd64
-Version: 1.0.0-5
+Version: 1.0.1-1
 Priority: optional
 Section: utils
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 988
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.52.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 13.1), libx11-6, desktop-file-utils, gtk-update-icon-cache
 Recommends: libxres1
-Filename: pool/main/l/lunduke-about/lunduke-about_1.0.0-5_amd64.deb
-Size: 451680
-MD5sum: 9d60d7a55e1717f15da984b565c865be
-SHA1: d0f292e7b79705b0754662f6ab5dd7546a1ac258
-SHA256: ee724149ef0320aed669e356ea89740f42e8a38131a5451171e2682824fa322b
-SHA512: ef43680076d6a5b4e4beb38834ab499ab3355b0e07b03d6c5fdd89bef8c516db74df57dd6bccb972fbfa648f51a01e46a40bee073ce3e361177e674ca02c2357
+Filename: pool/main/l/lunduke-about/lunduke-about_1.0.1-1_amd64.deb
+Size: 451624
+MD5sum: 868edf72952c16a7b7d9de867a50200c
+SHA1: 1a258f71c8adce3d7a111a62a0e4b892f50b9f88
+SHA256: fca4bb440ae67dff0ea15a7af00cb3a88e2b1bc7a34dc166e872239c4e9cee3c
+SHA512: bba2b0f603af5983c6ac75a2336ddae75c692d7f61afae533e3dc999e32248fe6a8c851c65693eb92646491339e7b6ac3092d95ca5641677c03b49b25132641e
 Homepage: https://lunduke.com
 Description: About This Computer for LCOS (Mac OS 9 style)
  Classic Mac OS 9–inspired About This Computer window for the Lunduke
@@ -518,19 +621,19 @@ Description: About This Computer for LCOS (Mac OS 9 style)
 
 Package: lunduke-city
 Architecture: amd64
-Version: 1.0.0-1
+Version: 1.0.1-1
 Priority: optional
 Section: games
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 3828
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.30.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.19.12), libgtkmm-3.0-1t64 (>= 3.24.10), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), desktop-file-utils, gtk-update-icon-cache, shared-mime-info
 Recommends: libpulse0
-Filename: pool/main/l/lunduke-city/lunduke-city_1.0.0-1_amd64.deb
-Size: 1909144
-MD5sum: 499f854fee066ae3e71a5c4d99321ba3
-SHA1: c3d0aa71f01a1da9b26f751b525133e8f17aa7cb
-SHA256: 7afe3b115a8e4e9714877196653557ec854d563ada5e808302c5485312b4a25a
-SHA512: 4ce66040efe6455874e69b4d8500b16af495e7ce58d79cbbaa4fde94490ddcefd66ba6254a9b2038048d5123503efc6cff6939c9ff34e5d6a999cb5da10f32c8
+Filename: pool/main/l/lunduke-city/lunduke-city_1.0.1-1_amd64.deb
+Size: 1910180
+MD5sum: 5febfea74d451bd424f03cdadac7b698
+SHA1: 4e88f30ceea846b53ba80fb87feb3a7004e6b122
+SHA256: c2b7a42406a0db101ac371d13767c64572bfef2348a3f5f8f62673d0523656ad
+SHA512: c57f5929e27725af587bd046e6c0aab70634245757d3ac39a161ffd1fbf56b1a424d8bbc535a39104805611f3f3c34ac58524968a3e3333e4e745731ebe5edbb
 Homepage: https://lunduke.com
 Description: Lunduke City, a gtkmm city-builder for LCOS
  Windowed city-building game for the Lunduke Computer Operating System.
@@ -540,23 +643,142 @@ Description: Lunduke City, a gtkmm city-builder for LCOS
 
 Package: lunduke-edit
 Architecture: amd64
-Version: 1.0.0-1
+Version: 1.0.1-1
 Priority: optional
 Section: editors
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 888
 Depends: libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.52.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.0.0), libgtkmm-3.0-1t64 (>= 3.24.10), libgtksourceview-3.0-1 (>= 2.91.4), libgtksourceviewmm-3.0-0v5 (>= 3.18.0), libpangomm-1.4-1v5 (>= 2.46.4), libsigc++-2.0-0v5 (>= 2.2.0), libstdc++6 (>= 12), libx11-6, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-edit/lunduke-edit_1.0.0-1_amd64.deb
-Size: 347468
-MD5sum: b1e36259f9264744ea9f0d333108947f
-SHA1: 4df2804e48fa968ac344f9f45a2e730dd2f4df54
-SHA256: e81040d91c03fbd03682b8ea37a6dcb939a5e843ea0a646524c09c7fd3ffd3c7
-SHA512: 88c3a1eea388e52832c1b7228530ed35a5d3fa944189758393a06b25a4bf44aecb30494e1a6983b2fe783345ca0bb7ac1233bbce5e3ed776c584455042088ba0
+Filename: pool/main/l/lunduke-edit/lunduke-edit_1.0.1-1_amd64.deb
+Size: 347760
+MD5sum: f095f80a34bd23fbb6b21eef7d7b4d96
+SHA1: 75fe2d8f6ace15e48cb267d20195c8a9009ca570
+SHA256: 6bd697f0fe531a7842aaddee7f0d7abbf79237a2101f3577dc25025a12a8a7ca
+SHA512: 34671367bf2607de0d1ec9ed16eee1dd6be9aec6dd4cbc7b9df3eb0b166beb8f6b8d67d987b1c0746c49aa4e4205a6f2572445f8680b279b960b6bf1f2baa561
 Homepage: https://lunduke.com
 Description: Lunduke Edit, a light GTK3 text editor for Linux X11
  Lunduke Edit is a classic menubar text editor for the Lunduke Computer
  Operating System. Look and feel: Windows 95 Notepad, Macintosh SimpleText,
  and BBEdit Lite — with GtkSourceView undo, Find & Replace, and Print.
+
+Package: lunduke-linux-kernel
+Architecture: all
+Version: 7.2.15-lcos33
+Priority: optional
+Section: metapackages
+Maintainer: LCOS <lcos@lunduke.com>
+Installed-Size: 28
+Depends: linux-image-7.2.15-lunduke (= 7.2.15-lcos33)
+Recommends: linux-headers-7.2.15-lunduke (= 7.2.15-lcos33)
+Filename: pool/main/l/lunduke-linux-kernel/lunduke-linux-kernel_7.2.15-lcos33_all.deb
+Size: 4940
+MD5sum: b303482e85a319987c6b6ef248139e0f
+SHA1: 210a2982b554ac1bbc393598a2a8cc8c9fddfdc0
+SHA256: e4a62d9a96638516d675d7d2a6b21b7d15bc8a8780df757f934987066ee49a7e
+SHA512: 33068706c013d72dec63e7ac209600070b9a89b6f54d27977608af78d5b40677fd0d7dcf0a701b700f9d7fbcdfad1b8bdbf81d9fcf7b66b79be19d64e92476ba
+Homepage: https://lunduke.com
+Description: Lunduke's Linux Kernel for LCOS
+ Lunduke's Linux Kernel — LCOS kernel package (ABI lcos33).
+ .
+ Installs linux-image-7.2.15-lunduke. Headers are recommended for
+ building out-of-tree modules.
+ .
+ lcos33 (LCOS 1.0.1, editor 2026-11-06) adds, on lcos32: WireGuard
+ (WIREGUARD=m), OpenVPN data-channel offload (OVPN=m), IPv4 IPsec
+ (INET_ESP/INET_AH=m), IPv6 policy routing (IPV6_MULTIPLE_TABLES,
+ IPV6_SUBTREES), FQ and CAKE qdiscs, 802.1Q VLAN (with GVRP/MVRP),
+ macvlan/ipvlan, the rest of the Ralink/rt2x00 family (RT73/RT2800/
+ RT2500/RT2400 USB and PCI), ATH5K, Atheros L1C/L1E ethernet,
+ Corsair/Razer/Glorious/Plantronics HID, VMware balloon, Samsung
+ Galaxy Book, MSI WMI Platform, and TUXEDO/Uniwill (UNIWILL_LAPTOP=m).
+ Same 7.2.15-lunduke kernel release. Mesh, zswap, PPP/PPPoE, and
+ Intel IPW2100/2200 stay off.
+ .
+ lcos32 (LCOS 1.0.1, editor 2026-11-04) adds, on lcos31, the ACPI
+ Smart Battery System driver (ACPI_SBS=m: sbs, sbshc) for the 2014
+ MacBook Air battery (LCOS#191). Same 7.2.15-lunduke kernel release.
+ .
+ lcos31 (LCOS 1.0.1, editor 2026-11-03) adds, on lcos30, driver
+ modules: Synaptics RMI4 HID touchpads (HID_RMI, RMI4_I2C, LCOS#182),
+ Intel 10GbE X520 (IXGBE, IXGBEVF, LCOS#183), traffic control for the
+ libvirt default network (HTB, TBF, ingress, fq_codel, SFQ, u32,
+ flower, fw, csum/gact/mirred/police actions, LCOS#184), and Broadcom
+ b44 wired plus Intel 3945/4965 Wi-Fi (B44, IWLEGACY, IWL3945,
+ IWL4965, LCOS#187). Same 7.2.15-lunduke kernel release.
+ .
+ lcos30 (LCOS 1.0.1, editor 2026-11-02) moves to upstream Linux 7.2.15,
+ the final 7.2.y stable release (9 stable releases of fixes over 7.2.6,
+ including the Dell XPS 13 DX13260 speaker-ID fix from 7.2.10). The
+ kernel release is now 7.2.15-lunduke, so the package names change to
+ linux-image-7.2.15-lunduke and linux-headers-7.2.15-lunduke. They
+ install beside 7.2.6-lunduke, which stays installed as a GRUB fallback.
+ Config is lcos28 plus, from the lcos29 config (PR #25), the Ensoniq
+ ES1371 sound driver for VMware guests (CONFIG_SND_ENS1371=m), plus
+ Intel Touch Host Controller touchscreens (INTEL_THC_HID, INTEL_QUICKI2C,
+ INTEL_QUICKSPI =m), haptic touchpads (HID_HAPTIC=y) and compressed RAM
+ swap (ZRAM=m with zstd). No source patches. lcos29 (7.2.6) was never
+ built.
+ .
+ lcos28 adds, on lcos27: the Apple SPI keyboard and trackpad driver
+ (CONFIG_KEYBOARD_APPLESPI=m, applespi, ACPI APP000D) for the 12-inch
+ MacBook (MacBook8,1, 2015) and later SPI MacBook/MacBook Pro models.
+ It keeps the same 7.2.6-lunduke kernel release.
+ .
+ lcos27 adds, on lcos25: ExpressCard/eSATA support (SATA_SIL24=m,
+ SATA_MV=m, HOTPLUG_PCI_ACPI=y, USB_XHCI_PCI_RENESAS=m). It keeps the
+ same 7.2.6-lunduke kernel release. lcos26 was a per-build naming
+ experiment that was backed out and is not a base for lcos27.
+ .
+ lcos25 adds, on lcos24: UDF filesystem (CONFIG_UDF_FS=m, DVD/Blu-ray
+ and packet-written media, LCOS#149), LED flash class
+ (CONFIG_LEDS_CLASS_FLASH=m) and the LED brightness_hw_changed sysfs
+ attribute (CONFIG_LEDS_BRIGHTNESS_HW_CHANGED=y, a bool) needed by the
+ out-of-tree tuxedo-drivers keyboard backlight (kernel#14).
+ .
+ lcos24 adds, on lcos23 (Ubuntu 26.10 hardware gap, editor 2026-10-15):
+ Intel IPU3/IPU6 laptop cameras with VSC and common sensors, Logitech
+ HID++/Unifying, joydev/xpad/Steam Controller HID, Intel PMC/PCH
+ thermal helpers, AMD HSMP and TAC5XX2 SoundWire codec, ACPI ambient
+ light sensor. INPUT_AMD_SFH_TABLETMODE is 7.3-only and was skipped.
+ .
+ lcos23 adds, on lcos22 (LCOS#141): Chromebook touchpad support for
+ the Acer C720 and other 2013-era Chromebooks, chromeos_laptop (creates
+ the I2C touchpad device on stock/legacy firmware) and cyapa (Cypress
+ APA touchpads), both =m.
+ .
+ lcos22 adds, on lcos21 (LCOS#138): Realtek USB Wi-Fi 6/6E/7 rtw89
+ RTL8852CU (TP-Link), RTL8852BU, RTL8851BU, RTL8922AU, and PCIe
+ RTL8814AE (rtw88), all =m.
+ .
+ lcos21 adds, on lcos20: Intel VMD (CONFIG_VMD=m) for NVMe behind
+ Intel Volume Management Device (Dell "RAID On"), and PCIe native
+ hotplug (CONFIG_HOTPLUG_PCI_PCIE=y).
+ .
+ lcos20 adds, on lcos19: exFAT filesystem (CONFIG_EXFAT_FS=m, default
+ iocharset utf8, LCOS#131) for USB sticks, SD cards and Ventoy drives.
+ .
+ lcos19 adds, on lcos18 (LCOS#115/#118 AMD audit vs Ubuntu generic):
+ radeon (pre-GCN Radeons, CIK fallback), vga_switcheroo, DC for SI,
+ amdgpu userptr and HSA/KFD, compressed firmware loading, AMD platform
+ GPIO/I2C (piix4), devfreq. See docs/amdgpu-audit-lcos19.md.
+ .
+ lcos18 adds, on frozen lcos17: dm-crypt with AES-NI/XTS/ESSIV and
+ the AF_ALG skcipher/hash interfaces for LUKS disk encryption
+ (LCOS#123), UHID for Bluetooth LE mice and keyboards (LCOS#120), and
+ Synaptics RMI4 F11/F3A touchpad functions (LCOS#121).
+ .
+ lcos17 added the SMB2/SMB3 network file system client on
+ lcos16: cifs (CONFIG_CIFS=m, CONFIG_CIFS_XATTR=y, LCOS#111), so
+ Windows, Samba, and NAS shares mount with cifs-utils. SMB1 legacy
+ dialects (CIFS_ALLOW_INSECURE_LEGACY), SMB Direct, and the ksmbd
+ server stay off. Rust left off (No Forced Rust). No firmware blob is
+ included. Proprietary NVIDIA is not included.
+ .
+ LCOS 0.8 ISOs shipped 7.2.6-lcos12; that config stays frozen.
+ lcos13 through lcos17 stay frozen. This package is the
+ lcos28 revision of the same linux-image-7.2.6-lunduke name. On earlier
+ LCOS releases that still ship a Distro kernel, installing this
+ metapackage adds a GRUB entry alongside it.
 
 Package: lunduke-linux-kernel
 Architecture: all
@@ -643,18 +865,18 @@ Description: Lunduke's Linux Kernel for LCOS
 
 Package: lunduke-paint
 Architecture: amd64
-Version: 1.0.0-1
+Version: 1.0.1-1
 Priority: optional
 Section: graphics
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 2204
 Depends: libarchive13t64 (>= 3.1.2), libatkmm-1.6-1v5 (>= 2.28.4), libc6 (>= 2.38), libcairo2 (>= 1.2.4), libcairomm-1.0-1v5 (>= 1.14.5), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.36.0), libglibmm-2.4-1t64 (>= 2.66.8), libgtk-3-0t64 (>= 3.9.10), libgtkmm-3.0-1t64 (>= 3.24.10), libpango-1.0-0 (>= 1.18.0), libpangocairo-1.0-0 (>= 1.14.0), libpangomm-1.4-1v5 (>= 2.46.4), libpugixml1v5 (>= 1.6), libsigc++-2.0-0v5 (>= 2.8.0), libstdc++6 (>= 13.1), zlib1g (>= 1:1.2.0), librsvg2-common, shared-mime-info, desktop-file-utils, gtk-update-icon-cache
-Filename: pool/main/l/lunduke-paint/lunduke-paint_1.0.0-1_amd64.deb
-Size: 783944
-MD5sum: 7bc304c0ba353a911e7fc20481761f73
-SHA1: ee7a9484eccdba2706c1bbd24967733f5ee36347
-SHA256: 3d9181c624f3355d2ca0d9b55662965033c6e78e96ebaa1cb59ed63ee0673858
-SHA512: a8602f41e0d65ef289e2f5166a5ab9897aa270ee58d17eec2ee3fb59f08e4839659c824b80a0a1153ad6f9b9215bf0c0ff602227d551e74a79c61574f01f0a52
+Filename: pool/main/l/lunduke-paint/lunduke-paint_1.0.1-1_amd64.deb
+Size: 784124
+MD5sum: 2769f911921a2f902ee0bc005ef6b246
+SHA1: b41d03c6a0575b0a4a22e5abfca5b3d8005c1039
+SHA256: 305a40833212d9c669490f1b494af6602b1a4bfec1c7bafc1fd42d48c22bad34
+SHA512: 37519c2583dc9a573c1d1dfb6338cf8a4e23f9cb6629da745a016ee64a68e6e19447f95175e029517bbbb675f1f1655351458bda69d12f17212e9d751e06fb15
 Homepage: https://lunduke.com
 Description: Lunduke Paint, a GTK3 layered bitmap paint program for Linux X11
  Lunduke Paint is a traditional GTK 3 paint program for Linux X11.
@@ -891,22 +1113,22 @@ Description: Mesa Vulkan graphics drivers
 
 Package: xlibre-x11-common
 Architecture: all
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 41
-Provides: x11-common (= 1:25.1.9-1+lcos1)
+Installed-Size: 176
+Provides: x11-common (= 1:25.1.11-1+lcos1)
 Depends: lsb-base
 Conflicts: x11-common
-Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.9-1+lcos1_all.deb
-Size: 18392
-MD5sum: 394f872888b998005b34242a6fd83642
-SHA1: 2e43f09205faf959c8dedb11cfbb92cc6e1b1d14
-SHA256: 2f977684848deb6861d1d85cbbcc53a5d0c993f950f428ac45e6420355c15156
-SHA512: d5fe3f03ab62eb06a695eebcf134031a6785c2efe29318d809d10adaa2bbf336b906c04e1ae59b6481a59bca7c7b07259fe74fb8ffdd41d95603754d1fd7a16f
+Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.11-1+lcos1_all.deb
+Size: 18424
+MD5sum: 339c5fe0abf00062111932b2ccb76a7b
+SHA1: a2fdcd88b6b95363a93797d434698b68f785adc7
+SHA256: d399b08e512b3269385ec342e0882ce3edd046717e8242e0c85817985baa3ccc
+SHA512: 9569b9646b51e58273c52d02db75ec98ccd78040ff94c9ebdf50176672f4f2afff4a007fa430597f68f2a8f5a711c1519c2a81b990831b669d7da1cce4b6e0c7
 Homepage: https://github.com/X11Libre
 Description: X Window System (X.Org) infrastructure
  x11-common contains the filesystem infrastructure required for further
@@ -919,69 +1141,69 @@ Description: X Window System (X.Org) infrastructure
 
 Package: xlibre
 Architecture: amd64
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1
-Provides: x-window-system, x-window-system-core, xorg (= 1:25.1.9-1+lcos1)
-Depends: xserver-xlibre (>= 1:25.1.9-1+lcos1), libgl1, libgl1-mesa-dri, libglu1-mesa, xfonts-base, xfonts-100dpi, xfonts-75dpi, xfonts-scalable, x11-apps, x11-session-utils, x11-utils, x11-xkb-utils, x11-xserver-utils, xauth, xinit, xfonts-utils, xkb-data, xorg-docs-core, xterm | x-terminal-emulator
+Installed-Size: 28
+Provides: x-window-system, x-window-system-core, xorg (= 1:25.1.11-1+lcos1)
+Depends: xserver-xlibre (>= 1:25.1.11-1+lcos1), libgl1, libgl1-mesa-dri, libglu1-mesa, xfonts-base, xfonts-100dpi, xfonts-75dpi, xfonts-scalable, x11-apps, x11-session-utils, x11-utils, x11-xkb-utils, x11-xserver-utils, xauth, xinit, xfonts-utils, xkb-data, xorg-docs-core, xterm | x-terminal-emulator
 Conflicts: xorg
-Filename: pool/main/x/xlibre/xlibre_25.1.9-1+lcos1_amd64.deb
-Size: 1476
-MD5sum: ccb964e0bc7a14dd4c347807fd9b71ae
-SHA1: d3a165ddb0abcbbe05f4abe5c7dce09e626243c5
-SHA256: e0d8ddda1cda7493aff3ef736176238b747469890cb9b8dd98929c6e420f274c
-SHA512: 0f339036b886808da1645a2ca5141c55b58b2b93f63e428f32a85abcae8be63ad93b35b64ea9c5c81391e8e7b841072d99088f82a8398a91fc8d71dede5b37f9
+Filename: pool/main/x/xlibre/xlibre_25.1.11-1+lcos1_amd64.deb
+Size: 1480
+MD5sum: 5dfaa6800b8644ec7444efc14d4e5083
+SHA1: 23da9b289dcb7aeae362942250e39dcd333a0506
+SHA256: 9d3521a16007fffa6d57b0f1230f69e9a0ab752d21e999593a161e70215f1330
+SHA512: fde1cf17549c41faf249dd24284fe99989891f27c44e87ce5a5567d817ada91d497342c00040a6fa502631c791fe75e4079d02181568d127d5881ec4fe0c9cf0
 Homepage: https://github.com/X11Libre
 Description: XLibre X Window System
 
 Package: xserver-xlibre-common
 Architecture: all
-Version: 2:25.1.9-1+lcos1
+Version: 2:25.1.11-1+lcos1
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 34
-Provides: xserver-common (= 2:25.1.9-1+lcos1)
+Installed-Size: 96
+Provides: xserver-common (= 2:25.1.11-1+lcos1)
 Depends: xlibre-x11-common, xkb-data, x11-xkb-utils
 Recommends: xfonts-base, xauth
 Conflicts: xserver-common
 Replaces: xserver-xorg-core (<< 2:1.5.2)
-Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.9-1+lcos1_all.deb
-Size: 16488
-MD5sum: 6c3dd5ad5c6c451b3ab599e3fe768543
-SHA1: 2f3c68e51cde0deed4b9ef3b654f5265132a51a5
-SHA256: 476bb5fcc91db89958811388c7c0992fb0b49b8110b19b4eecad14e5b5f2ad0a
-SHA512: 49eb0c3ff914ff70a40fc1310fb1efc62c76016ea63ea47cbf16f54fec691779bbfb116ad89c99d915ebb219110b9358768f1b3eaa1765de9b341d692abc2ae5
+Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.11-1+lcos1_all.deb
+Size: 16668
+MD5sum: b1802a09524fd083e5fd127d80060b8b
+SHA1: aac4129702e1aafa98939522e31ab3a2671c34e0
+SHA256: 22ef0de657658a2dd9afe1d145dccd51f999ea69d702be14441d88b40b4eeed5
+SHA512: cd195ddb2d66fd6ea6695bec4909b363f4fbb8af2411eaaba018ab61dc38ddbb13dc15ff8db19199b7627180dc1f6fcc866f08d3ece58708fbc12573fa3d2c2e
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.
 
 Package: xserver-xlibre-core
 Architecture: amd64
-Version: 2:25.1.9-1+lcos1
+Version: 2:25.1.11-1+lcos1
 Priority: optional
 Section: x11
 Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 4474
+Installed-Size: 4604
 Provides: xorg-input-abi-26, xorg-video-abi-28, xorg-video-abi-25, xserver-xorg-core (= 2:21.98), xserver-xorg-video-modesetting
-Depends: xserver-xlibre-common (>= 2:25.1.9-1+lcos1), keyboard-configuration, udev (>= 149), libegl1, libaudit1 (>= 1:2.2.1), libbsd0 (>= 0.7.0), libc6 (>= 2.38), libdrm2 (>= 2.4.89), libepoxy0 (>= 1.5.4), libeudev1 (>= 3.2.12), libgbm1 (>= 21.3.0~rc1), libgl1, libnettle8t64, libpciaccess0 (>= 0.10.7), libpixman-1-0 (>= 0.30.0), libseat1 (>= 0.5.0), libselinux1 (>= 3.1~), libunwind8, libxau6 (>= 1:1.0.11), libxcvt0 (>= 0.1.0), libxdmcp6, libxfont2 (>= 1:2.0.1), libxshmfence1
+Depends: xserver-xlibre-common (>= 2:25.1.11-1+lcos1), keyboard-configuration, udev (>= 149), libegl1, libaudit1 (>= 1:2.2.1), libbsd0 (>= 0.7.0), libc6 (>= 2.38), libdrm2 (>= 2.4.89), libepoxy0 (>= 1.5.4), libeudev1 (>= 3.2.12), libgbm1 (>= 21.3.0~rc1), libgl1, libnettle8t64, libpciaccess0 (>= 0.10.7), libpixman-1-0 (>= 0.30.0), libseat1 (>= 0.5.0), libselinux1 (>= 3.1~), libunwind8, libxau6 (>= 1:1.0.11), libxcvt0 (>= 0.1.0), libxdmcp6, libxfont2 (>= 1:2.0.1), libxshmfence1
 Recommends: libgl1-mesa-dri (>= 7.10.2-4), default-logind | logind, xcvt
 Suggests: xfonts-100dpi | xfonts-75dpi, xfonts-scalable
 Conflicts: xserver-xorg-core, xserver-xorg-input-evtouch, xserver-xorg-video-modesetting
 Breaks: libgl1-mesa-dri (<< 18.0.5), systemd (<< 226-4~), xserver-xorg (<< 1:7.7+10~)
 Replaces: xserver-xorg (<< 1:7.7+10~), xserver-xorg-video-modesetting
-Filename: pool/main/x/xserver-xlibre-core/xserver-xlibre-core_25.1.9-1+lcos1_amd64.deb
-Size: 1553512
-MD5sum: 86ad41ac0c41b5b608bcf6e9f8ced969
-SHA1: dbffd1db00b6b700823fb22892254e503f127d98
-SHA256: e34b86d703cf851988f799f9bd125ad98a48a5ff28bdfe459010806cbb2f3821
-SHA512: c3dc1bf672dc2417de8cf7ccf0011520b88499fa8f5b71623a8c8be3cb1a468c712108263ee582b4a5dce4f58bba136c1a45e0bbb2b28e346e67ed11fe09bf3f
+Filename: pool/main/x/xserver-xlibre-core/xserver-xlibre-core_25.1.11-1+lcos1_amd64.deb
+Size: 1548876
+MD5sum: 0a1ca1de4a0b70fcdb82ea8d993e1150
+SHA1: bb15aafbe87b66b90e27e4abcc0a0aba4225a783
+SHA256: 97cf1a6fb042e9d2cd3249ae420398a2adaa57d964f199913b0ad6989abbd6b2
+SHA512: 52f38582bb8eced234098e7276a8779ee21461bba6c4efc312162537c36a40a1f025254c415de1bd039556de93b199b05a8dc11aac6077f6f63f2084ccfb0012
 Homepage: https://github.com/X11Libre
 Description: XLibre X server - core server
  The XLibre X server is an X server for several architectures and operating
@@ -993,25 +1215,25 @@ Description: XLibre X server - core server
  More information about XLibre can be found at:
  <URL:https://github.com/X11Libre/xserver>
  .
- This package is built from the XLibre xserver module tag xlibre-xserver-25.1.9.
+ This package is built from the XLibre xserver module tag xlibre-xserver-25.1.11.
 
 Package: xserver-xlibre-input-all
 Architecture: amd64
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1
-Provides: xserver-xorg-input-all (= 1:25.1.9-1+lcos1)
+Installed-Size: 28
+Provides: xserver-xorg-input-all (= 1:25.1.11-1+lcos1)
 Depends: xserver-xlibre-input-libinput
 Conflicts: xserver-xorg-input-all
-Filename: pool/main/x/xserver-xlibre-input-all/xserver-xlibre-input-all_25.1.9-1+lcos1_amd64.deb
-Size: 1372
-MD5sum: a74b36fbe58c6ae846e72839b67d4fd3
-SHA1: 0383b91b2f3e16a83a9ccb3098d2df6fd24887b4
-SHA256: f9f97b32ea398c363f9f844b4a91cca1b958207535b7ecbcf49277c0c709b77d
-SHA512: 7b14c644ac3c8a2b480c78567bc76a25bc86192409f9bd7ed11fe1490bd71d96d0320660fb97444e36b6c06eec6e02dad4a9c430837ee3fe9d42aa576baf7eba
+Filename: pool/main/x/xserver-xlibre-input-all/xserver-xlibre-input-all_25.1.11-1+lcos1_amd64.deb
+Size: 1384
+MD5sum: bd7035291849825fdad8564eb34164db
+SHA1: 872cdf5367d68ba0905985d184e764b7fc5d266d
+SHA256: 8110eaad5fd06698ec1658a0e7b3464edbafe286e94e5132b324e62e10e3947f
+SHA512: 090db3e72645b05066ec7a82d72e55dddf61cb24c7bfcab9a3a87fa646a2fcc5038cf77861d73897b1c94416b43a8618b08f9f45a110dbf87697f11a28ba5318
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- input driver metapackage
 
@@ -1037,21 +1259,21 @@ Description: XLibre X server -- libinput input driver
 
 Package: xserver-xlibre-video-all
 Architecture: amd64
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1
-Provides: xserver-xorg-video-all (= 1:25.1.9-1+lcos1)
+Installed-Size: 28
+Provides: xserver-xorg-video-all (= 1:25.1.11-1+lcos1)
 Depends: xserver-xlibre-video-amdgpu, xserver-xlibre-video-ati, xserver-xlibre-video-fbdev, xserver-xlibre-video-nouveau, xserver-xlibre-video-vesa, xserver-xlibre-video-vmware
 Conflicts: xserver-xorg-driver-all, xserver-xorg-video-all
-Filename: pool/main/x/xserver-xlibre-video-all/xserver-xlibre-video-all_25.1.9-1+lcos1_amd64.deb
-Size: 1416
-MD5sum: 1c90ca760e91a2058fd01ef1314655eb
-SHA1: 4cc1040cbef74249888d47b2d16167db91e38589
-SHA256: ee84ab83cb0a757325f3cbb45d6696b5cfc4e088dedc465eb77305f01e108fbb
-SHA512: bdc67ddc907565d1162f55570fee0fb24d319e7bf0c9bb4f25148844e17dc01fe43f25aa1b0c867710cc68cf3ee6f53053510b1b240c90ad8f56c84f6e5fb226
+Filename: pool/main/x/xserver-xlibre-video-all/xserver-xlibre-video-all_25.1.11-1+lcos1_amd64.deb
+Size: 1424
+MD5sum: 7a103e968846565d1f38f4390458abe2
+SHA1: 2bd34a97216c14b1fd989b4d8453d8800e27d656
+SHA256: e2eb436353f7ea6b75c9f88c94959d5337ee6ee0bf50486cb4f683ceb8c09d6b
+SHA512: 20b49c74db3d77e02068eaf5626d863353301720d1e0163b672e596f0ed6f4f3daf4024151fd0e2c678b6d3749480d7403352a0ed2dd205fdf4bd8b098d347b2
 Homepage: https://github.com/X11Libre
 Description: XLibre X server -- output driver metapackage
 
@@ -1178,21 +1400,21 @@ Description: XLibre X server -- VMware display driver
 
 Package: xserver-xlibre
 Architecture: amd64
-Version: 1:25.1.9-1+lcos1
+Version: 1:25.1.11-1+lcos1
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 1
-Provides: xserver, xserver-xorg (= 1:25.1.9-1+lcos1)
+Installed-Size: 28
+Provides: xserver, xserver-xorg (= 1:25.1.11-1+lcos1)
 Depends: xserver-xlibre-core, xserver-xlibre-video-all | xlibre-driver-video, xserver-xlibre-input-all | xlibre-driver-input, xkb-data, x11-xkb-utils
 Conflicts: xserver-xorg
-Filename: pool/main/x/xserver-xlibre/xserver-xlibre_25.1.9-1+lcos1_amd64.deb
-Size: 1380
-MD5sum: db0635784cfa7910b67a27c954ea93ab
-SHA1: a4012e1bf94db495f6a973f6008ab2ace17ed683
-SHA256: a460c0c5ace3e037ebf3edff1717c1fbcfdaaeb198edb37ad3403fb2c7217760
-SHA512: 87fecf5668b1f69d9fa0fd8a51c3e55081745b1d5993caa38957d7c301ee484f6d1193755e9c1f8717790a9033b1df4b5e1b17faa32d7ae4b34873405c55d1cc
+Filename: pool/main/x/xserver-xlibre/xserver-xlibre_25.1.11-1+lcos1_amd64.deb
+Size: 1388
+MD5sum: 40b5a78ecd08476db92a389b3ef356bc
+SHA1: 6cd48bae4a7b5cee46d5226bf516ae0884317186
+SHA256: 4aa7391aa6a88f01d6a16eb2e601af616591c81aaf42593ef5385be26adb1f84
+SHA512: 3945ce174ccf5497f05234c15aec1cc45edd0d02977ad13ad62b17a3699fb4a58daee3d4981580cd79e7bbb51e6be7834c735149103780ae70ec985d02561175
 Homepage: https://github.com/X11Libre
 Description: XLibre X server
 
