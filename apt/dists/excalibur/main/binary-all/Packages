@@ -152,22 +152,22 @@ Description: LCOS archive signing keyring and overlay apt source
 
 Package: lcos-base
 Architecture: all
-Version: 1.0.1-5
+Version: 1.0.2-1
 Priority: optional
 Section: admin
 Maintainer: LCOS <lcos@lunduke.com>
-Installed-Size: 224
-Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils, less
+Installed-Size: 236
+Depends: lcos-archive-keyring (>= 0.7), lcos-branding (>= 0.9-1), eject, cifs-utils, keyutils, gvfs-backends, dialog, xfce4-screensaver, xarchiver, thunar-archive-plugin, exfatprogs, xdg-desktop-portal-gtk, fonts-noto-color-emoji, firmware-iwlwifi, firmware-intel-sound, firmware-intel-graphics, fwupd, thermald, iio-sensor-proxy, switcheroo-control, ipp-usb, sane-airscan, intel-media-va-driver, zstd, console-setup, at-spi2-core, 7zip, x11-utils, libnss-mdns, system-config-printer, cups-pk-helper, fdisk, ntfs-3g, libmtp-runtime, gdebi, usbutils, less, libegl1
 Replaces: base-files
-Filename: pool/main/l/lcos-base/lcos-base_1.0.1-5_all.deb
-Size: 26936
-MD5sum: 727bc1bcf3f33c1c5b698e4d5dc92512
-SHA1: cec59236e18ce3b9f21235536c2b1c466912b6ed
-SHA256: 817a1b3926d9b525256634b1706e76f576946eabf216a9de175e0e16b2f7d196
-SHA512: ba5265a27114d534f5f05af5b9353b7259e621d80d1669a6a556c8ec3cf5427f9dad630a3263a4d5f9a5afa4b12b7c58749271600608c990b47156349d910831
+Filename: pool/main/l/lcos-base/lcos-base_1.0.2-1_all.deb
+Size: 27808
+MD5sum: 4d2cf36038e61140436769675c021a44
+SHA1: 34a9256bc98d803e4119bbe372bb82ccf26a636b
+SHA256: 89b4c77cd977bc63828230e80926f57868d7f2bc707c9f42d83a8e396511fe2b
+SHA512: 128a5d82fd50d1b18fe2b4f1ae644c4debb2c4a3511031668978d66ad308dbf5e75fd93bb60dbda3afaa3bd885136276c9e02af931f48a3753004b1152bba2c3
 Homepage: https://lunduke.com
-Description: LCOS 1.0.1 identity, GRUB drop-in, X/boot-order system config
- os-release / issue for LCOS 1.0.1 (excalibur), lcos-write-os-release,
+Description: LCOS 1.0.2 identity, GRUB drop-in, X/boot-order system config
+ os-release / issue for LCOS 1.0.2 (excalibur), lcos-write-os-release,
  and /etc/default/grub.d/lcos.cfg (BACKGROUND lcos-splash-1024x768.png,
  GFXMODE=1024x768, GFXPAYLOAD keep, CMDLINE_LINUX_DEFAULT quiet splash
  loglevel=2 $lcos_quirks) and /etc/grub.d/05_lcos_quirks.
@@ -320,10 +320,23 @@ Description: LCOS 1.0.1 identity, GRUB drop-in, X/boot-order system config
  sensible-utils already points man at less once the package is present.
  Updates installs with Recommends off, so this is a Depends. Also listed
  in base.list.chroot. Editor 2026-11-10.
+ 1.0.2-1: identity 1.0.2 (os-release, /usr/lib/os-release, issue,
+ issue.net, lcos-write-os-release). Ships
+ /usr/share/X11/xorg.conf.d/05-lcos-singledriver.conf (#202) so the
+ XLibre server stops after the first driver that found a primary
+ screen. That option is implemented by xserver-xlibre-core
+ 2:25.1.11-1+lcos2 and does nothing in an older server. A later
+ ServerFlags section can set SingleDriver off. Depends libegl1.
+ Glamor dlopens libEGL through libepoxy. Qt5, Qt6 and VLC are the only
+ packages that pulled libegl1 onto the ISO, and they mark it auto, so
+ removing them and running autoremove deleted it and broke glamor.
+ xserver-xlibre-core 2:25.1.11-1+lcos2 does not depend on libegl1.
+ Updates installs with Recommends off, so this is a Depends. Also
+ listed in base.list.chroot. Editor 2026-11-12.
 
 Package: lcos-branding
 Architecture: all
-Version: 1.0.1-3
+Version: 1.0.2-1
 Priority: optional
 Section: x11
 Maintainer: LCOS <lcos@lunduke.com>
@@ -332,15 +345,15 @@ Provides: lcos-branding
 Depends: plymouth-label
 Conflicts: lcos-branding (<< 0.7)
 Replaces: lcos-branding (<< 0.7)
-Filename: pool/main/l/lcos-branding/lcos-branding_1.0.1-3_all.deb
-Size: 5245472
-MD5sum: 7a1ff61d9a39e9f1392c2159443504f1
-SHA1: 8a5b0bae7ff9037507b5f4b2bf654cdb97c8128c
-SHA256: 35bb72c0970ed53c3c40860b073daa4d454f6c8c9b22907be01094c5a49e5e1d
-SHA512: 71b2cc9cdfd4a2591269b6de4df23ab82172e101365384bd0ea3cc4b18a57c5ab8fc766a68a2fcd1dae499b3ec621d1ca7e07447eeabf00de0167b2d75362cc3
+Filename: pool/main/l/lcos-branding/lcos-branding_1.0.2-1_all.deb
+Size: 5245624
+MD5sum: 51830232140b69580794d5271a097849
+SHA1: 9d3d457afb7fb83c549b985d1fe60cd82c505602
+SHA256: 6cdce7279ff40ba32641458976eaf2247724a7ba7b6ef65fd452485bef355382
+SHA512: a9857c8ff491fc39bb2deace6e58f118b94ea6ac1497a8579d06b6bf54a7e2417920604841a2964cae1edbcc4dbfc540e41c4ec41a853be1a42c70ce8f74d5e2
 Homepage: https://lunduke.com
-Description: LCOS 1.0.1 artwork (wallpapers, splash, logos, Plymouth)
- LCOS 1.0.1 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
+Description: LCOS 1.0.2 artwork (wallpapers, splash, logos, Plymouth)
+ LCOS 1.0.2 artwork: stock wallpaper (jpg), synthwave nebula-grid, 4K wood
  backdrop, GRUB splash (default / 1024x768 / 4K), logos, and the LCOS
  Plymouth boot theme (frames + Shutdown-1.png) plus the LightDM
  greeter/session setup helper (lcos-display-fix: .Xauthority seeding;
@@ -365,6 +378,11 @@ Description: LCOS 1.0.1 artwork (wallpapers, splash, logos, Plymouth)
  encrypted 1.0 system that boots 7.2.6 from Advanced options missed the
  LUKS prompt text. The one-shot runs on upgrade from below 1.0.1-3.
  Editor 2026-11-08.
+ 1.0.2-1: identity strings only (description). Artwork, the Plymouth
+ theme and the initramfs one-shot are unchanged from 1.0.1-3; the
+ one-shot still runs only on upgrade from below 1.0.1-3, so a system
+ already on 1.0.1-3 does not rebuild initramfs again. Editor
+ 2026-11-12.
 
 Package: lcos-desktop-config
 Architecture: all
@@ -705,22 +723,22 @@ Description: Lunduke's Linux Kernel for LCOS
 
 Package: xlibre-x11-common
 Architecture: all
-Version: 1:25.1.11-1+lcos1
+Version: 1:25.1.11-1+lcos2
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 176
-Provides: x11-common (= 1:25.1.11-1+lcos1)
+Provides: x11-common (= 1:25.1.11-1+lcos2)
 Depends: lsb-base
 Conflicts: x11-common
-Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.11-1+lcos1_all.deb
-Size: 18424
-MD5sum: 339c5fe0abf00062111932b2ccb76a7b
-SHA1: a2fdcd88b6b95363a93797d434698b68f785adc7
-SHA256: d399b08e512b3269385ec342e0882ce3edd046717e8242e0c85817985baa3ccc
-SHA512: 9569b9646b51e58273c52d02db75ec98ccd78040ff94c9ebdf50176672f4f2afff4a007fa430597f68f2a8f5a711c1519c2a81b990831b669d7da1cce4b6e0c7
+Filename: pool/main/x/xlibre-x11-common/xlibre-x11-common_25.1.11-1+lcos2_all.deb
+Size: 18432
+MD5sum: 769883e565ac614ee90a61c23c50bb55
+SHA1: 73ca15a3249b1580353b91206591ed8a547da28d
+SHA256: f99127db9fca72c0f6aa0746f922c32410e33d2b6691def3760e17567c906fdf
+SHA512: 39d7a401bd93d1332e1d544b0c560a17a9ab1c3fba17fd7f1c4dbf9b67bc9081546aae2c28ebaee870579532dd8685c47e70e44e492be2c1a297888bec0b83fa
 Homepage: https://github.com/X11Libre
 Description: X Window System (X.Org) infrastructure
  x11-common contains the filesystem infrastructure required for further
@@ -733,24 +751,24 @@ Description: X Window System (X.Org) infrastructure
 
 Package: xserver-xlibre-common
 Architecture: all
-Version: 2:25.1.11-1+lcos1
+Version: 2:25.1.11-1+lcos2
 Multi-Arch: foreign
 Priority: optional
 Section: x11
 Source: xlibre-server
 Maintainer: LCOS <lcos@lunduke.com>
 Installed-Size: 96
-Provides: xserver-common (= 2:25.1.11-1+lcos1)
+Provides: xserver-common (= 2:25.1.11-1+lcos2)
 Depends: xlibre-x11-common, xkb-data, x11-xkb-utils
 Recommends: xfonts-base, xauth
 Conflicts: xserver-common
 Replaces: xserver-xorg-core (<< 2:1.5.2)
-Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.11-1+lcos1_all.deb
-Size: 16668
-MD5sum: b1802a09524fd083e5fd127d80060b8b
-SHA1: aac4129702e1aafa98939522e31ab3a2671c34e0
-SHA256: 22ef0de657658a2dd9afe1d145dccd51f999ea69d702be14441d88b40b4eeed5
-SHA512: cd195ddb2d66fd6ea6695bec4909b363f4fbb8af2411eaaba018ab61dc38ddbb13dc15ff8db19199b7627180dc1f6fcc866f08d3ece58708fbc12573fa3d2c2e
+Filename: pool/main/x/xserver-xlibre-common/xserver-xlibre-common_25.1.11-1+lcos2_all.deb
+Size: 16900
+MD5sum: 44052f208e2ab0eb4e429a0fcd5a42ed
+SHA1: dd4b8b44ba745a6cb5c40ac3b2ad965d261c9ac7
+SHA256: 88e3cf2d087e0fd7d5bd39ed9498efdf4d2181e132e2d4398fe886f3875a52a1
+SHA512: fc5e62db94d3312409bc12bb1266c619e935e1f51bdb2e055a0f0c4d906f91052c34167e6ed024dc6ea61801776c137c19f22e53a126a71196b6add6ad632ee0
 Homepage: https://github.com/X11Libre
 Description: common files used by various X servers
  This package provides files necessary for all XLibre based X servers.
